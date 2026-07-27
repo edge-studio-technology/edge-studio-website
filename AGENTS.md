@@ -53,10 +53,10 @@ Import aliases: `<ALIAS_1, e.g. @/*>` `<ALIAS_2, e.g. @/domain/*>` `<ALIAS_3, e.
 
 Copy `<ENV_EXAMPLE_FILE, e.g. .env.example>` → `<ENV_FILE, e.g. .env>`. Key variables:
 
-| Variable | Required | Notes |
-| -------- | -------- | ----- |
-| `<ENV_VAR_1>` | <e.g. Yes> | <description> |
-| `<ENV_VAR_2>` | <e.g. Dev only> | <description> |
+| Variable       | Required            | Notes                             |
+| -------------- | ------------------- | --------------------------------- |
+| `<ENV_VAR_1>`  | <e.g. Yes>          | <description>                     |
+| `<ENV_VAR_2>`  | <e.g. Dev only>     | <description>                     |
 | `<SECRET_VAR>` | <e.g. Backend only> | **Never** expose to the frontend. |
 
 ## Key Constraints
@@ -187,6 +187,44 @@ Invoke any of these with `/skill:<name>` when you want them explicitly, or let t
 - `commit` — generate a commit message for staged changes
 - `release` — bump the project version and cut `CHANGELOG.md` for a release commit
 - `docs` — check whether behavior changes need README/architecture/AGENTS.md updates
+
+### Design & Frontend (imported)
+
+Several of these cover similar "give the agent good design taste" ground (`frontend-design`, `taste-skill`, `redesign-skill`, `soft-skill`, `gpt-tasteskill`, `stitch-skill`) with different framing — they were imported as-is rather than merged; pick by trigger description or ask if it's ambiguous which should lead.
+
+- `frontend-design` — distinctive visual design direction, aesthetic risk-taking (anthropics/skills, Apache-2.0)
+- `taste-skill` — anti-slop frontend direction with variance/motion/density dials
+- `taste-skill-v1` — v1 of the above, kept for exact backward compatibility
+- `redesign-skill` — audit-first upgrade of existing UI to premium quality without breaking functionality
+- `brutalist-skill` — industrial/Swiss-brutalist interface direction
+- `minimalist-skill` — warm-monochrome editorial minimalism
+- `soft-skill` — high-end agency visual design direction
+- `gpt-tasteskill` — GSAP-heavy motion choreography + strict AIDA page structure
+- `stitch-skill` — generates DESIGN.md system files for Google Stitch
+- `image-to-code-skill` — generate reference design images first, then implement to match them
+- `imagegen-frontend-web` — per-section marketing/landing-page image direction (one image per section)
+- `imagegen-frontend-mobile` — app-native mobile screen image direction
+- `brandkit` — brand-kit image generation (identity boards, logo systems)
+- `output-skill` — forbid truncated/placeholder output on exhaustive-output tasks
+- `banner-design` — banners for social/ads/web/print
+- `brand` — brand voice, visual identity, messaging frameworks, asset management
+- `design` — unified design routing skill (brand/design-system/ui-styling plus built-in logo/CIP/slides/banner/icon/social-photo generation)
+- `design-system` — token architecture (primitive→semantic→component), component specs
+- `slides` — strategic HTML presentations with Chart.js
+- `ui-styling` — shadcn/ui + Tailwind component implementation
+- `ui-ux-pro-max` — searchable UI/UX rule database (styles, palettes, type pairings, UX guidelines) across 22 stacks
+- `transitions-dev` — copy-ready CSS transition snippets (modals, menus, cards, form states, etc.)
+- `webapp-testing` — Playwright-based local web app testing (anthropics/skills, Apache-2.0)
+- `theme-factory` — apply or generate visual themes for artifacts (anthropics/skills, Apache-2.0)
+- `web-artifacts-builder` — multi-component HTML artifacts with React/Tailwind/shadcn (anthropics/skills, Apache-2.0)
+- `canvas-design` — poster/static visual art as .png/.pdf (anthropics/skills, Apache-2.0)
+- `algorithmic-art` — generative art with p5.js (anthropics/skills, Apache-2.0)
+- `mcp-builder` — build MCP servers (anthropics/skills, Apache-2.0)
+- `skill-creator` — create/edit/benchmark skills (anthropics/skills, Apache-2.0)
+
+Unattributed entries above are MIT-licensed imports from `Leonxlnx/taste-skill` or `nextlevelbuilder/ui-ux-pro-max-skill` — see each `SKILL.md`'s provenance note for the exact source.
+
+Note: the source Claude Code import also included a `design-review` subagent and `/design-plan` + `/design-review` slash commands. Subagents and slash commands are Claude Code-specific constructs with no equivalent in this generic config, so they were not mirrored here — see `CLAUDE.md` if working in Claude Code.
 
 ## References
 

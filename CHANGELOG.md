@@ -2,6 +2,22 @@
 
 ## [Unreleased]
 
+### [ADDED 2026-07-27] — Imported design/frontend skills, design-review agent, Playwright MCP
+
+#### Added
+
+- 29 design/frontend skills imported into both `.claude/skills/` and `.agents/skills/` from four external repos: `anthropics/skills` (`frontend-design`, `webapp-testing`, `theme-factory`, `canvas-design`, `web-artifacts-builder`, `algorithmic-art`, `mcp-builder`, `skill-creator` — Apache-2.0), `Leonxlnx/taste-skill` (13 skills: `taste-skill`, `taste-skill-v1`, `redesign-skill`, `brutalist-skill`, `minimalist-skill`, `soft-skill`, `gpt-tasteskill`, `stitch-skill`, `image-to-code-skill`, `imagegen-frontend-web`, `imagegen-frontend-mobile`, `brandkit`, `output-skill` — MIT), `nextlevelbuilder/ui-ux-pro-max-skill` (`banner-design`, `brand`, `design`, `design-system`, `slides`, `ui-styling`, `ui-ux-pro-max` — MIT), and `Jakubantalik/transitions.dev` (`transitions-dev`, 27 CSS transition references — no upstream license declared). Each imported `SKILL.md` carries a one-line provenance note. See the new "Design & Frontend (imported)" section in `CLAUDE.md`/`AGENTS.md` for the full list and a note on deliberate overlap between several of these skills.
+- `design-review` subagent (`.claude/agents/design-review.md`, Claude Code only) — drives a real browser through Playwright/Chrome DevTools MCP for a 7-phase live UI review (interaction, responsiveness, visual polish, WCAG 2.1 AA, edge cases, console health). Imported from `nextlevelbuilder/ui-ux-pro-max-skill` (MIT).
+- `/design-plan` and `/design-review` slash commands (`.claude/commands/`, Claude Code only).
+- `.mcp.json` configuring the `playwright` and `chrome-devtools` MCP servers the `design-review` agent depends on.
+- `scripts/design-audit.mjs` — heuristic, MCP-free fallback design audit (horizontal overflow, contrast, focus visibility, tap targets, etc.) used by `design-review` when a browser can't be opened via MCP.
+- `playwright` devDependency, required by `scripts/design-audit.mjs`.
+
+#### Try it
+
+- `/design-review http://localhost:5173` after `npm run dev` to run the live 7-phase review.
+- `node scripts/design-audit.mjs --url http://localhost:5173` for the heuristic-only fallback.
+
 ### [ADDED 2026-07-25] — Roadmap/plan tracking, README no longer Kimi-scoped
 
 #### Added
