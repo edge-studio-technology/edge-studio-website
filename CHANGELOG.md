@@ -2,6 +2,21 @@
 
 ## [Unreleased]
 
+### [ADDED 2026-07-27] — Ported design-review/design-plan to `.agents/` as generic skills
+
+#### Added
+
+- `.agents/skills/design-review/` — same 7-phase live UI review methodology as the Claude Code `design-review` subagent, adapted so a non-Claude-Code agent (Codex, OpenCode, Kimi Code, etc.) runs it directly instead of dispatching an isolated sub-agent. Uses MCP browser tools if the host tool has them configured, otherwise falls back to `scripts/design-audit.mjs`.
+- `.agents/skills/design-plan/` — same design-system-first workflow as the Claude Code `/design-plan` command, adapted from `$ARGUMENTS` substitution to context-triggered invocation.
+
+#### Fixed
+
+- `.agents/skills/ui-ux-pro-max/SKILL.md` referenced `.claude/skills/ui-ux-pro-max/scripts/search.py` (copied verbatim from the `.claude/` mirror without adjusting the tree-relative path) — corrected to `.agents/skills/ui-ux-pro-max/scripts/search.py`.
+
+#### Changed
+
+- `CLAUDE.md`/`AGENTS.md` "Available Agents"/"Available Commands" sections now note that `design-review`/`design-plan` methodology is available on both sides, even though the subagent/slash-command _mechanism_ remains Claude Code-only.
+
 ### [ADDED 2026-07-27] — Imported design/frontend skills, design-review agent, Playwright MCP
 
 #### Added

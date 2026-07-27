@@ -224,18 +224,18 @@ Several of these cover similar "give the agent good design taste" ground (`front
 
 Unattributed entries above are MIT-licensed imports from `Leonxlnx/taste-skill` or `nextlevelbuilder/ui-ux-pro-max-skill` — see each `SKILL.md`'s provenance note for the exact source.
 
-## Available Agents (Claude Code only — no AGENTS.md equivalent)
+## Available Agents (Claude Code mechanism — methodology also in AGENTS.md as a skill)
 
 Subagents live in `.claude/agents/` and are invoked automatically when their description matches the task, or explicitly via the Agent tool:
 
-- `design-review` — drives a real browser through the `playwright` and `chrome-devtools` MCP servers (configured in `.mcp.json`) across a 7-phase live UI review: interaction/flows, responsiveness, visual polish, WCAG 2.1 AA accessibility, edge cases, console health. Falls back to `scripts/design-audit.mjs` (heuristic-only, no MCP required) if a browser can't be opened. Imported from `nextlevelbuilder/ui-ux-pro-max-skill` (MIT).
+- `design-review` — drives a real browser through the `playwright` and `chrome-devtools` MCP servers (configured in `.mcp.json`) across a 7-phase live UI review: interaction/flows, responsiveness, visual polish, WCAG 2.1 AA accessibility, edge cases, console health. Falls back to `scripts/design-audit.mjs` (heuristic-only, no MCP required) if a browser can't be opened. Imported from `nextlevelbuilder/ui-ux-pro-max-skill` (MIT). The same methodology is available to non-Claude-Code agents as the `.agents/skills/design-review` skill (self-executed, not sub-agent-dispatched).
 
-## Available Commands (Claude Code only — no AGENTS.md equivalent)
+## Available Commands (Claude Code mechanism — methodology also in AGENTS.md as a skill)
 
 Slash commands live in `.claude/commands/`:
 
-- `/design-plan` — generate a concrete design system (tokens, style, type, UX) before building UI
-- `/design-review` — run the `design-review` agent against a URL or file
+- `/design-plan` — generate a concrete design system (tokens, style, type, UX) before building UI. Same workflow available as `.agents/skills/design-plan`.
+- `/design-review` — run the `design-review` agent against a URL or file. Same workflow available as `.agents/skills/design-review`.
 
 ## References
 
@@ -257,4 +257,4 @@ This template maintains two parallel agent configs on purpose, so it works with 
 
 Whenever you edit this file or anything under `.claude/` (skills, rules), make the matching edit to `AGENTS.md` / `.agents/` — and vice versa. Skill and rule file names are identical across both trees except where a Claude Code built-in skill name collides with a project skill name (currently: `.agents/skills/review` ↔ `.claude/skills/project-review`, and `.agents/skills/verify` ↔ `.claude/skills/project-verify`); only tool names and invocation syntax differ between the two configs. If you make a change in one tree and can't immediately mirror it, say so explicitly before finishing the task.
 
-`.claude/agents/` (subagents) and `.claude/commands/` (slash commands) are Claude Code-specific constructs with no AGENTS.md/`.agents/` equivalent — they are intentionally not mirrored.
+`.claude/agents/` (subagents) and `.claude/commands/` (slash commands) are Claude Code-specific runtime constructs with no AGENTS.md/`.agents/` equivalent — the mechanism (isolated sub-agent dispatch, `$ARGUMENTS` substitution) is intentionally not mirrored. Their _content_ is: `.agents/skills/design-review/` and `.agents/skills/design-plan/` carry the same review methodology and design-system workflow, adapted so the primary agent runs them directly instead of delegating.

@@ -221,10 +221,12 @@ Several of these cover similar "give the agent good design taste" ground (`front
 - `algorithmic-art` — generative art with p5.js (anthropics/skills, Apache-2.0)
 - `mcp-builder` — build MCP servers (anthropics/skills, Apache-2.0)
 - `skill-creator` — create/edit/benchmark skills (anthropics/skills, Apache-2.0)
+- `design-review` — 7-phase live UI review (interaction, responsiveness, WCAG 2.1 AA, console health) against a running page or URL; ported from Claude Code's `design-review` subagent
+- `design-plan` — generate a design system (tokens, type, spacing, signature element) before building UI; ported from Claude Code's `/design-plan` command
 
 Unattributed entries above are MIT-licensed imports from `Leonxlnx/taste-skill` or `nextlevelbuilder/ui-ux-pro-max-skill` — see each `SKILL.md`'s provenance note for the exact source.
 
-Note: the source Claude Code import also included a `design-review` subagent and `/design-plan` + `/design-review` slash commands. Subagents and slash commands are Claude Code-specific constructs with no equivalent in this generic config, so they were not mirrored here — see `CLAUDE.md` if working in Claude Code.
+Note: Claude Code additionally runs `design-review` as an isolated **subagent** (`.claude/agents/design-review.md`) with a restricted toolset, and exposes `/design-plan` + `/design-review` as **slash commands** (`.claude/commands/`). Subagents and slash commands are Claude Code-specific runtime constructs with no equivalent here — the `design-review`/`design-plan` skills above carry the same methodology for this agent to run directly instead of delegating to a sub-agent.
 
 ## References
 
