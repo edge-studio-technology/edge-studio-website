@@ -2,6 +2,16 @@
 
 ## [Unreleased]
 
+### [ADDED 2026-07-27] — Usage guides for the imported design/UX skills
+
+#### Added
+
+- `docs/guides/` — usage guides for the 29 imported design/frontend skills and the `design-review`/`design-plan` agent+skills: `README.md` (index), `taste-and-visual-direction.md`, `design-systems-and-tokens.md`, `image-generation.md`, `motion-and-transitions.md`, `design-review-and-qa.md`, `misc-tooling.md`.
+
+#### Fixed
+
+- `design` skill (`.claude/skills/design/SKILL.md`, `.agents/skills/design/SKILL.md`, and `scripts/cip/generate.py` in both trees) referenced `~/.claude/skills/design/scripts/...` (a user-home path from the upstream repo's own install layout) instead of the project-relative path — corrected to `.claude/skills/design/scripts/...` and `.agents/skills/design/scripts/...` respectively, matching the same fix already applied to `ui-ux-pro-max`.
+
 ### [ADDED 2026-07-27] — Ported design-review/design-plan to `.agents/` as generic skills
 
 #### Added
