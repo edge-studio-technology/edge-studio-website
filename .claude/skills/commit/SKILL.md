@@ -31,7 +31,8 @@ Use this when the user asks for a commit message, wants to commit staged changes
 
    - Format: `type(scope): subject`
    - Common types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`
-   - Subject: imperative mood, lowercase after the type, no trailing period.
+   - Subject: past tense (e.g. "Added", "Fixed", "Moved" — not "Add", "Fix", "Move"),
+     lowercase after the type, no trailing period.
    - Subject line only — never a body, bullet list, or trailers, even for
      larger changes. `git log`/`CHANGELOG.md` are where the itemized detail
      lives.
