@@ -2,6 +2,22 @@
 
 ## [Unreleased]
 
+- [CHANGED 2026-08-03] — Added a text variant to the Raspberry Pi mark and enabled it in the navbar
+
+- [FIXED 2026-08-03] — Fixed Raspberry Pi mark sizing by removing the conflicting width utility
+
+- [CHANGED 2026-08-03] — Added configurable sizing to the Raspberry Pi mark
+
+- [CHANGED 2026-08-03] — Replaced the text Raspberry Pi badge with the Raspberry Pi SVG mark
+
+- [CHANGED 2026-08-03] — Simplified the compact Pi marker to text-only styling
+
+- [CHANGED 2026-08-03] — Switched the navbar to the compact Pi marker
+
+- [CHANGED 2026-08-03] — Extracted Raspberry Pi navbar marker into a reusable component with a compact Pi variant
+
+- [CHANGED 2026-08-03] — Added a tilted Raspberry Pi marker to the navbar brand
+
 - [CHANGED 2026-08-03] — Made the shared navbar sticky while scrolling
 
 - [CHANGED 2026-08-03] — Removed the hero section bottom border

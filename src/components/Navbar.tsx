@@ -2,14 +2,18 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { BrandMark } from './BrandMark';
 import { Button } from './Button';
+import { RaspberryPiMark } from './RaspberryPiMark';
 
 export function Navbar({ legal = false }: { legal?: boolean }) {
   return (
-      <header className='sticky top-0 z-50 border-b border-grey-06 bg-surface-inverse text-text-inverse'>
+    <header className='sticky top-0 z-50 border-b border-grey-06 bg-surface-inverse text-text-inverse'>
       <div className='mx-auto flex max-w-6xl items-center justify-between px-5 py-5 lg:px-8'>
-        <Link className='flex items-center gap-4 text-lg font-semibold' to='/'>
+        <Link className='flex items-center gap-4 text-2xl font-semibold' to='/'>
           <BrandMark size={32} />
-          <span className='text-2xl'>Edge Studio</span>
+          <div className='flex items-center gap-1'>
+            <span>Edge Studio</span>
+            <RaspberryPiMark variant='text' />
+          </div>
         </Link>
         <nav className='flex items-center gap-5 text-sm'>
           {legal ? (
