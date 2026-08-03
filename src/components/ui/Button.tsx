@@ -1,5 +1,8 @@
 import type { ButtonHTMLAttributes, ReactNode } from "react";
-import { cx } from "../../lib/cx";
+
+function cx(...classes: Array<string | undefined>) {
+  return classes.filter(Boolean).join(" ");
+}
 
 /**
  * App-only: danger | onDark (keep until those surfaces are redesigned).

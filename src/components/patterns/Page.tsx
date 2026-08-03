@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 
 export function Page({
-  eyebrow: _eyebrow,
   title,
   desc,
   action,
@@ -30,4 +29,3 @@ export function Page({
     </div>
   );
 }
-

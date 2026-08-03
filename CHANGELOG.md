@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### [ADDED 2026-08-03] — Edge Studio marketing app
+
+- Replaced the Vite starter screen with the responsive Edge Studio mockup experience, including dashboard preview, install commands, feature tabs, and navigation.
+
 ### [ADDED 2026-07-27] — Usage guides for the imported design/UX skills
 
 #### Added
