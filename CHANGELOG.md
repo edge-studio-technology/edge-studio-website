@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+- [CHANGED 2026-08-03] — Made the navbar brand scroll smoothly to the top
+
+- [CHANGED 2026-08-03] — Highlighted active roadmap cards with the primary brand border
+
 - [CHANGED 2026-08-03] — Removed section dividers and added a roadmap navbar link
 
 - [FIXED 2026-08-03] — Replaced the unreliable grid mask with a visible hero fade overlay

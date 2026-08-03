@@ -8,7 +8,11 @@ export function Navbar({ legal = false }: { legal?: boolean }) {
   return (
     <header className='sticky top-0 z-50 border-b border-grey-06 bg-surface-inverse text-text-inverse'>
       <div className='mx-auto flex max-w-6xl items-center justify-between px-5 py-5 lg:px-8'>
-        <Link className='flex items-center gap-4 text-2xl font-semibold' to='/'>
+        <Link
+          className='flex items-center gap-4 text-2xl font-semibold'
+          to='/'
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        >
           <BrandMark size={32} />
           <div className='flex items-center gap-1'>
             <span>Edge Studio</span>

@@ -23,7 +23,7 @@ export function RoadmapTimeline({ items }: { items: readonly RoadmapItem[] }) {
       <div className='mt-5 grid gap-3 md:grid-cols-3'>
         {items.map((item) => (
           <div
-            className='rounded-soft border border-grey-02 bg-core-white p-5'
+            className={`rounded-soft border bg-core-white p-5 ${item.state === 'active' ? 'border-brand-01' : 'border-grey-02'}`}
             key={item.phase}
           >
             <span className='text-xs font-semibold uppercase tracking-[0.16em] text-brand-01'>
