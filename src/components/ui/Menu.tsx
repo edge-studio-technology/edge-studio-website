@@ -54,3 +54,4 @@ export function Menu({ items, className }: { items: MenuItemConfig[]; className?
     </div>
   );
 }
+

@@ -9,3 +9,4 @@ export function LoadingDots({ className }: { className?: string }) {
     </span>
   );
 }
+

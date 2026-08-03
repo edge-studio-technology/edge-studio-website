@@ -167,3 +167,4 @@ export function Pagination({ className, page, totalPages, onPageChange }: Pagina
     </div>
   );
 }
+

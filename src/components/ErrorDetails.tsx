@@ -53,3 +53,4 @@ export function ErrorDetails({ error, label = "View details" }: { error: unknown
     </>
   );
 }
+
