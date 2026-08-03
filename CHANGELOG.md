@@ -2,6 +2,18 @@
 
 ## [Unreleased]
 
+- [CHANGED 2026-08-03] — Removed section dividers and added a roadmap navbar link
+
+- [FIXED 2026-08-03] — Replaced the unreliable grid mask with a visible hero fade overlay
+
+- [FIXED 2026-08-03] — Made the hero grid background fade reliably across browsers
+
+- [CHANGED 2026-08-03] — Simplified the roadmap into aligned points, lines, and milestone boxes
+
+- [CHANGED 2026-08-03] — Reworked the roadmap into a connected timeline component
+
+- [ADDED 2026-08-03] — Added a roadmap section to the landing page
+
 - [CHANGED 2026-08-03] — Added a text variant to the Raspberry Pi mark and enabled it in the navbar
 
 - [FIXED 2026-08-03] — Fixed Raspberry Pi mark sizing by removing the conflicting width utility

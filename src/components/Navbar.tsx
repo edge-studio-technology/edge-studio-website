@@ -34,6 +34,12 @@ export function Navbar({ legal = false }: { legal?: boolean }) {
               </a>
               <a
                 className='hidden text-grey-03 hover:text-core-white sm:block'
+                href='/#roadmap'
+              >
+                Roadmap
+              </a>
+              <a
+                className='hidden text-grey-03 hover:text-core-white sm:block'
                 href='https://github.com'
                 target='_blank'
                 rel='noreferrer'

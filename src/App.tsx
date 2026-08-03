@@ -14,6 +14,7 @@ import { Button } from './components/Button';
 import { Card } from './components/Card';
 import { CopyableCode } from './components/CopyableCode';
 import { Navbar } from './components/Navbar';
+import { RoadmapTimeline } from './components/RoadmapTimeline';
 
 const features = [
   [
@@ -42,9 +43,30 @@ const features = [
   ],
 ] as const;
 
+const roadmap = [
+  {
+    phase: 'Now',
+    title: 'Core dashboard',
+    text: 'Connect your Pi, devices, and first proofs.',
+    state: 'active',
+  },
+  {
+    phase: 'Next',
+    title: 'Automation flows',
+    text: 'Build repeatable workflows from triggers and actions.',
+    state: 'passive',
+  },
+  {
+    phase: 'Soon',
+    title: 'More integrations',
+    text: 'Bring more sensors, APIs, and edge devices into the same view.',
+    state: 'passive',
+  },
+] as const;
+
 function DashboardPreview() {
   return (
-    <div className='flex aspect-[16/10] flex-col items-center justify-center border-2 border-dashed border-grey-04 bg-grey-02 p-6 text-center text-text-secondary sm:p-10'>
+    <div className='flex aspect-16/10 flex-col items-center justify-center border-2 border-dashed border-grey-04 bg-grey-02 p-6 text-center text-text-secondary sm:p-10'>
       <Image size={48} strokeWidth={1.25} />
       <strong className='mt-4 text-lg text-text-primary'>
         Dashboard screenshot
@@ -66,8 +88,9 @@ function App() {
       <Navbar />
       <main id='top'>
         <section className='relative overflow-hidden'>
-          <div className='pointer-events-none absolute inset-0 opacity-70 [background-image:linear-gradient(#e6e8ea_1px,transparent_1px),linear-gradient(90deg,#e6e8ea_1px,transparent_1px)] [background-size:48px_48px] [mask-image:linear-gradient(to_bottom,black_0%,black_68%,transparent_100%)]' />
-          <div className='relative mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-28'>
+          <div className='pointer-events-none absolute inset-0 bg-[linear-gradient(#e6e8ea_1px,transparent_1px),linear-gradient(90deg,#e6e8ea_1px,transparent_1px)] bg-size-[48px_48px]' />
+          <div className='pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-linear-to-b from-transparent to-grey-01' />
+          <div className='relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-28'>
             <div>
               <span className='flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-brand-01'>
                 <Check size={15} /> self-hosted by design
@@ -105,7 +128,7 @@ function App() {
               <DashboardPreview />
             </div>
           </div>
-          <div className='relative mx-auto max-w-6xl px-5 pb-12 lg:px-8'>
+          <div className='relative z-10 mx-auto max-w-6xl px-5 pb-12 lg:px-8'>
             <div className='mb-3 flex justify-between text-xs font-semibold'>
               <span>Install on Linux &amp; Raspberry Pi</span>
               <a className='underline' href='#install'>
@@ -201,6 +224,23 @@ function App() {
                 ))}
               </div>
             </Card>
+          </div>
+        </section>
+        <section id='roadmap' className='bg-core-white'>
+          <div className='mx-auto max-w-6xl px-5 py-20 lg:px-8 lg:py-28'>
+            <div className='mb-10 max-w-2xl'>
+              <span className='text-xs font-semibold uppercase tracking-[0.16em] text-brand-01'>
+                Roadmap
+              </span>
+              <h2 className='type-heading mt-4 text-4xl'>
+                A clearer path from data to trust.
+              </h2>
+              <p className='mt-4 text-text-secondary'>
+                Edge Studio is growing around the things that make local,
+                verifiable automation useful every day.
+              </p>
+            </div>
+            <RoadmapTimeline items={roadmap} />
           </div>
         </section>
       </main>
