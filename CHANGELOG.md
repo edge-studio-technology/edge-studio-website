@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+- [CHANGED 2026-08-03] — Made the shared navbar sticky while scrolling
+
+- [CHANGED 2026-08-03] — Removed the hero section bottom border
+
+- [CHANGED 2026-08-03] — Softened the hero background grid fade
+
 ### [FIXED 2026-08-03] — Restore compact legal-page back arrow
 
 #### Fixed

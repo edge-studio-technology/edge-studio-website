@@ -65,8 +65,8 @@ function App() {
     <div className='min-h-screen bg-grey-01 text-text-primary'>
       <Navbar />
       <main id='top'>
-        <section className='relative overflow-hidden border-b border-grey-02'>
-          <div className='pointer-events-none absolute inset-0 opacity-70 [background-image:linear-gradient(#e6e8ea_1px,transparent_1px),linear-gradient(90deg,#e6e8ea_1px,transparent_1px)] [background-size:48px_48px]' />
+        <section className='relative overflow-hidden'>
+          <div className='pointer-events-none absolute inset-0 opacity-70 [background-image:linear-gradient(#e6e8ea_1px,transparent_1px),linear-gradient(90deg,#e6e8ea_1px,transparent_1px)] [background-size:48px_48px] [mask-image:linear-gradient(to_bottom,black_0%,black_68%,transparent_100%)]' />
           <div className='relative mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-28'>
             <div>
               <span className='flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-brand-01'>

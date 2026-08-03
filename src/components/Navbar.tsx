@@ -5,7 +5,7 @@ import { Button } from './Button';
 
 export function Navbar({ legal = false }: { legal?: boolean }) {
   return (
-    <header className='border-b border-grey-06 bg-surface-inverse text-text-inverse'>
+      <header className='sticky top-0 z-50 border-b border-grey-06 bg-surface-inverse text-text-inverse'>
       <div className='mx-auto flex max-w-6xl items-center justify-between px-5 py-5 lg:px-8'>
         <Link className='flex items-center gap-4 text-lg font-semibold' to='/'>
           <BrandMark size={32} />
