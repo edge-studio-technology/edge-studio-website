@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { BrandMark } from '../components/BrandMark'
+import { Navbar } from '../components/Navbar'
 
 type LegalPageProps = {
   title: string
@@ -9,15 +9,7 @@ type LegalPageProps = {
 
 export function LegalPage({ title, intro, sections }: LegalPageProps) {
   return <div className="min-h-screen bg-grey-01 text-text-primary">
-    <header className="border-b border-grey-06 bg-surface-inverse text-text-inverse">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-5 lg:px-8">
-        <Link className="flex items-center gap-2 text-lg font-semibold" to="/">
-          <BrandMark size={32} />
-          <span>Edge <b>Studio</b></span>
-        </Link>
-        <Link className="text-sm text-grey-03 hover:text-core-white" to="/">Back to home</Link>
-      </div>
-    </header>
+    <Navbar legal />
     <main className="mx-auto max-w-3xl px-5 py-16 lg:px-8 lg:py-24">
       <span className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-01">Edge Studio</span>
       <h1 className="type-display mt-4 text-5xl">{title}</h1>

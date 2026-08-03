@@ -2,6 +2,42 @@
 
 ## [Unreleased]
 
+### [FIXED 2026-08-03] — Restore compact legal-page back arrow
+
+#### Fixed
+
+- Restored the original compact arrow treatment for the legal-page back link.
+
+### [CHANGED 2026-08-03] — Refine legal-page back link
+
+#### Changed
+
+- Increased the back-arrow treatment for a longer, more visible navigation cue.
+
+### [CHANGED 2026-08-03] — Add legal-page back navigation icon
+
+#### Changed
+
+- Added a left-arrow icon to the legal-page “Back to home” navbar action.
+
+### [CHANGED 2026-08-03] — Preserve page-specific navbar actions
+
+#### Changed
+
+- Added a legal-page navbar variant so the shared component retains the landing-page links while legal pages keep their “Back to home” action.
+
+### [CHANGED 2026-08-03] — Share the marketing navbar
+
+#### Changed
+
+- Reused one shared navbar across the landing page and legal pages to keep navigation styling and links synchronized.
+
+### [CHANGED 2026-08-03] — Use Edge Studio logo assets
+
+#### Changed
+
+- Replaced the placeholder navbar mark with the provided white Edge Studio logo and added the provided purple mark as the site favicon.
+
 ### [ADDED 2026-08-03] — Edge Studio marketing app
 
 - Replaced the Vite starter screen with the responsive Edge Studio mockup experience, including dashboard preview, install commands, feature tabs, and navigation.
