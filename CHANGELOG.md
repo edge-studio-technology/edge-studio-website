@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- [CHANGED 2026-08-03] — Made roadmap milestones vertical and moved landing content into reusable constants
+
 - [CHANGED 2026-08-03] — Made the navbar brand scroll smoothly to the top
 
 - [CHANGED 2026-08-03] — Highlighted active roadmap cards with the primary brand border

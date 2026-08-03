@@ -1,79 +1,21 @@
 import { useState } from 'react';
-import {
-  Check,
-  Database,
-  Image,
-  LayoutDashboard,
-  Link2,
-  Server,
-  ShieldCheck,
-  Workflow,
-} from 'lucide-react';
+import { Check, Image, LayoutDashboard, Link2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from './components/Button';
 import { Card } from './components/Card';
 import { CopyableCode } from './components/CopyableCode';
 import { Navbar } from './components/Navbar';
 import { RoadmapTimeline } from './components/RoadmapTimeline';
-
-const features = [
-  [
-    'Data sources',
-    'Pull HTTP APIs, receive webhooks, or watch GPIO, MQTT, and the Pi Camera.',
-    Database,
-    'Connect APIs, sensors, webhooks, and cameras in one place.',
-  ],
-  [
-    'Automation',
-    'Chain triggers, conditions, and actions into repeatable workflows.',
-    Workflow,
-    'Build repeatable workflows from triggers, conditions, and actions.',
-  ],
-  [
-    'Stamping & proofs',
-    'Hash and stamp any file or automated reading, then check its status anytime.',
-    ShieldCheck,
-    'Turn readings and files into verifiable proofs with one click.',
-  ],
-  [
-    'Minima node',
-    'A real node on the ledger, running on your own hardware.',
-    Server,
-    'Keep a live ledger node running locally on your Raspberry Pi.',
-  ],
-] as const;
-
-const roadmap = [
-  {
-    phase: 'Now',
-    title: 'Core dashboard',
-    text: 'Connect your Pi, devices, and first proofs.',
-    state: 'active',
-  },
-  {
-    phase: 'Next',
-    title: 'Automation flows',
-    text: 'Build repeatable workflows from triggers and actions.',
-    state: 'passive',
-  },
-  {
-    phase: 'Soon',
-    title: 'More integrations',
-    text: 'Bring more sensors, APIs, and edge devices into the same view.',
-    state: 'passive',
-  },
-] as const;
+import { features, landingCopy, roadmap } from './constants/landing';
 
 function DashboardPreview() {
   return (
     <div className='flex aspect-16/10 flex-col items-center justify-center border-2 border-dashed border-grey-04 bg-grey-02 p-6 text-center text-text-secondary sm:p-10'>
       <Image size={48} strokeWidth={1.25} />
       <strong className='mt-4 text-lg text-text-primary'>
-        Dashboard screenshot
+        {landingCopy.previewTitle}
       </strong>
-      <span className='mt-2 max-w-xs text-sm'>
-        A real Edge Studio view will appear here.
-      </span>
+      <span className='mt-2 max-w-xs text-sm'>{landingCopy.previewText}</span>
       <span className='mt-4 rounded-full bg-core-white px-3 py-1 font-mono text-[10px]'>
         image placeholder
       </span>
@@ -93,20 +35,18 @@ function App() {
           <div className='relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-28'>
             <div>
               <span className='flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-brand-01'>
-                <Check size={15} /> self-hosted by design
+                <Check size={15} /> {landingCopy.eyebrow}
               </span>
               <h1 className='type-display mt-5 max-w-xl text-5xl sm:text-6xl'>
-                Your Raspberry Pi, turned into a{' '}
-                <span className='text-brand-01'>trust layer.</span>
+                {landingCopy.heroTitle}{' '}
+                <span className='text-brand-01'>{landingCopy.heroAccent}</span>
               </h1>
               <p className='type-callout mt-6 max-w-xl text-text-secondary'>
-                Edge Studio runs a dashboard, API, local Minima node, and
-                auto-updater on one Pi — capture data, automate it, and stamp it
-                as proof, all under your own roof.
+                {landingCopy.heroText}
               </p>
               <div className='mt-8 flex flex-wrap items-center gap-5'>
                 <Button variant='accent' iconEnd={<Link2 size={16} />}>
-                  Read the docs
+                  {landingCopy.docsLink}
                 </Button>
                 <a
                   href='https://github.com'
@@ -114,7 +54,7 @@ function App() {
                   rel='noreferrer'
                   className='text-sm underline'
                 >
-                  View on GitHub ↗
+                  {landingCopy.githubLink}
                 </a>
               </div>
             </div>
@@ -130,9 +70,9 @@ function App() {
           </div>
           <div className='relative z-10 mx-auto max-w-6xl px-5 pb-12 lg:px-8'>
             <div className='mb-3 flex justify-between text-xs font-semibold'>
-              <span>Install on Linux &amp; Raspberry Pi</span>
+              <span>{landingCopy.installTitle}</span>
               <a className='underline' href='#install'>
-                View install script ↗
+                {landingCopy.installLink}
               </a>
             </div>
             <div className='grid gap-3 rounded-soft border border-grey-03 bg-core-black p-3 font-mono text-xs text-core-white sm:grid-cols-[1fr_auto] sm:items-center'>
@@ -160,10 +100,10 @@ function App() {
         >
           <div className='mb-10'>
             <span className='text-xs font-semibold uppercase tracking-[0.16em] text-brand-01'>
-              What you get
+              {landingCopy.featuresEyebrow}
             </span>
             <h2 className='type-heading mt-4 max-w-2xl text-4xl'>
-              Everything runs on the Pi you already own.
+              {landingCopy.featuresTitle}
             </h2>
           </div>
           <Card className='mb-6 grid gap-8 border border-grey-02 bg-core-white sm:grid-cols-[0.8fr_1.2fr]'>
@@ -171,17 +111,13 @@ function App() {
               <span className='mb-4 inline-flex rounded-full bg-brand-01 p-3 text-core-white'>
                 <LayoutDashboard size={18} />
               </span>
-              <h3 className='type-title'>Dashboard</h3>
+              <h3 className='type-title'>{landingCopy.dashboardTitle}</h3>
               <p className='mt-2 text-sm text-text-secondary'>
-                Watch every device and proof at a glance.
+                {landingCopy.dashboardText}
               </p>
             </div>
             <ul className='space-y-3 text-sm'>
-              {[
-                'Capture data from APIs, sensors, and cameras',
-                'Automate it with chained workflow rules',
-                'Stamp it and verify proof anytime',
-              ].map((item) => (
+              {landingCopy.dashboardBullets.map((item) => (
                 <li className='flex items-center gap-3' key={item}>
                   <span className='rounded-full bg-feedback-positive p-1 text-core-white'>
                     <Check size={12} />
@@ -193,7 +129,7 @@ function App() {
           </Card>
           <div className='grid gap-6 lg:grid-cols-[1.1fr_0.9fr]'>
             <div className='grid gap-3 sm:grid-cols-2'>
-              {features.map(([title, text, Icon], index) => (
+              {features.map(({ title, text, Icon }, index) => (
                 <button
                   type='button'
                   className={`rounded-soft border p-5 text-left transition-colors ${activeFeature === index ? 'border-brand-01 bg-core-white' : 'border-grey-02 hover:border-grey-03'}`}
@@ -213,10 +149,10 @@ function App() {
             <Card className='relative flex min-h-64 flex-col justify-end overflow-hidden border border-brand-01 bg-brand-01 text-core-white'>
               <Image className='absolute right-8 top-8 opacity-30' size={56} />
               <strong className='relative text-xl'>
-                {features[activeFeature][0]}
+                {features[activeFeature].title}
               </strong>
               <span className='relative mt-2 max-w-sm text-sm text-white/80'>
-                {features[activeFeature][3]}
+                {features[activeFeature].detail}
               </span>
               <div className='absolute inset-x-8 bottom-8 grid grid-cols-6 gap-2 opacity-25'>
                 {Array.from({ length: 18 }, (_, index) => (
@@ -230,14 +166,13 @@ function App() {
           <div className='mx-auto max-w-6xl px-5 py-20 lg:px-8 lg:py-28'>
             <div className='mb-10 max-w-2xl'>
               <span className='text-xs font-semibold uppercase tracking-[0.16em] text-brand-01'>
-                Roadmap
+                {landingCopy.roadmapEyebrow}
               </span>
               <h2 className='type-heading mt-4 text-4xl'>
-                A clearer path from data to trust.
+                {landingCopy.roadmapTitle}
               </h2>
               <p className='mt-4 text-text-secondary'>
-                Edge Studio is growing around the things that make local,
-                verifiable automation useful every day.
+                {landingCopy.roadmapText}
               </p>
             </div>
             <RoadmapTimeline items={roadmap} />
@@ -246,9 +181,10 @@ function App() {
       </main>
       <footer className='border-t border-grey-02'>
         <div className='mx-auto flex max-w-6xl flex-col gap-3 px-5 py-8 text-xs text-text-secondary sm:flex-row sm:items-center sm:justify-between lg:px-8'>
-          <span>Edge Studio — self-hosted on your own Raspberry Pi.</span>
+          <span>{landingCopy.footerText}</span>
           <div className='flex gap-5'>
             <a href='#features'>Features</a>
+            <a href='#roadmap'>Roadmap</a>
             <Link to='/terms'>Terms</Link>
             <Link to='/privacy'>Privacy</Link>
             <a href='https://github.com' target='_blank' rel='noreferrer'>
