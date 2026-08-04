@@ -1,25 +1,30 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Menu, X } from 'lucide-react';
 import { BrandMark } from './BrandMark';
 import { Button } from './Button';
 import { RaspberryPiMark } from './RaspberryPiMark';
 
 export function Navbar({ legal = false }: { legal?: boolean }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => setMenuOpen(false);
+
   return (
     <header className='sticky top-0 z-50 border-b border-grey-06 bg-surface-inverse text-text-inverse'>
-      <div className='mx-auto flex max-w-6xl items-center justify-between px-5 py-5 lg:px-8'>
+      <div className='mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-5 sm:py-5 lg:px-8'>
         <Link
-          className='flex items-center gap-4 text-2xl font-semibold'
+          className='flex min-w-0 items-center gap-2 text-xl font-semibold sm:gap-4 sm:text-2xl'
           to='/'
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-          <BrandMark size={32} />
-          <div className='flex items-center gap-1'>
-            <span>Edge Studio</span>
+          <BrandMark size={28} />
+          <div className='flex min-w-0 items-center gap-1'>
+            <span className='truncate'>Edge Studio</span>
             <RaspberryPiMark variant='text' />
           </div>
         </Link>
-        <nav className='flex items-center gap-5 text-sm'>
+        <nav className='hidden items-center gap-5 text-sm lg:flex'>
           {legal ? (
             <Link
               className='flex items-center gap-2 text-grey-03 hover:text-core-white'
@@ -56,7 +61,61 @@ export function Navbar({ legal = false }: { legal?: boolean }) {
             </>
           )}
         </nav>
+        <button
+          aria-expanded={menuOpen}
+          aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          className='rounded border border-grey-06 p-2 text-grey-03 hover:text-core-white lg:hidden'
+          onClick={() => setMenuOpen((open) => !open)}
+          type='button'
+        >
+          {menuOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
       </div>
+      {menuOpen && (
+        <div className='fixed inset-0 z-40 bg-black/50 lg:hidden'>
+          <nav className='absolute inset-0 flex flex-col gap-6 bg-surface-inverse px-6 pb-8 pt-28 text-lg sm:left-auto sm:w-80 sm:border-l sm:border-grey-06'>
+            <button
+              aria-label='Close navigation menu'
+              className='absolute right-6 top-6 rounded border border-grey-06 p-2 text-grey-03 hover:text-core-white'
+              onClick={closeMenu}
+              type='button'
+            >
+              <X size={20} />
+            </button>
+            {legal ? (
+              <Link
+                className='flex items-center gap-2 text-grey-03 hover:text-core-white'
+                onClick={closeMenu}
+                to='/'
+              >
+                <ArrowLeft size={18} />
+                Back to home
+              </Link>
+            ) : (
+              <>
+                <a className='text-grey-03 hover:text-core-white' href='/#features' onClick={closeMenu}>
+                  Features
+                </a>
+                <a className='text-grey-03 hover:text-core-white' href='/#roadmap' onClick={closeMenu}>
+                  Roadmap
+                </a>
+                <a
+                  className='text-grey-03 hover:text-core-white'
+                  href='https://github.com'
+                  onClick={closeMenu}
+                  rel='noreferrer'
+                  target='_blank'
+                >
+                  View on GitHub
+                </a>
+                <Button onClick={closeMenu} size='sm' variant='accent'>
+                  Docs
+                </Button>
+              </>
+            )}
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

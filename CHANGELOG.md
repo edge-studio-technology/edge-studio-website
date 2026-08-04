@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+- [CHANGED 2026-08-04] — Added an explicit close button inside responsive navigation menus
+
+- [ADDED 2026-08-04] — Added full-screen mobile and sliding tablet navigation menus
+
+- [CHANGED 2026-08-04] — Made the shared navbar fit smaller screens
+
 - [CHANGED 2026-08-04] — Increased roadmap phase badge size
 
 - [CHANGED 2026-08-04] — Styled roadmap phase labels as compact badges
