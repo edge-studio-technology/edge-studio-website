@@ -46,7 +46,7 @@ function App() {
   return (
     <div className='min-h-screen bg-grey-01 text-text-primary'>
       <Navbar />
-      <main id='top'>
+      <main className='pt-[72px] sm:pt-[88px]' id='top'>
         <section className='relative overflow-hidden'>
           <div className='pointer-events-none absolute inset-0 bg-[linear-gradient(#e6e8ea_1px,transparent_1px),linear-gradient(90deg,#e6e8ea_1px,transparent_1px)] bg-size-[48px_48px]' />
           <div className='pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-linear-to-b from-transparent to-grey-01' />

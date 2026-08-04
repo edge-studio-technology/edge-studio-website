@@ -13,7 +13,7 @@ export function Navbar({ legal = false }: { legal?: boolean }) {
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <header className='sticky top-0 z-50 border-b border-grey-06 bg-surface-inverse text-text-inverse'>
+    <header className='fixed inset-x-0 top-0 z-50 border-b border-grey-06 bg-surface-inverse text-text-inverse'>
       <div className='mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-5 sm:py-5 lg:px-8'>
         <Link
           className='flex min-w-0 items-center gap-2 text-xl font-semibold sm:gap-4 sm:text-2xl'
