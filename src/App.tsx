@@ -1,5 +1,11 @@
 import { useState } from 'react';
-import { Check, Image, LayoutDashboard, Link2 } from 'lucide-react';
+import {
+  Check,
+  ExternalLink,
+  Image,
+  LayoutDashboard,
+  Link2,
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from './components/Button';
 import { Card } from './components/Card';
@@ -60,9 +66,10 @@ function App() {
                   href='https://github.com'
                   target='_blank'
                   rel='noreferrer'
-                  className='text-sm underline'
+                  className='inline-flex items-center gap-1 text-sm border-b border-text-primary'
                 >
-                  {landingCopy.githubLink}
+                  <span>{landingCopy.githubLink}</span>
+                  <ExternalLink size={15} />
                 </a>
               </div>
             </div>
@@ -79,8 +86,12 @@ function App() {
           <div className='relative z-10 mx-auto max-w-6xl px-5 pb-12 lg:px-8'>
             <div className='mb-3 flex justify-between text-xs font-semibold'>
               <span>{landingCopy.installTitle}</span>
-              <a className='underline' href='#install'>
+              <a
+                className='inline-flex items-center gap-1 underline'
+                href='#install'
+              >
                 {landingCopy.installLink}
+                <ExternalLink size={15} />
               </a>
             </div>
             <div className='rounded-soft border border-grey-03 bg-core-black p-3 font-mono text-xs text-core-white sm:grid-cols-[1fr_auto] sm:items-center'>
@@ -236,12 +247,38 @@ function App() {
         <div className='mx-auto flex max-w-6xl flex-col gap-3 px-5 py-8 text-xs text-text-secondary sm:flex-row sm:items-center sm:justify-between lg:px-8'>
           <span>{landingCopy.footerText}</span>
           <div className='flex gap-5'>
-            <a href='#features'>Features</a>
-            <a href='#roadmap'>Roadmap</a>
-            <Link to='/terms'>Terms</Link>
-            <Link to='/privacy'>Privacy</Link>
-            <a href='https://github.com' target='_blank' rel='noreferrer'>
-              GitHub ↗
+            <a
+              className='border-b border-transparent hover:border-text-secondary'
+              href='#features'
+            >
+              Features
+            </a>
+            <a
+              className='border-b border-transparent hover:border-text-secondary'
+              href='#roadmap'
+            >
+              Roadmap
+            </a>
+            <Link
+              className='border-b border-transparent hover:border-text-secondary'
+              to='/terms'
+            >
+              Terms
+            </Link>
+            <Link
+              className='border-b border-transparent hover:border-text-secondary'
+              to='/privacy'
+            >
+              Privacy
+            </Link>
+            <a
+              className='inline-flex items-center gap-1 border-b border-transparent hover:border-text-secondary'
+              href='https://github.com'
+              target='_blank'
+              rel='noreferrer'
+            >
+              GitHub
+              <ExternalLink size={14} />
             </a>
           </div>
         </div>

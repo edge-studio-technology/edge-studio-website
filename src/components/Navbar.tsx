@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Menu, X } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Link2, Menu, X } from 'lucide-react';
 import { BrandMark } from './BrandMark';
 import { Button } from './Button';
 import { RaspberryPiMark } from './RaspberryPiMark';
@@ -49,14 +49,15 @@ export function Navbar({ legal = false }: { legal?: boolean }) {
                 Roadmap
               </a>
               <a
-                className='hidden text-grey-03 hover:text-core-white sm:block'
+                className='hidden text-grey-03 hover:text-core-white sm:flex sm:items-center sm:gap-1'
                 href='https://github.com'
                 target='_blank'
                 rel='noreferrer'
               >
-                View on GitHub
+                <span>View on GitHub</span>
+                <ExternalLink size={15} />
               </a>
-              <Button size='sm' variant='accent'>
+              <Button iconEnd={<Link2 size={16} />} size='sm' variant='accent'>
                 Docs
               </Button>
             </>
@@ -111,15 +112,21 @@ export function Navbar({ legal = false }: { legal?: boolean }) {
                   Roadmap
                 </a>
                 <a
-                  className='text-grey-03 hover:text-core-white'
+                  className='flex items-center gap-1 text-grey-03 hover:text-core-white'
                   href='https://github.com'
                   onClick={closeMenu}
                   rel='noreferrer'
                   target='_blank'
                 >
-                  View on GitHub
+                  <span>View on GitHub</span>
+                  <ExternalLink size={16} />
                 </a>
-                <Button onClick={closeMenu} size='sm' variant='accent'>
+                <Button
+                  iconEnd={<Link2 size={16} />}
+                  onClick={closeMenu}
+                  size='sm'
+                  variant='accent'
+                >
                   Docs
                 </Button>
               </>

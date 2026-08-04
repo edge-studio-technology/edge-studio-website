@@ -27,11 +27,11 @@ export const landingCopy = {
   heroText:
     'Edge Studio runs a dashboard, API, local Minima node, and auto-updater on one Pi — capture data, automate it, and stamp it as proof, all under your own roof.',
   docsLink: 'Read the docs',
-  githubLink: 'View on GitHub ↗',
+  githubLink: 'View on GitHub',
   previewTitle: 'Dashboard screenshot',
   previewText: 'A real Edge Studio view will appear here.',
   installTitle: 'Install on Linux & Raspberry Pi',
-  installLink: 'View install script ↗',
+  installLink: 'View install script',
   featuresEyebrow: 'What you get',
   featuresTitle: 'Everything runs on the Pi you already own.',
   dashboardTitle: 'Dashboard',
