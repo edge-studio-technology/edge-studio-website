@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- [CHANGED 2026-08-04] — Made active roadmap cards solid brand-color blocks to distinguish them from selectable cards
+
 - [CHANGED 2026-08-04] — Refined link affordances with consistent hover underlines and hero GitHub link styling
 
 - [FIXED 2026-08-04] — Replaced text arrow characters with right-aligned external-link icons

@@ -15,16 +15,18 @@ export function RoadmapTimeline({ items }: { items: readonly RoadmapItem[] }) {
           </div>
           <div className='pb-5'>
             <div
-              className={`grid gap-5 rounded-soft border bg-core-white p-6 sm:grid-cols-[1fr_auto] sm:items-center ${item.state === 'active' ? 'border-brand-01' : 'border-grey-02'}`}
+              className={`grid gap-5 rounded-soft border p-6 sm:grid-cols-[1fr_auto] sm:items-center ${item.state === 'active' ? 'border-brand-01 bg-brand-01 text-core-white' : 'border-grey-02 bg-core-white'}`}
             >
               <div>
                 <h3 className='text-2xl font-semibold'>{item.title}</h3>
-                <p className='mt-3 text-base leading-relaxed text-text-secondary'>
+                <p
+                  className={`mt-3 text-base leading-relaxed ${item.state === 'active' ? 'text-core-white/80' : 'text-text-secondary'}`}
+                >
                   {item.text}
                 </p>
               </div>
               <span
-                className={`justify-self-start rounded-full border px-4 py-1.5 text-sm font-semibold uppercase tracking-[0.12em] sm:justify-self-end ${item.state === 'active' ? 'border-brand-01 text-brand-01' : 'border-grey-03 text-grey-04'}`}
+                className={`justify-self-start rounded-full border px-4 py-1.5 text-sm font-semibold uppercase tracking-[0.12em] sm:justify-self-end ${item.state === 'active' ? 'border-core-white/50 bg-core-white/15 text-core-white' : 'border-grey-03 text-grey-04'}`}
               >
                 {item.phase}
               </span>
