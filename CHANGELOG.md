@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+- [FIXED 2026-08-04] — Layered roadmap markers above connectors with opaque fills
+
+- [CHANGED 2026-08-04] — Moved roadmap phase labels inside cards and enlarged milestone copy
+
+- [CHANGED 2026-08-04] — Moved roadmap phase labels to large markers beside each card
+
 - [CHANGED 2026-08-03] — Made roadmap milestones vertical and moved landing content into reusable constants
 
 - [CHANGED 2026-08-03] — Made the navbar brand scroll smoothly to the top
