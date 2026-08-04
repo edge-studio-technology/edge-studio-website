@@ -8,14 +8,22 @@ import { Navbar } from './components/Navbar';
 import { RoadmapTimeline } from './components/RoadmapTimeline';
 import { features, landingCopy, roadmap } from './constants/landing';
 
-function DashboardPreview() {
+function DashboardPreview({
+  className = '',
+  description = landingCopy.previewText,
+  title = landingCopy.previewTitle,
+}: {
+  className?: string;
+  description?: string;
+  title?: string;
+}) {
   return (
-    <div className='flex aspect-16/10 flex-col items-center justify-center border-2 border-dashed border-grey-04 bg-grey-02 p-6 text-center text-text-secondary sm:p-10'>
+    <div className={`flex aspect-16/10 flex-col items-center justify-center border-2 border-dashed border-grey-04 bg-grey-02 p-6 text-center text-text-secondary sm:p-10 ${className}`}>
       <Image size={48} strokeWidth={1.25} />
       <strong className='mt-4 text-lg text-text-primary'>
-        {landingCopy.previewTitle}
+        {title}
       </strong>
-      <span className='mt-2 max-w-xs text-sm'>{landingCopy.previewText}</span>
+      <span className='mt-2 max-w-xs text-sm'>{description}</span>
       <span className='mt-4 rounded-full bg-core-white px-3 py-1 font-mono text-[10px]'>
         image placeholder
       </span>
@@ -127,16 +135,18 @@ function App() {
               ))}
             </ul>
           </Card>
-          <div className='grid gap-6 lg:grid-cols-[1.1fr_0.9fr]'>
-            <div className='grid gap-3 sm:grid-cols-2'>
+            <div className='grid gap-6 lg:grid-cols-[1.1fr_0.9fr]'>
+            <div className='hidden grid-cols-2 gap-3 lg:grid'>
               {features.map(({ title, text, Icon }, index) => (
                 <button
+                  aria-label={title}
+                  title={title}
                   type='button'
                   className={`rounded-soft border p-5 text-left transition-colors ${activeFeature === index ? 'border-brand-01 bg-core-white' : 'border-grey-02 hover:border-grey-03'}`}
                   onClick={() => setActiveFeature(index)}
                   key={title}
                 >
-                  <span className='mb-4 inline-flex rounded-full bg-grey-02 p-2.5 text-brand-01'>
+                  <span className={`mb-4 inline-flex rounded-full p-2.5 ${activeFeature === index ? 'bg-brand-01 text-core-white' : 'bg-grey-02 text-brand-01'}`}>
                     <Icon size={18} />
                   </span>
                   <h3 className='font-semibold'>{title}</h3>
@@ -146,20 +156,61 @@ function App() {
                 </button>
               ))}
             </div>
-            <Card className='relative flex min-h-64 flex-col justify-end overflow-hidden border border-brand-01 bg-brand-01 text-core-white'>
-              <Image className='absolute right-8 top-8 opacity-30' size={56} />
-              <strong className='relative text-xl'>
-                {features[activeFeature].title}
-              </strong>
-              <span className='relative mt-2 max-w-sm text-sm text-white/80'>
-                {features[activeFeature].detail}
-              </span>
-              <div className='absolute inset-x-8 bottom-8 grid grid-cols-6 gap-2 opacity-25'>
-                {Array.from({ length: 18 }, (_, index) => (
-                  <i className='h-1 rounded-full bg-core-white' key={index} />
-                ))}
+            <div className='lg:hidden'>
+              <div className='hidden rounded-soft border border-grey-02 p-6 sm:block'>
+                <div className='grid grid-cols-2 gap-3'>
+                  {features.map(({ title, Icon }, index) => (
+                    <button
+                      aria-label={title}
+                      className='flex items-center gap-3 text-left'
+                      key={title}
+                      onClick={() => setActiveFeature(index)}
+                      type='button'
+                    >
+                      <span className={`inline-flex rounded-full p-2.5 ${activeFeature === index ? 'bg-brand-01 text-core-white' : 'bg-grey-02 text-brand-01'}`}>
+                        <Icon size={18} />
+                      </span>
+                      <span className='font-semibold'>{title}</span>
+                    </button>
+                  ))}
+                </div>
+                <p className='mt-6 text-text-secondary'>{features[activeFeature].text}</p>
               </div>
-            </Card>
+              <div className='sm:hidden'>
+                <div className='mb-5 rounded-soft border border-grey-02 p-4'>
+                  <div className='mb-4 grid grid-cols-4 justify-items-center gap-2'>
+                    {features.map(({ title, Icon }, index) => (
+                      <button
+                        aria-label={title}
+                        className='flex justify-center'
+                        key={title}
+                        onClick={() => setActiveFeature(index)}
+                        type='button'
+                      >
+                        <span className={`inline-flex rounded-full p-2.5 ${activeFeature === index ? 'bg-brand-01 text-core-white' : 'bg-grey-02 text-brand-01'}`}>
+                          <Icon size={18} />
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                  <h3 className='type-title'>{features[activeFeature].title}</h3>
+                  <p className='mt-2 text-text-secondary'>{features[activeFeature].text}</p>
+                </div>
+              </div>
+              <div className='mt-6'>
+                <DashboardPreview
+                  description={features[activeFeature].detail}
+                  title={features[activeFeature].title}
+                />
+              </div>
+            </div>
+            <div className='hidden lg:block'>
+              <DashboardPreview
+                className='h-full aspect-auto'
+                description={features[activeFeature].detail}
+                title={features[activeFeature].title}
+              />
+            </div>
           </div>
         </section>
         <section id='roadmap' className='bg-core-white'>

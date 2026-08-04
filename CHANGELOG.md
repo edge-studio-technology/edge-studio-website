@@ -2,6 +2,30 @@
 
 ## [Unreleased]
 
+- [FIXED 2026-08-04] — Connected feature tab selection to responsive preview content
+
+- [FIXED 2026-08-04] — Restored the desktop feature preview height to match the tab grid
+
+- [CHANGED 2026-08-04] — Standardized feature preview styling across all breakpoints
+
+- [FIXED 2026-08-04] — Removed duplicate responsive feature previews and aligned mobile/tablet styling
+
+- [FIXED 2026-08-04] — Kept the tablet feature image outside the tabs and description wrapper
+
+- [CHANGED 2026-08-04] — Split feature tab layouts cleanly across mobile, tablet, and desktop
+
+- [CHANGED 2026-08-04] — Removed tablet feature tab title top spacing
+
+- [FIXED 2026-08-04] — Corrected tablet tab orientation and mobile feature content order
+
+- [FIXED 2026-08-04] — Restored the desktop feature tab layout after responsive changes
+
+- [CHANGED 2026-08-04] — Removed the tablet feature content wrapper
+
+- [CHANGED 2026-08-04] — Refined mobile and tablet feature tab layouts
+
+- [CHANGED 2026-08-04] — Made feature tabs icon-only with combined responsive content panels
+
 - [CHANGED 2026-08-04] — Added an explicit close button inside responsive navigation menus
 
 - [ADDED 2026-08-04] — Added full-screen mobile and sliding tablet navigation menus
