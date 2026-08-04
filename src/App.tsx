@@ -51,6 +51,17 @@ function App() {
   const reduceMotion = useReducedMotion();
   const glowX = useSpring(useMotionValue(0), { stiffness: 180, damping: 28 });
   const glowY = useSpring(useMotionValue(0), { stiffness: 180, damping: 28 });
+  const trailX = useSpring(useMotionValue(0), { stiffness: 70, damping: 22 });
+  const trailY = useSpring(useMotionValue(0), { stiffness: 70, damping: 22 });
+  const parallaxX = useSpring(useMotionValue(0), {
+    stiffness: 120,
+    damping: 24,
+  });
+  const parallaxY = useSpring(useMotionValue(0), {
+    stiffness: 120,
+    damping: 24,
+  });
+  const [glowHue, setGlowHue] = useState(0);
   const reveal = reduceMotion ? undefined : { opacity: 0, y: 18 };
   const revealTransition = { duration: 0.5, ease: [0.22, 1, 0.36, 1] } as const;
 
@@ -60,8 +71,15 @@ function App() {
     const bounds = heroRef.current?.getBoundingClientRect();
     if (!bounds) return;
 
-    glowX.set(event.clientX - bounds.left - 160);
-    glowY.set(event.clientY - bounds.top - 160);
+    const x = event.clientX - bounds.left;
+    const y = event.clientY - bounds.top;
+    glowX.set(x - 160);
+    glowY.set(y - 160);
+    trailX.set(x - 160);
+    trailY.set(y - 160);
+    parallaxX.set((x / bounds.width - 0.5) * 8);
+    parallaxY.set((y / bounds.height - 0.5) * 8);
+    setGlowHue(Math.round((x / bounds.width) * 28 - 14));
   }
 
   return (
@@ -69,7 +87,7 @@ function App() {
       <Navbar />
       <main className='pt-[53px] sm:pt-[69px]' id='top'>
         <section
-          className='relative overflow-hidden'
+          className='relative overflow-hidden border-b border-grey-02'
           onPointerEnter={() => setIsHeroPointerActive(true)}
           onPointerLeave={() => setIsHeroPointerActive(false)}
           onPointerMove={handleHeroPointerMove}
@@ -77,31 +95,89 @@ function App() {
         >
           <div className='pointer-events-none absolute inset-0 bg-[linear-gradient(#e6e8ea_1px,transparent_1px),linear-gradient(90deg,#e6e8ea_1px,transparent_1px)] bg-size-[48px_48px]' />
           {!reduceMotion && (
-            <motion.div
-              aria-hidden='true'
-              className='pointer-events-none absolute left-0 top-0 z-[1] size-80 rounded-full bg-brand-01/15 blur-3xl'
-              animate={{ opacity: isHeroPointerActive ? 1 : 0 }}
-              style={{ x: glowX, y: glowY }}
-              transition={{ duration: 0.2 }}
-            />
+            <>
+              <motion.div
+                aria-hidden='true'
+                className='pointer-events-none absolute left-0 top-0 z-[1] size-80 rounded-full opacity-60 mix-blend-multiply'
+                style={{
+                  x: glowX,
+                  y: glowY,
+                  background:
+                    'radial-gradient(circle, rgba(109,72,220,0.16), transparent 68%)',
+                }}
+                animate={{ opacity: isHeroPointerActive ? 1 : 0 }}
+                transition={{ duration: 0.2 }}
+              />
+              <motion.div
+                aria-hidden='true'
+                className='pointer-events-none absolute left-0 top-0 z-[2] size-80 rounded-full blur-3xl'
+                style={{
+                  filter: `hue-rotate(${glowHue}deg) blur(64px)`,
+                  x: glowX,
+                  y: glowY,
+                }}
+                animate={{
+                  opacity: isHeroPointerActive ? [0.45, 0.7, 0.45] : 0,
+                  scale: isHeroPointerActive ? [1, 1.06, 1] : 1,
+                }}
+                transition={{
+                  duration: 2.4,
+                  ease: 'easeInOut',
+                  repeat: isHeroPointerActive ? Infinity : 0,
+                }}
+              />
+              <motion.div
+                aria-hidden='true'
+                className='pointer-events-none absolute left-0 top-0 z-[2] size-80 rounded-full border border-brand-01/20'
+                style={{ x: glowX, y: glowY }}
+                animate={{
+                  opacity: isHeroPointerActive ? 1 : 0,
+                  scale: isHeroPointerActive ? 1 : 0.94,
+                }}
+                transition={{ duration: 0.25 }}
+              />
+              <motion.div
+                aria-hidden='true'
+                className='pointer-events-none absolute left-0 top-0 z-[1] size-80 rounded-full bg-brand-02/10 blur-3xl'
+                style={{ x: trailX, y: trailY }}
+                animate={{ opacity: isHeroPointerActive ? 0.35 : 0 }}
+                transition={{ duration: 0.3 }}
+              />
+            </>
           )}
           <div className='pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-linear-to-b from-transparent to-grey-01' />
           <div className='relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-28'>
-            <motion.div initial={reveal} animate={{ opacity: 1, y: 0 }} transition={revealTransition}>
+            <motion.div
+              initial={reveal}
+              animate={{ opacity: 1, y: 0 }}
+              transition={revealTransition}
+            >
               <span className='flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-brand-01'>
                 <Check size={15} /> {landingCopy.eyebrow}
               </span>
               <h1 className='type-display mt-5 max-w-xl text-5xl sm:text-6xl'>
                 {landingCopy.heroTitle}{' '}
-                <span className='text-brand-01'>{landingCopy.heroAccent}</span>
+                <motion.span
+                  className='text-brand-01'
+                  animate={{
+                    textShadow: isHeroPointerActive
+                      ? '0 0 24px rgba(109,72,220,0.35)'
+                      : '0 0 0 rgba(109,72,220,0)',
+                  }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {landingCopy.heroAccent}
+                </motion.span>
               </h1>
               <p className='type-callout mt-6 max-w-xl text-text-secondary'>
                 {landingCopy.heroText}
               </p>
               <div className='mt-8 flex flex-wrap items-center gap-5'>
-                <Button variant='accent' iconEnd={<Link2 size={16} />}>
-                  {landingCopy.docsLink}
-                </Button>
+                <motion.div style={{ x: parallaxX, y: parallaxY }}>
+                  <Button variant='accent' iconEnd={<Link2 size={16} />}>
+                    {landingCopy.docsLink}
+                  </Button>
+                </motion.div>
                 <a
                   href='https://github.com'
                   target='_blank'
@@ -113,17 +189,32 @@ function App() {
                 </a>
               </div>
             </motion.div>
-            <motion.div className='rounded-soft border-4 border-core-black bg-grey-06 p-2 shadow-[0_24px_70px_-24px_rgba(0,0,0,0.6)]' initial={reveal} animate={{ opacity: 1, y: 0 }} transition={{ ...revealTransition, delay: reduceMotion ? 0 : 0.12 }}>
-              <div className='flex items-center gap-1.5 px-3 py-2 text-[10px] text-grey-03'>
-                <i className='size-2 rounded-full bg-feedback-error' />
-                <i className='size-2 rounded-full bg-feedback-warning' />
-                <i className='size-2 rounded-full bg-feedback-positive' />
-                <span className='ml-2'>edge-studio / overview</span>
-              </div>
-              <DashboardPreview />
+            <motion.div
+              style={{
+                x: reduceMotion ? 0 : parallaxX,
+                y: reduceMotion ? 0 : parallaxY,
+              }}
+            >
+              <motion.div
+                className='rounded-soft border-4 border-core-black bg-grey-06 p-2 shadow-[0_24px_70px_-24px_rgba(0,0,0,0.6)]'
+                initial={reveal}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  ...revealTransition,
+                  delay: reduceMotion ? 0 : 0.12,
+                }}
+              >
+                <div className='flex items-center gap-1.5 px-3 py-2 text-[10px] text-grey-03'>
+                  <i className='size-2 rounded-full bg-feedback-error' />
+                  <i className='size-2 rounded-full bg-feedback-warning' />
+                  <i className='size-2 rounded-full bg-feedback-positive' />
+                  <span className='ml-2'>edge-studio / overview</span>
+                </div>
+                <DashboardPreview />
+              </motion.div>
             </motion.div>
           </div>
-          <div className='relative z-10 mx-auto max-w-6xl px-5 pb-12 lg:px-8'>
+          <div className='relative z-10 mx-auto max-w-6xl px-5 pb-20 lg:px-8 lg:pb-28'>
             <div className='mb-3 flex justify-between text-xs font-semibold'>
               <span>{landingCopy.installTitle}</span>
               <a
@@ -145,9 +236,15 @@ function App() {
         </section>
         <section
           id='features'
-          className='mx-auto max-w-6xl px-5 py-20 lg:px-8 lg:py-28'
+          className='mx-auto max-w-6xl px-5 py-20 border-b border-grey-02 lg:px-8 lg:py-28'
         >
-          <motion.div className='mb-10' initial={reveal} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={revealTransition}>
+          <motion.div
+            className='mb-10'
+            initial={reveal}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={revealTransition}
+          >
             <span className='text-xs font-semibold uppercase tracking-[0.16em] text-brand-01'>
               {landingCopy.featuresEyebrow}
             </span>
@@ -252,16 +349,36 @@ function App() {
               </div>
               <div className='mt-6'>
                 <AnimatePresence mode='wait' initial={false}>
-                  <motion.div key={features[activeFeature].title} initial={reduceMotion ? false : { opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} exit={reduceMotion ? undefined : { opacity: 0, x: -10 }} transition={{ duration: 0.22 }}>
-                    <DashboardPreview description={features[activeFeature].detail} title={features[activeFeature].title} />
+                  <motion.div
+                    key={features[activeFeature].title}
+                    initial={reduceMotion ? false : { opacity: 0, x: 10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={reduceMotion ? undefined : { opacity: 0, x: -10 }}
+                    transition={{ duration: 0.22 }}
+                  >
+                    <DashboardPreview
+                      description={features[activeFeature].detail}
+                      title={features[activeFeature].title}
+                    />
                   </motion.div>
                 </AnimatePresence>
               </div>
             </div>
             <div className='hidden lg:block'>
               <AnimatePresence mode='wait' initial={false}>
-                <motion.div className='h-full' key={features[activeFeature].title} initial={reduceMotion ? false : { opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} exit={reduceMotion ? undefined : { opacity: 0, x: -10 }} transition={{ duration: 0.22 }}>
-                  <DashboardPreview className='h-full aspect-auto' description={features[activeFeature].detail} title={features[activeFeature].title} />
+                <motion.div
+                  className='h-full'
+                  key={features[activeFeature].title}
+                  initial={reduceMotion ? false : { opacity: 0, x: 10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={reduceMotion ? undefined : { opacity: 0, x: -10 }}
+                  transition={{ duration: 0.22 }}
+                >
+                  <DashboardPreview
+                    className='h-full aspect-auto'
+                    description={features[activeFeature].detail}
+                    title={features[activeFeature].title}
+                  />
                 </motion.div>
               </AnimatePresence>
             </div>

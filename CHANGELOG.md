@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- [ADDED 2026-08-04] — Added layered hero cursor interactions including grid highlight, halo, pulse, trail, parallax, and accent responses
+
 - [FIXED 2026-08-04] — Removed the gap between the fixed navbar and the hero section
 
 - [ADDED 2026-08-04] — Added a reduced-motion-aware cursor glow layered between the hero checker background and content
