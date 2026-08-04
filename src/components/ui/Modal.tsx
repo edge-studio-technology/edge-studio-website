@@ -1,6 +1,7 @@
 import { X } from "lucide-react";
 import { useEffect, useId, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
+import { motion, useReducedMotion } from "motion/react";
 import { cx } from "../../lib/cx";
 import { IconButton } from "./Button";
 
@@ -27,6 +28,7 @@ export function Modal({
   const titleId = useId();
   const descriptionId = useId();
   const [mounted, setMounted] = useState(false);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     setMounted(true);
@@ -52,11 +54,14 @@ export function Modal({
   if (!mounted) return null;
 
   return createPortal(
-    <div
+    <motion.div
       className="bg-overlay-heavy px-margin-tight py-margin-tight fixed inset-0 z-50 grid place-items-center"
       role="presentation"
+      initial={reduceMotion ? false : { opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.2 }}
     >
-      <div
+      <motion.div
         className={cx(
           "bg-surface-always-white gap-detail-near rounded-soft p-margin-relaxed relative flex max-h-[min(90vh,760px)] w-full max-w-[600px] flex-col overflow-hidden",
           className,
@@ -65,6 +70,9 @@ export function Modal({
         aria-modal="true"
         aria-labelledby={titleId}
         aria-describedby={description ? descriptionId : undefined}
+        initial={reduceMotion ? false : { opacity: 0, y: 12, scale: 0.97 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
       >
         <IconButton
           variant="ghost"
@@ -97,9 +105,8 @@ export function Modal({
             </div>
           ) : null}
         </div>
-      </div>
-    </div>,
+      </motion.div>
+    </motion.div>,
     document.body,
   );
 }
-

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import {
   Check,
   ExternalLink,
@@ -39,6 +40,9 @@ function DashboardPreview({
 
 function App() {
   const [activeFeature, setActiveFeature] = useState(0);
+  const reduceMotion = useReducedMotion();
+  const reveal = reduceMotion ? undefined : { opacity: 0, y: 18 };
+  const revealTransition = { duration: 0.5, ease: [0.22, 1, 0.36, 1] } as const;
   return (
     <div className='min-h-screen bg-grey-01 text-text-primary'>
       <Navbar />
@@ -47,7 +51,7 @@ function App() {
           <div className='pointer-events-none absolute inset-0 bg-[linear-gradient(#e6e8ea_1px,transparent_1px),linear-gradient(90deg,#e6e8ea_1px,transparent_1px)] bg-size-[48px_48px]' />
           <div className='pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-linear-to-b from-transparent to-grey-01' />
           <div className='relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-28'>
-            <div>
+            <motion.div initial={reveal} animate={{ opacity: 1, y: 0 }} transition={revealTransition}>
               <span className='flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-brand-01'>
                 <Check size={15} /> {landingCopy.eyebrow}
               </span>
@@ -72,8 +76,8 @@ function App() {
                   <ExternalLink size={15} />
                 </a>
               </div>
-            </div>
-            <div className='rounded-soft border-4 border-core-black bg-grey-06 p-2 shadow-[0_24px_70px_-24px_rgba(0,0,0,0.6)]'>
+            </motion.div>
+            <motion.div className='rounded-soft border-4 border-core-black bg-grey-06 p-2 shadow-[0_24px_70px_-24px_rgba(0,0,0,0.6)]' initial={reveal} animate={{ opacity: 1, y: 0 }} transition={{ ...revealTransition, delay: reduceMotion ? 0 : 0.12 }}>
               <div className='flex items-center gap-1.5 px-3 py-2 text-[10px] text-grey-03'>
                 <i className='size-2 rounded-full bg-feedback-error' />
                 <i className='size-2 rounded-full bg-feedback-warning' />
@@ -81,7 +85,7 @@ function App() {
                 <span className='ml-2'>edge-studio / overview</span>
               </div>
               <DashboardPreview />
-            </div>
+            </motion.div>
           </div>
           <div className='relative z-10 mx-auto max-w-6xl px-5 pb-12 lg:px-8'>
             <div className='mb-3 flex justify-between text-xs font-semibold'>
@@ -107,14 +111,14 @@ function App() {
           id='features'
           className='mx-auto max-w-6xl px-5 py-20 lg:px-8 lg:py-28'
         >
-          <div className='mb-10'>
+          <motion.div className='mb-10' initial={reveal} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={revealTransition}>
             <span className='text-xs font-semibold uppercase tracking-[0.16em] text-brand-01'>
               {landingCopy.featuresEyebrow}
             </span>
             <h2 className='type-heading mt-4 max-w-2xl text-4xl'>
               {landingCopy.featuresTitle}
             </h2>
-          </div>
+          </motion.div>
           <Card className='mb-6 grid gap-8 border border-grey-02 bg-core-white sm:grid-cols-[0.8fr_1.2fr]'>
             <div>
               <span className='mb-4 inline-flex rounded-full bg-brand-01 p-3 text-core-white'>
@@ -211,18 +215,19 @@ function App() {
                 </div>
               </div>
               <div className='mt-6'>
-                <DashboardPreview
-                  description={features[activeFeature].detail}
-                  title={features[activeFeature].title}
-                />
+                <AnimatePresence mode='wait' initial={false}>
+                  <motion.div key={features[activeFeature].title} initial={reduceMotion ? false : { opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} exit={reduceMotion ? undefined : { opacity: 0, x: -10 }} transition={{ duration: 0.22 }}>
+                    <DashboardPreview description={features[activeFeature].detail} title={features[activeFeature].title} />
+                  </motion.div>
+                </AnimatePresence>
               </div>
             </div>
             <div className='hidden lg:block'>
-              <DashboardPreview
-                className='h-full aspect-auto'
-                description={features[activeFeature].detail}
-                title={features[activeFeature].title}
-              />
+              <AnimatePresence mode='wait' initial={false}>
+                <motion.div className='h-full' key={features[activeFeature].title} initial={reduceMotion ? false : { opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} exit={reduceMotion ? undefined : { opacity: 0, x: -10 }} transition={{ duration: 0.22 }}>
+                  <DashboardPreview className='h-full aspect-auto' description={features[activeFeature].detail} title={features[activeFeature].title} />
+                </motion.div>
+              </AnimatePresence>
             </div>
           </div>
         </section>

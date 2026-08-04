@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- [ADDED 2026-08-04] — Added Motion-powered navigation, modal, hero, feature-preview, and roadmap transitions with reduced-motion support
+
 - [CHANGED 2026-08-04] — Made active roadmap cards solid brand-color blocks to distinguish them from selectable cards
 
 - [CHANGED 2026-08-04] — Refined link affordances with consistent hover underlines and hero GitHub link styling

@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ExternalLink, Link2, Menu, X } from 'lucide-react';
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { BrandMark } from './BrandMark';
 import { Button } from './Button';
 import { RaspberryPiMark } from './RaspberryPiMark';
 
 export function Navbar({ legal = false }: { legal?: boolean }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const reduceMotion = useReducedMotion();
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -75,9 +77,10 @@ export function Navbar({ legal = false }: { legal?: boolean }) {
           {menuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
-      {menuOpen && (
-        <div className='fixed inset-0 z-40 bg-black/50 lg:hidden'>
-          <nav className='absolute inset-0 flex flex-col gap-6 bg-surface-inverse px-6 pb-8 pt-28 text-lg sm:left-auto sm:w-80 sm:border-l sm:border-grey-06'>
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div className='fixed inset-0 z-40 bg-black/50 lg:hidden' initial={reduceMotion ? false : { opacity: 0 }} animate={{ opacity: 1 }} exit={reduceMotion ? undefined : { opacity: 0 }} transition={{ duration: 0.2 }}>
+          <motion.nav className='absolute inset-0 flex flex-col gap-6 bg-surface-inverse px-6 pb-8 pt-28 text-lg sm:left-auto sm:w-80 sm:border-l sm:border-grey-06' initial={reduceMotion ? false : { x: '4%', opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={reduceMotion ? undefined : { x: '4%', opacity: 0 }} transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}>
             <button
               aria-label='Close navigation menu'
               className='absolute right-6 top-6 rounded border border-grey-06 p-2 text-grey-03 hover:text-core-white'
@@ -131,9 +134,10 @@ export function Navbar({ legal = false }: { legal?: boolean }) {
                 </Button>
               </>
             )}
-          </nav>
-        </div>
-      )}
+          </motion.nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

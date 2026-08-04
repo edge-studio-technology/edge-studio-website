@@ -1,10 +1,12 @@
 import type { RoadmapItem } from '../constants/landing';
+import { motion, useReducedMotion } from 'motion/react';
 
 export function RoadmapTimeline({ items }: { items: readonly RoadmapItem[] }) {
+  const reduceMotion = useReducedMotion();
   return (
     <div className='space-y-0'>
       {items.map((item, index) => (
-        <div className='grid grid-cols-[1.5rem_minmax(0,1fr)] gap-4' key={item.phase}>
+        <motion.div className='grid grid-cols-[1.5rem_minmax(0,1fr)] gap-4' key={item.phase} initial={reduceMotion ? false : { opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.45, delay: reduceMotion ? 0 : index * 0.08, ease: [0.22, 1, 0.36, 1] }}>
           <div className='flex flex-col items-center'>
             <span
               className={`relative z-10 mt-5 size-4 shrink-0 rounded-full border-4 border-core-white ${item.state === 'active' ? 'bg-brand-01 ring-1 ring-brand-01' : 'bg-grey-04 ring-1 ring-grey-04'}`}
@@ -32,7 +34,7 @@ export function RoadmapTimeline({ items }: { items: readonly RoadmapItem[] }) {
               </span>
             </div>
           </div>
-        </div>
+        </motion.div>
       ))}
     </div>
   );
