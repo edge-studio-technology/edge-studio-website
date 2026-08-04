@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ExternalLink, Link2, Menu, X } from 'lucide-react';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
-import { BrandMark } from './BrandMark';
-import { Button } from './ui/Button';
-import { RaspberryPiMark } from './RaspberryPiMark';
+import { BrandMark } from '../ui/BrandMark';
+import { Button } from '../ui/Button';
+import { RaspberryPiMark } from '../ui/RaspberryPiMark';
 
 export function Navbar({ legal = false }: { legal?: boolean }) {
   const [menuOpen, setMenuOpen] = useState(false);

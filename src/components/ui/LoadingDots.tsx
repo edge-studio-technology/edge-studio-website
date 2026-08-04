@@ -1,4 +1,4 @@
-import { cx } from "../lib/cx";
+import { cx } from "../../lib/cx";
 
 export function LoadingDots({ className }: { className?: string }) {
   return (
@@ -9,4 +9,3 @@ export function LoadingDots({ className }: { className?: string }) {
     </span>
   );
 }
-

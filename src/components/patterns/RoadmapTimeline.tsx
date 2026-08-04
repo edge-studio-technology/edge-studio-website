@@ -1,4 +1,4 @@
-import type { RoadmapItem } from '../constants/landing';
+import type { RoadmapItem } from '../../constants/landing';
 import { motion, useReducedMotion } from 'motion/react';
 
 export function RoadmapTimeline({ items }: { items: readonly RoadmapItem[] }) {

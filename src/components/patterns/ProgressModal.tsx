@@ -1,5 +1,5 @@
 import { Loader2 } from "lucide-react";
-import { Modal } from "./ui/Modal";
+import { Modal } from "../ui/Modal";
 
 export function ProgressModal({ title, headline, message }: { title: string; headline: string; message: string }) {
   return (

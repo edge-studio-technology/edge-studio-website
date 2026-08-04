@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
 import { Navbar } from '../components';
+import { SiteFooter } from '../components';
 
 type LegalPageProps = {
   title: string;
@@ -33,22 +33,7 @@ export function LegalPage({ title, intro, sections }: LegalPageProps) {
           launch.
         </p>
       </main>
-      <footer className='border-t border-grey-02'>
-        <div className='mx-auto flex max-w-6xl gap-5 px-5 py-8 text-xs text-text-secondary lg:px-8'>
-          <Link
-            className='border-b border-transparent hover:border-text-secondary'
-            to='/terms'
-          >
-            Terms of use
-          </Link>
-          <Link
-            className='border-b border-transparent hover:border-text-secondary'
-            to='/privacy'
-          >
-            Privacy policy
-          </Link>
-        </div>
-      </footer>
+      <SiteFooter legal />
     </div>
   );
 }

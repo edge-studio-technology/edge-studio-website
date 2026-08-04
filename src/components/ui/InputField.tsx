@@ -1,6 +1,6 @@
 import { useId, type InputHTMLAttributes, type ReactNode } from "react";
 import { cx } from "../../lib/cx";
-import { Input } from "../Input";
+import { Input } from "./Input";
 import { Label } from "./Label";
 
 /**
@@ -63,4 +63,3 @@ export function InputField({
     </div>
   );
 }
-

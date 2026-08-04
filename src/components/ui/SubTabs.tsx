@@ -1,4 +1,4 @@
-import { cx } from "../lib/cx";
+import { cx } from "../../lib/cx";
 
 export type SubTabOption<T extends string> = {
   value: T;
@@ -44,4 +44,3 @@ export function SubTabs<T extends string>({
     </div>
   );
 }
-

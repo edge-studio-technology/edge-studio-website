@@ -1,5 +1,6 @@
-import type { Tone } from "../../app/types";
 import { cx } from "../../lib/cx";
+
+export type Tone = "neutral" | "good" | "warn" | "error";
 
 const toneShellClass: Record<Tone, string> = {
   neutral: "border-transparent bg-surface-secondary",
