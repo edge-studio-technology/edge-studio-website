@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- [ADDED 2026-08-04] — Added outside-click dismissal for the tablet navigation drawer
+
 - [CHANGED 2026-08-04] — Fixed the responsive navbar to remain visible while scrolling on mobile and tablet
 
 - [ADDED 2026-08-04] — Added Motion-powered navigation, modal, hero, feature-preview, and roadmap transitions with reduced-motion support
