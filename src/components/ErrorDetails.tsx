@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { normalizeError } from "../lib/errors";
-import { Modal } from "./Modal";
+import { Modal } from "./ui/Modal";
 
 export function ErrorDetails({ error, label = "View details" }: { error: unknown; label?: string }) {
   const [open, setOpen] = useState(false);
@@ -53,4 +53,3 @@ export function ErrorDetails({ error, label = "View details" }: { error: unknown
     </>
   );
 }
-

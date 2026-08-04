@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, ExternalLink, Link2, Menu, X } from 'lucide-react';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { BrandMark } from './BrandMark';
-import { Button } from './Button';
+import { Button } from './ui/Button';
 import { RaspberryPiMark } from './RaspberryPiMark';
 
 export function Navbar({ legal = false }: { legal?: boolean }) {

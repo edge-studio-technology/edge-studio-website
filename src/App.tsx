@@ -14,11 +14,7 @@ import {
   Link2,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Button } from './components/Button';
-import { Card } from './components/Card';
-import { CopyableCode } from './components/CopyableCode';
-import { Navbar } from './components/Navbar';
-import { RoadmapTimeline } from './components/RoadmapTimeline';
+import { Button, Card, CopyableCode, Navbar, RoadmapTimeline } from './components';
 import { features, landingCopy, roadmap } from './constants/landing';
 
 function DashboardPreview({
