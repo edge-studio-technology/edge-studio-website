@@ -24,7 +24,7 @@ export function RoadmapTimeline({ items }: { items: readonly RoadmapItem[] }) {
                 </p>
               </div>
               <span
-                className={`text-right text-3xl font-semibold uppercase tracking-[0.12em] sm:text-4xl ${item.state === 'active' ? 'text-brand-01' : 'text-grey-04'}`}
+                className={`justify-self-start rounded-full border px-4 py-1.5 text-sm font-semibold uppercase tracking-[0.12em] sm:justify-self-end ${item.state === 'active' ? 'border-brand-01 text-brand-01' : 'border-grey-03 text-grey-04'}`}
               >
                 {item.phase}
               </span>

@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+- [CHANGED 2026-08-04] — Increased roadmap phase badge size
+
+- [CHANGED 2026-08-04] — Styled roadmap phase labels as compact badges
+
 - [FIXED 2026-08-04] — Layered roadmap markers above connectors with opaque fills
 
 - [CHANGED 2026-08-04] — Moved roadmap phase labels inside cards and enlarged milestone copy
