@@ -18,11 +18,11 @@ function DashboardPreview({
   title?: string;
 }) {
   return (
-    <div className={`flex aspect-16/10 flex-col items-center justify-center border-2 border-dashed border-grey-04 bg-grey-02 p-6 text-center text-text-secondary sm:p-10 ${className}`}>
+    <div
+      className={`flex aspect-16/10 flex-col items-center justify-center border-2 border-dashed border-grey-04 bg-grey-02 p-6 text-center text-text-secondary sm:p-10 ${className}`}
+    >
       <Image size={48} strokeWidth={1.25} />
-      <strong className='mt-4 text-lg text-text-primary'>
-        {title}
-      </strong>
+      <strong className='mt-4 text-lg text-text-primary'>{title}</strong>
       <span className='mt-2 max-w-xs text-sm'>{description}</span>
       <span className='mt-4 rounded-full bg-core-white px-3 py-1 font-mono text-[10px]'>
         image placeholder
@@ -83,17 +83,7 @@ function App() {
                 {landingCopy.installLink}
               </a>
             </div>
-            <div className='grid gap-3 rounded-soft border border-grey-03 bg-core-black p-3 font-mono text-xs text-core-white sm:grid-cols-[1fr_auto] sm:items-center'>
-              <div className='space-y-1'>
-                <div>
-                  <b className='mr-2 text-brand-02'>$</b>git clone
-                  &lt;your-fork-or-repo&gt; edge-studio
-                </div>
-                <div>
-                  <b className='mr-2 text-brand-02'>$</b>cd edge-studio
-                  &amp;&amp; ./install.sh
-                </div>
-              </div>
+            <div className='rounded-soft border border-grey-03 bg-core-black p-3 font-mono text-xs text-core-white sm:grid-cols-[1fr_auto] sm:items-center'>
               <CopyableCode
                 value={
                   'git clone <your-fork-or-repo> edge-studio\ncd edge-studio && ./install.sh'
@@ -135,7 +125,7 @@ function App() {
               ))}
             </ul>
           </Card>
-            <div className='grid gap-6 lg:grid-cols-[1.1fr_0.9fr]'>
+          <div className='grid gap-6 lg:grid-cols-[1.1fr_0.9fr]'>
             <div className='hidden grid-cols-2 gap-3 lg:grid'>
               {features.map(({ title, text, Icon }, index) => (
                 <button
@@ -146,7 +136,9 @@ function App() {
                   onClick={() => setActiveFeature(index)}
                   key={title}
                 >
-                  <span className={`mb-4 inline-flex rounded-full p-2.5 ${activeFeature === index ? 'bg-brand-01 text-core-white' : 'bg-grey-02 text-brand-01'}`}>
+                  <span
+                    className={`mb-4 inline-flex rounded-full p-2.5 ${activeFeature === index ? 'bg-brand-01 text-core-white' : 'bg-grey-02 text-brand-01'}`}
+                  >
                     <Icon size={18} />
                   </span>
                   <h3 className='font-semibold'>{title}</h3>
@@ -167,14 +159,18 @@ function App() {
                       onClick={() => setActiveFeature(index)}
                       type='button'
                     >
-                      <span className={`inline-flex rounded-full p-2.5 ${activeFeature === index ? 'bg-brand-01 text-core-white' : 'bg-grey-02 text-brand-01'}`}>
+                      <span
+                        className={`inline-flex rounded-full p-2.5 ${activeFeature === index ? 'bg-brand-01 text-core-white' : 'bg-grey-02 text-brand-01'}`}
+                      >
                         <Icon size={18} />
                       </span>
                       <span className='font-semibold'>{title}</span>
                     </button>
                   ))}
                 </div>
-                <p className='mt-6 text-text-secondary'>{features[activeFeature].text}</p>
+                <p className='mt-6 text-text-secondary'>
+                  {features[activeFeature].text}
+                </p>
               </div>
               <div className='sm:hidden'>
                 <div className='mb-5 rounded-soft border border-grey-02 p-4'>
@@ -187,14 +183,20 @@ function App() {
                         onClick={() => setActiveFeature(index)}
                         type='button'
                       >
-                        <span className={`inline-flex rounded-full p-2.5 ${activeFeature === index ? 'bg-brand-01 text-core-white' : 'bg-grey-02 text-brand-01'}`}>
+                        <span
+                          className={`inline-flex rounded-full p-2.5 ${activeFeature === index ? 'bg-brand-01 text-core-white' : 'bg-grey-02 text-brand-01'}`}
+                        >
                           <Icon size={18} />
                         </span>
                       </button>
                     ))}
                   </div>
-                  <h3 className='type-title'>{features[activeFeature].title}</h3>
-                  <p className='mt-2 text-text-secondary'>{features[activeFeature].text}</p>
+                  <h3 className='type-title'>
+                    {features[activeFeature].title}
+                  </h3>
+                  <p className='mt-2 text-text-secondary'>
+                    {features[activeFeature].text}
+                  </p>
                 </div>
               </div>
               <div className='mt-6'>

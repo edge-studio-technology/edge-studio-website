@@ -21,7 +21,8 @@ export function Navbar({ legal = false }: { legal?: boolean }) {
           <BrandMark size={28} />
           <div className='flex min-w-0 items-center gap-1'>
             <span className='truncate'>Edge Studio</span>
-            <RaspberryPiMark variant='text' />
+            <RaspberryPiMark />
+            {/* <RaspberryPiMark variant='text' /> */}
           </div>
         </Link>
         <nav className='hidden items-center gap-5 text-sm lg:flex'>
@@ -63,7 +64,9 @@ export function Navbar({ legal = false }: { legal?: boolean }) {
         </nav>
         <button
           aria-expanded={menuOpen}
-          aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-label={
+            menuOpen ? 'Close navigation menu' : 'Open navigation menu'
+          }
           className='rounded border border-grey-06 p-2 text-grey-03 hover:text-core-white lg:hidden'
           onClick={() => setMenuOpen((open) => !open)}
           type='button'
@@ -93,10 +96,18 @@ export function Navbar({ legal = false }: { legal?: boolean }) {
               </Link>
             ) : (
               <>
-                <a className='text-grey-03 hover:text-core-white' href='/#features' onClick={closeMenu}>
+                <a
+                  className='text-grey-03 hover:text-core-white'
+                  href='/#features'
+                  onClick={closeMenu}
+                >
                   Features
                 </a>
-                <a className='text-grey-03 hover:text-core-white' href='/#roadmap' onClick={closeMenu}>
+                <a
+                  className='text-grey-03 hover:text-core-white'
+                  href='/#roadmap'
+                  onClick={closeMenu}
+                >
                   Roadmap
                 </a>
                 <a

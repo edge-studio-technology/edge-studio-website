@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- [CHANGED 2026-08-04] — Simplified the install command panel and restored the text-based Raspberry Pi navbar mark
+
 - [FIXED 2026-08-04] — Connected feature tab selection to responsive preview content
 
 - [FIXED 2026-08-04] — Restored the desktop feature preview height to match the tab grid
