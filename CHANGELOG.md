@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+- [FIXED 2026-08-04] — Removed the gap between the fixed navbar and the hero section
+
+- [ADDED 2026-08-04] — Added a reduced-motion-aware cursor glow layered between the hero checker background and content
+
 - [ADDED 2026-08-04] — Added outside-click dismissal for the tablet navigation drawer
 
 - [CHANGED 2026-08-04] — Fixed the responsive navbar to remain visible while scrolling on mobile and tablet

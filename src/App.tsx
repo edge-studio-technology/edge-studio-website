@@ -1,5 +1,11 @@
-import { useState } from 'react';
-import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
+import { useRef, useState } from 'react';
+import {
+  AnimatePresence,
+  motion,
+  useMotionValue,
+  useReducedMotion,
+  useSpring,
+} from 'motion/react';
 import {
   Check,
   ExternalLink,
@@ -40,15 +46,45 @@ function DashboardPreview({
 
 function App() {
   const [activeFeature, setActiveFeature] = useState(0);
+  const [isHeroPointerActive, setIsHeroPointerActive] = useState(false);
+  const heroRef = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
+  const glowX = useSpring(useMotionValue(0), { stiffness: 180, damping: 28 });
+  const glowY = useSpring(useMotionValue(0), { stiffness: 180, damping: 28 });
   const reveal = reduceMotion ? undefined : { opacity: 0, y: 18 };
   const revealTransition = { duration: 0.5, ease: [0.22, 1, 0.36, 1] } as const;
+
+  function handleHeroPointerMove(event: React.PointerEvent<HTMLElement>) {
+    if (reduceMotion || event.pointerType === 'touch') return;
+
+    const bounds = heroRef.current?.getBoundingClientRect();
+    if (!bounds) return;
+
+    glowX.set(event.clientX - bounds.left - 160);
+    glowY.set(event.clientY - bounds.top - 160);
+  }
+
   return (
     <div className='min-h-screen bg-grey-01 text-text-primary'>
       <Navbar />
-      <main className='pt-[72px] sm:pt-[88px]' id='top'>
-        <section className='relative overflow-hidden'>
+      <main className='pt-[53px] sm:pt-[69px]' id='top'>
+        <section
+          className='relative overflow-hidden'
+          onPointerEnter={() => setIsHeroPointerActive(true)}
+          onPointerLeave={() => setIsHeroPointerActive(false)}
+          onPointerMove={handleHeroPointerMove}
+          ref={heroRef}
+        >
           <div className='pointer-events-none absolute inset-0 bg-[linear-gradient(#e6e8ea_1px,transparent_1px),linear-gradient(90deg,#e6e8ea_1px,transparent_1px)] bg-size-[48px_48px]' />
+          {!reduceMotion && (
+            <motion.div
+              aria-hidden='true'
+              className='pointer-events-none absolute left-0 top-0 z-[1] size-80 rounded-full bg-brand-01/15 blur-3xl'
+              animate={{ opacity: isHeroPointerActive ? 1 : 0 }}
+              style={{ x: glowX, y: glowY }}
+              transition={{ duration: 0.2 }}
+            />
+          )}
           <div className='pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-linear-to-b from-transparent to-grey-01' />
           <div className='relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-28'>
             <motion.div initial={reveal} animate={{ opacity: 1, y: 0 }} transition={revealTransition}>
