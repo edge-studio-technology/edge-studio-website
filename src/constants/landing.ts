@@ -84,15 +84,21 @@ export const roadmap: RoadmapItem[] = [
     state: 'active',
   },
   {
-    phase: 'Next',
-    title: 'Automation flows',
-    text: 'Build repeatable workflows from triggers and actions.',
-    state: 'passive',
-  },
-  {
     phase: 'Soon',
     title: 'More integrations',
     text: 'Bring more sensors, APIs, and edge devices into the same view.',
+    state: 'passive',
+  },
+  {
+    phase: 'Next',
+    title: 'Modules building with an in-app IDE',
+    text: 'Build and customize modules directly inside Edge Studio.',
+    state: 'passive',
+  },
+  {
+    phase: 'V2',
+    title: 'Marketplace',
+    text: 'Discover and install community-built modules for your edge setup.',
     state: 'passive',
   },
 ];

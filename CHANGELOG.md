@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### [CHANGED 2026-08-05] — Updated roadmap priorities
+
+#### Changed
+
+- Replaced Automation flows with More integrations, in-app IDE module building, and a V2 Marketplace roadmap sequence.
+
 ### [CHANGED 2026-08-05] — Refined landing-page visual consistency
 
 #### Changed
