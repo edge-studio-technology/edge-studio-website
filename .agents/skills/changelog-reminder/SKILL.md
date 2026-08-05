@@ -14,3 +14,15 @@ Before finishing any task that changes product behavior: new features, bug fixes
 ## Action
 
 Check `CHANGELOG.md` under `## [Unreleased]`. If there is no entry for the current change, add one following `.agents/rules/changelog.md` before declaring the task done.
+
+Every entry must use the same structure:
+
+```markdown
+### [ADDED|CHANGED|FIXED YYYY-MM-DD] — Short title
+
+#### Added / Changed / Fixed
+
+- One concise sentence describing what changed and why.
+```
+
+Keep entries newest first. When normalizing an existing changelog, convert inline records such as `- [CHANGED ...] — ...` into this heading/subheading/bullet structure without changing their meaning.

@@ -173,6 +173,7 @@ These live in `.claude/skills/` and are invoked with `/<name>` (Claude Code proj
 - `format` — run the formatter on edited files
 - `typecheck` — run the type checker on edited files
 - `changelog-reminder` — remind to update CHANGELOG.md for behavior changes
+- `adr` — capture durable architectural decisions in `docs/adrs/` while keeping commits, changelogs, and comments concise
 - `task-check` — check for running background tasks
 - `spec` — write a one-page PRD/spec before implementing a feature
 - `feature` — scaffold a new feature end-to-end
