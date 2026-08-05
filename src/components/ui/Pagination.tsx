@@ -1,6 +1,6 @@
-import { cx } from "../../lib/cx";
+import { cx } from '../../lib/cx';
 
-export type PaginationNumberState = "Default" | "Current";
+export type PaginationNumberState = 'Default' | 'Current';
 
 export type PaginationNumberProps = {
   number: number;
@@ -16,20 +16,24 @@ export type PaginationNumberProps = {
  */
 export function PaginationNumber({
   number,
-  state = "Default",
+  state = 'Default',
   className,
   onClick,
 }: PaginationNumberProps) {
-  const isCurrent = state === "Current";
+  const isCurrent = state === 'Current';
 
   const baseClass =
-    "flex size-8 flex-col items-center justify-center rounded-loose p-detail-next type-meta whitespace-nowrap";
+    'flex size-8 flex-col items-center justify-center rounded-loose p-detail-next type-meta whitespace-nowrap';
 
   if (isCurrent) {
     return (
       <div
         aria-current="page"
-        className={cx(baseClass, "bg-surface-inverse text-text-inverse", className)}
+        className={cx(
+          baseClass,
+          'bg-surface-inverse text-text-inverse',
+          className,
+        )}
       >
         {number}
       </div>
@@ -46,9 +50,9 @@ export function PaginationNumber({
       onClick={onClick}
       className={cx(
         baseClass,
-        "text-text-primary cursor-pointer bg-transparent transition-colors duration-200",
-        "focus-visible:ring-stroke-active focus-visible:z-10 focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-inset",
-        "enabled:hover:bg-surface-secondary disabled:text-text-disabled disabled:cursor-not-allowed",
+        'text-text-primary cursor-pointer bg-transparent transition-colors duration-200',
+        'focus-visible:ring-stroke-active focus-visible:z-10 focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-inset',
+        'enabled:hover:bg-surface-secondary disabled:text-text-disabled disabled:cursor-not-allowed',
         className,
       )}
     >
@@ -57,9 +61,13 @@ export function PaginationNumber({
   );
 }
 
-function getCondensedPageItems(current: number, totalPages: number): Array<number | "ellipsis"> {
+function getCondensedPageItems(
+  current: number,
+  totalPages: number,
+): Array<number | 'ellipsis'> {
   if (totalPages <= 0) return [];
-  if (totalPages <= 7) return Array.from({ length: totalPages }, (_, i) => i + 1);
+  if (totalPages <= 7)
+    return Array.from({ length: totalPages }, (_, i) => i + 1);
 
   const safeCurrent = Math.min(Math.max(1, current), totalPages);
 
@@ -77,11 +85,11 @@ function getCondensedPageItems(current: number, totalPages: number): Array<numbe
     .filter((n) => n >= 1 && n <= totalPages)
     .sort((a, b) => a - b);
 
-  const items: Array<number | "ellipsis"> = [];
+  const items: Array<number | 'ellipsis'> = [];
   for (let i = 0; i < sorted.length; i++) {
     const n = sorted[i]!;
     const prev = sorted[i - 1]!;
-    if (i > 0 && n - prev > 1) items.push("ellipsis");
+    if (i > 0 && n - prev > 1) items.push('ellipsis');
     items.push(n);
   }
 
@@ -95,7 +103,12 @@ export type PaginationProps = {
   onPageChange?: (page: number) => void;
 };
 
-export function Pagination({ className, page, totalPages, onPageChange }: PaginationProps) {
+export function Pagination({
+  className,
+  page,
+  totalPages,
+  onPageChange,
+}: PaginationProps) {
   const safeTotalPages = Math.max(1, totalPages);
   const safePage = Math.min(Math.max(1, page), safeTotalPages);
 
@@ -105,19 +118,19 @@ export function Pagination({ className, page, totalPages, onPageChange }: Pagina
   const items = getCondensedPageItems(safePage, safeTotalPages);
 
   return (
-    <div className={cx("flex w-full items-center justify-between", className)}>
+    <div className={cx('flex w-full items-center justify-between', className)}>
       <button
         type="button"
         aria-label="Previous page"
         disabled={!canPrev}
         onClick={() => onPageChange?.(safePage - 1)}
         className={cx(
-          "rounded-loose px-detail-close type-meta inline-flex h-8 flex-none cursor-pointer items-center justify-center overflow-clip transition-colors duration-200 disabled:cursor-not-allowed",
-          "focus-visible:ring-stroke-active focus-visible:z-10 focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-inset",
-          "enabled:hover:bg-surface-secondary",
+          'rounded-loose px-detail-close type-meta inline-flex h-8 flex-none cursor-pointer items-center justify-center overflow-clip transition-colors duration-200 disabled:cursor-not-allowed',
+          'focus-visible:ring-stroke-active focus-visible:z-10 focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-inset',
+          'enabled:hover:bg-surface-secondary',
           canPrev
-            ? "border-stroke-primary text-text-primary border bg-transparent"
-            : "bg-surface-secondary text-text-disabled border-transparent disabled:cursor-not-allowed",
+            ? 'border-stroke-primary text-text-primary border bg-transparent'
+            : 'bg-surface-secondary text-text-disabled border-transparent disabled:cursor-not-allowed',
         )}
       >
         Previous
@@ -125,7 +138,7 @@ export function Pagination({ className, page, totalPages, onPageChange }: Pagina
 
       <div className="gap-detail-next flex flex-1 items-center justify-center">
         {items.map((item, idx) => {
-          if (item === "ellipsis") {
+          if (item === 'ellipsis') {
             return (
               <div
                 key={`ellipsis-${idx}`}
@@ -141,7 +154,7 @@ export function Pagination({ className, page, totalPages, onPageChange }: Pagina
             <PaginationNumber
               key={item}
               number={item}
-              state={isCurrent ? "Current" : "Default"}
+              state={isCurrent ? 'Current' : 'Default'}
               onClick={isCurrent ? undefined : () => onPageChange?.(item)}
             />
           );
@@ -154,12 +167,12 @@ export function Pagination({ className, page, totalPages, onPageChange }: Pagina
         disabled={!canNext}
         onClick={() => onPageChange?.(safePage + 1)}
         className={cx(
-          "rounded-loose px-detail-close type-meta inline-flex h-8 flex-none cursor-pointer items-center justify-center overflow-clip transition-colors duration-200 disabled:cursor-not-allowed",
-          "focus-visible:ring-stroke-active focus-visible:z-10 focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-inset",
-          "enabled:hover:bg-surface-secondary",
+          'rounded-loose px-detail-close type-meta inline-flex h-8 flex-none cursor-pointer items-center justify-center overflow-clip transition-colors duration-200 disabled:cursor-not-allowed',
+          'focus-visible:ring-stroke-active focus-visible:z-10 focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-inset',
+          'enabled:hover:bg-surface-secondary',
           canNext
-            ? "border-stroke-primary text-text-primary border bg-transparent"
-            : "bg-surface-secondary text-text-disabled border-transparent disabled:cursor-not-allowed",
+            ? 'border-stroke-primary text-text-primary border bg-transparent'
+            : 'bg-surface-secondary text-text-disabled border-transparent disabled:cursor-not-allowed',
         )}
       >
         Next
@@ -167,4 +180,3 @@ export function Pagination({ className, page, totalPages, onPageChange }: Pagina
     </div>
   );
 }
-

@@ -1,10 +1,15 @@
-import { useId, useState, type InputHTMLAttributes, type ReactNode } from "react";
-import { cx } from "../../lib/cx";
-import { Label } from "./Label";
+import {
+  useId,
+  useState,
+  type InputHTMLAttributes,
+  type ReactNode,
+} from 'react';
+import { cx } from '../../lib/cx';
+import { Label } from './Label';
 
 type PinFieldProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
-  "className" | "onChange" | "type"
+  'className' | 'onChange' | 'type'
 > & {
   value: string;
   onChange: (nextValue: string) => void;
@@ -16,7 +21,7 @@ type PinFieldProps = Omit<
 };
 
 function digitsOnly(value: string, length: number) {
-  return value.replace(/\D/g, "").slice(0, length);
+  return value.replace(/\D/g, '').slice(0, length);
 }
 
 /**
@@ -43,14 +48,19 @@ export function PinField({
   const controlId = id ?? autoId;
   const descriptionId = description ? `${controlId}-description` : undefined;
   const errorId = error ? `${controlId}-error` : undefined;
-  const describedBy = [descriptionId, errorId].filter(Boolean).join(" ") || undefined;
+  const describedBy =
+    [descriptionId, errorId].filter(Boolean).join(' ') || undefined;
   const normalizedValue = digitsOnly(value, length);
-  const slots = Array.from({ length }, (_, index) => normalizedValue[index] ?? "");
+  const slots = Array.from(
+    { length },
+    (_, index) => normalizedValue[index] ?? '',
+  );
   const [focused, setFocused] = useState(false);
-  const activeIndex = normalizedValue.length >= length ? length - 1 : normalizedValue.length;
+  const activeIndex =
+    normalizedValue.length >= length ? length - 1 : normalizedValue.length;
 
   return (
-    <div className={cx("gap-detail-next flex flex-col", className)}>
+    <div className={cx('gap-detail-next flex flex-col', className)}>
       {label ? (
         <Label htmlFor={controlId} disabled={disabled}>
           {label}
@@ -60,8 +70,8 @@ export function PinField({
         <p
           id={descriptionId}
           className={cx(
-            "type-meta m-0 leading-none",
-            disabled ? "text-text-disabled" : "text-text-secondary",
+            'type-meta m-0 leading-none',
+            disabled ? 'text-text-disabled' : 'text-text-secondary',
           )}
         >
           {description}
@@ -75,7 +85,7 @@ export function PinField({
           type="text"
           inputMode="numeric"
           pattern="[0-9]*"
-          autoComplete={autoComplete ?? "one-time-code"}
+          autoComplete={autoComplete ?? 'one-time-code'}
           autoCorrect="off"
           spellCheck={false}
           data-1p-ignore
@@ -99,30 +109,34 @@ export function PinField({
         />
         <div aria-hidden="true" className="gap-detail-next flex">
           {slots.map((digit, index) => {
-            const isFilled = digit !== "";
+            const isFilled = digit !== '';
             const isActive = !disabled && focused && index === activeIndex;
 
             return (
               <div
                 key={`${controlId}-${index}`}
                 className={cx(
-                  "rounded-loose bg-surface-always-white px-detail-next type-body flex h-[44px] min-w-0 flex-1 items-center justify-center border text-center leading-none transition-colors duration-200 motion-reduce:transition-none",
+                  'rounded-loose bg-surface-always-white px-detail-next type-body flex h-[44px] min-w-0 flex-1 items-center justify-center border text-center leading-none transition-colors duration-200 motion-reduce:transition-none',
                   disabled
-                    ? "border-stroke-primary bg-surface-primary text-text-disabled"
+                    ? 'border-stroke-primary bg-surface-primary text-text-disabled'
                     : error
-                      ? "border-stroke-error text-text-primary"
+                      ? 'border-stroke-error text-text-primary'
                       : isActive
-                        ? "border-stroke-active text-text-primary"
-                        : "border-stroke-primary text-text-primary",
+                        ? 'border-stroke-active text-text-primary'
+                        : 'border-stroke-primary text-text-primary',
                 )}
               >
                 <span
                   className={cx(
-                    "inline-flex items-center justify-center",
-                    isFilled ? "text-text-primary" : "text-text-disabled",
+                    'inline-flex items-center justify-center',
+                    isFilled ? 'text-text-primary' : 'text-text-disabled',
                   )}
                 >
-                  {isFilled ? <span className="size-2 rounded-full bg-current" /> : "−"}
+                  {isFilled ? (
+                    <span className="size-2 rounded-full bg-current" />
+                  ) : (
+                    '−'
+                  )}
                 </span>
               </div>
             );
@@ -130,11 +144,14 @@ export function PinField({
         </div>
       </div>
       {error ? (
-        <p id={errorId} role="alert" className="type-meta text-text-error m-0 leading-none">
+        <p
+          id={errorId}
+          role="alert"
+          className="type-meta text-text-error m-0 leading-none"
+        >
           {error}
         </p>
       ) : null}
     </div>
   );
 }
-

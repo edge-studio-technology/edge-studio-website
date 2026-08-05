@@ -1,4 +1,4 @@
-import { Check, Minus } from "lucide-react";
+import { Check, Minus } from 'lucide-react';
 import {
   useEffect,
   useId,
@@ -7,8 +7,8 @@ import {
   type ChangeEvent,
   type InputHTMLAttributes,
   type ReactNode,
-} from "react";
-import { cx } from "../../lib/cx";
+} from 'react';
+import { cx } from '../../lib/cx';
 
 /**
  * ESDS Checkbox Field: checkbox + label row, optional indented description.
@@ -25,7 +25,10 @@ export function CheckboxField({
   id,
   onChange,
   ...props
-}: Omit<InputHTMLAttributes<HTMLInputElement>, "className" | "type" | "size"> & {
+}: Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'className' | 'type' | 'size'
+> & {
   label: ReactNode;
   description?: ReactNode;
   indeterminate?: boolean;
@@ -36,7 +39,9 @@ export function CheckboxField({
   const descriptionId = description ? `${controlId}-description` : undefined;
   const inputRef = useRef<HTMLInputElement>(null);
   const isControlled = checked !== undefined;
-  const [uncontrolledChecked, setUncontrolledChecked] = useState(Boolean(defaultChecked));
+  const [uncontrolledChecked, setUncontrolledChecked] = useState(
+    Boolean(defaultChecked),
+  );
   const isChecked = isControlled ? Boolean(checked) : uncontrolledChecked;
 
   useEffect(() => {
@@ -56,12 +61,12 @@ export function CheckboxField({
   const showMinus = indeterminate;
 
   return (
-    <div className={cx("gap-detail-fine flex flex-col items-start", className)}>
+    <div className={cx('gap-detail-fine flex flex-col items-start', className)}>
       <label
         htmlFor={controlId}
         className={cx(
-          "gap-detail-next flex min-w-[120px] items-center",
-          disabled ? "cursor-not-allowed" : "cursor-pointer",
+          'gap-detail-next flex min-w-[120px] items-center',
+          disabled ? 'cursor-not-allowed' : 'cursor-pointer',
         )}
       >
         <span className="relative size-4 shrink-0">
@@ -74,31 +79,37 @@ export function CheckboxField({
             disabled={disabled}
             checked={isControlled ? isChecked : undefined}
             defaultChecked={isControlled ? undefined : defaultChecked}
-            aria-checked={indeterminate ? "mixed" : isChecked}
+            aria-checked={indeterminate ? 'mixed' : isChecked}
             aria-describedby={descriptionId}
             onChange={handleChange}
           />
           <span
             aria-hidden
             className={cx(
-              "rounded-loose pointer-events-none flex size-4 items-center justify-center overflow-clip",
-              "peer-focus-visible:ring-stroke-active peer-focus-visible:ring-2 peer-focus-visible:ring-offset-2",
+              'rounded-loose pointer-events-none flex size-4 items-center justify-center overflow-clip',
+              'peer-focus-visible:ring-stroke-active peer-focus-visible:ring-2 peer-focus-visible:ring-offset-2',
               disabled
-                ? "border-stroke-primary bg-surface-secondary border"
+                ? 'border-stroke-primary bg-surface-secondary border'
                 : showCheck || showMinus
-                  ? "bg-icon-primary"
-                  : "border-stroke-primary bg-icon-inverse border",
+                  ? 'bg-icon-primary'
+                  : 'border-stroke-primary bg-icon-inverse border',
             )}
           >
             {showMinus ? (
               <Minus
-                className={cx("size-4", disabled ? "text-icon-disabled" : "text-icon-inverse")}
+                className={cx(
+                  'size-4',
+                  disabled ? 'text-icon-disabled' : 'text-icon-inverse',
+                )}
                 strokeWidth={2}
               />
             ) : null}
             {showCheck ? (
               <Check
-                className={cx("size-4", disabled ? "text-icon-disabled" : "text-icon-inverse")}
+                className={cx(
+                  'size-4',
+                  disabled ? 'text-icon-disabled' : 'text-icon-inverse',
+                )}
                 strokeWidth={2}
               />
             ) : null}
@@ -106,8 +117,8 @@ export function CheckboxField({
         </span>
         <span
           className={cx(
-            "type-body min-w-px flex-1 [overflow-wrap:anywhere]",
-            disabled ? "text-text-tertiary" : "text-text-primary",
+            'type-body min-w-px flex-1 [overflow-wrap:anywhere]',
+            disabled ? 'text-text-tertiary' : 'text-text-primary',
           )}
         >
           {label}
@@ -119,8 +130,8 @@ export function CheckboxField({
           <p
             id={descriptionId}
             className={cx(
-              "type-body m-0 min-w-px flex-1 [overflow-wrap:anywhere]",
-              disabled ? "text-text-disabled" : "text-text-secondary",
+              'type-body m-0 min-w-px flex-1 [overflow-wrap:anywhere]',
+              disabled ? 'text-text-disabled' : 'text-text-secondary',
             )}
           >
             {description}
@@ -130,4 +141,3 @@ export function CheckboxField({
     </div>
   );
 }
-

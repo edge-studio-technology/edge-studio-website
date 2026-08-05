@@ -2,6 +2,16 @@
 
 ## [Unreleased]
 
+### [FIXED 2026-08-05] — Hardened responsive styling and accessibility
+
+#### Fixed
+
+- Added visible keyboard focus states and consistent mobile touch targets across navigation, hero actions, install controls, and footer links.
+- Made the navbar sticky in document flow, locked background scrolling while its menu is open, and added Escape-key dismissal.
+- Corrected muted-text contrast, reduced-motion scrolling, and Raspberry Pi image dimensions.
+- Replaced utility-class-dependent hero overrides with a scoped component style and removed stale global selectors.
+- Fixed the existing React lint errors and added reproducible local Prettier commands for consistent source formatting.
+
 ### [CHANGED 2026-08-05] — Reworked the responsive feature showcase
 
 #### Changed

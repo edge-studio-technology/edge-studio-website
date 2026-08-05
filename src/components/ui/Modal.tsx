@@ -1,9 +1,9 @@
-import { X } from "lucide-react";
-import { useEffect, useId, useState, type ReactNode } from "react";
-import { createPortal } from "react-dom";
-import { motion, useReducedMotion } from "motion/react";
-import { cx } from "../../lib/cx";
-import { IconButton } from "./Button";
+import { X } from 'lucide-react';
+import { useEffect, useId, type ReactNode } from 'react';
+import { createPortal } from 'react-dom';
+import { motion, useReducedMotion } from 'motion/react';
+import { cx } from '../../lib/cx';
+import { IconButton } from './Button';
 
 /**
  *  Dialog max-width 600, title + optional description / body / footer, close IconButton.
@@ -27,16 +27,11 @@ export function Modal({
 }) {
   const titleId = useId();
   const descriptionId = useId();
-  const [mounted, setMounted] = useState(false);
   const reduceMotion = useReducedMotion();
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
     const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = 'hidden';
     return () => {
       document.body.style.overflow = previousOverflow;
     };
@@ -45,13 +40,13 @@ export function Modal({
   useEffect(() => {
     if (closeDisabled) return;
     function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") onClose();
+      if (event.key === 'Escape') onClose();
     }
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
   }, [closeDisabled, onClose]);
 
-  if (!mounted) return null;
+  if (typeof document === 'undefined') return null;
 
   return createPortal(
     <motion.div
@@ -63,7 +58,7 @@ export function Modal({
     >
       <motion.div
         className={cx(
-          "bg-surface-always-white gap-detail-near rounded-soft p-margin-relaxed relative flex max-h-[min(90vh,760px)] w-full max-w-[600px] flex-col overflow-hidden",
+          'bg-surface-always-white gap-detail-near rounded-soft p-margin-relaxed relative flex max-h-[min(90vh,760px)] w-full max-w-[600px] flex-col overflow-hidden',
           className,
         )}
         role="dialog"
@@ -91,7 +86,10 @@ export function Modal({
               {title}
             </h2>
             {description ? (
-              <div className="type-body text-text-primary m-0" id={descriptionId}>
+              <div
+                className="type-body text-text-primary m-0"
+                id={descriptionId}
+              >
                 {description}
               </div>
             ) : null}

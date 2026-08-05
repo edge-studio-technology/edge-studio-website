@@ -9,25 +9,25 @@ type LegalPageProps = {
 
 export function LegalPage({ title, intro, sections }: LegalPageProps) {
   return (
-    <div className='min-h-screen bg-grey-01 text-text-primary'>
+    <div className="min-h-screen bg-grey-01 text-text-primary">
       <Navbar legal />
-      <main className='mx-auto max-w-3xl px-5 py-16 lg:px-8 lg:py-24'>
-        <span className='text-xs font-semibold uppercase tracking-[0.16em] text-brand-01'>
+      <main className="mx-auto max-w-3xl px-5 py-16 lg:px-8 lg:py-24">
+        <span className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-01">
           Edge Studio
         </span>
-        <h1 className='type-display mt-4 text-5xl'>{title}</h1>
-        <p className='mt-6 text-lg leading-relaxed text-text-secondary'>
+        <h1 className="type-display mt-4 text-5xl">{title}</h1>
+        <p className="mt-6 text-lg leading-relaxed text-text-secondary">
           {intro}
         </p>
-        <div className='mt-12 space-y-10'>
+        <div className="mt-12 space-y-10">
           {sections.map(({ heading, body }) => (
             <section key={heading}>
-              <h2 className='type-title text-2xl'>{heading}</h2>
-              <p className='mt-3 leading-relaxed text-text-secondary'>{body}</p>
+              <h2 className="type-title text-2xl">{heading}</h2>
+              <p className="mt-3 leading-relaxed text-text-secondary">{body}</p>
             </section>
           ))}
         </div>
-        <p className='mt-14 border-t border-grey-02 pt-6 text-xs text-text-secondary'>
+        <p className="mt-14 border-t border-grey-02 pt-6 text-xs text-text-secondary">
           Last updated: August 3, 2026. These pages are placeholder text and
           should be reviewed for your organisation and jurisdiction before
           launch.
@@ -41,8 +41,8 @@ export function LegalPage({ title, intro, sections }: LegalPageProps) {
 export function TermsPage() {
   return (
     <LegalPage
-      title='Terms of use'
-      intro='These basic terms describe the general conditions for using Edge Studio. Replace this placeholder with terms reviewed for your product before publishing.'
+      title="Terms of use"
+      intro="These basic terms describe the general conditions for using Edge Studio. Replace this placeholder with terms reviewed for your product before publishing."
       sections={[
         {
           heading: 'Using the service',
@@ -72,8 +72,8 @@ export function TermsPage() {
 export function PrivacyPage() {
   return (
     <LegalPage
-      title='Privacy policy'
-      intro='This basic policy explains the types of information Edge Studio may handle. Replace this placeholder with details about your actual data flows, providers, retention, and legal basis.'
+      title="Privacy policy"
+      intro="This basic policy explains the types of information Edge Studio may handle. Replace this placeholder with details about your actual data flows, providers, retention, and legal basis."
       sections={[
         {
           heading: 'Information we handle',

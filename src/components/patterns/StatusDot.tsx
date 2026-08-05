@@ -1,12 +1,12 @@
-import { useState } from "react";
-import { cx } from "../../lib/cx";
+import { useState } from 'react';
+import { cx } from '../../lib/cx';
 
-export type StatusDotTone = "good" | "warn" | "unknown";
+export type StatusDotTone = 'good' | 'warn' | 'unknown';
 
 const dotToneClass: Record<StatusDotTone, string> = {
-  good: "bg-emerald-500",
-  warn: "bg-red-500",
-  unknown: "bg-slate-300",
+  good: 'bg-emerald-500',
+  warn: 'bg-red-500',
+  unknown: 'bg-slate-300',
 };
 
 export function StatusDot({
@@ -27,7 +27,9 @@ export function StatusDot({
       onMouseLeave={() => setOpen(false)}
     >
       <span className="flex items-center gap-1.5 rounded-full border border-brand-border bg-brand-white px-2.5 py-1 text-xs font-bold text-brand-graphite transition-colors select-none hover:bg-brand-bg">
-        <span className={cx("size-2.5 shrink-0 rounded-full", dotToneClass[tone])} />
+        <span
+          className={cx('size-2.5 shrink-0 rounded-full', dotToneClass[tone])}
+        />
         {label}
       </span>
       {open && (

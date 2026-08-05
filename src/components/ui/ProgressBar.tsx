@@ -1,13 +1,13 @@
-import { ChevronLeft } from "lucide-react";
-import { cx } from "../../lib/cx";
-import { IconButton } from "./Button";
-import { Pill } from "./Pill";
+import { ChevronLeft } from 'lucide-react';
+import { cx } from '../../lib/cx';
+import { IconButton } from './Button';
+import { Pill } from './Pill';
 
 export function ProgressBar({
-  backLabel = "Back",
+  backLabel = 'Back',
   className,
   current,
-  progressLabel = "Progress",
+  progressLabel = 'Progress',
   onBack,
   showBack = true,
   total,
@@ -25,7 +25,7 @@ export function ProgressBar({
   const percent = (safeCurrent / safeTotal) * 100;
 
   return (
-    <div className={cx("gap-detail-close flex w-full items-center", className)}>
+    <div className={cx('gap-detail-close flex w-full items-center', className)}>
       {showBack ? (
         <IconButton
           variant="ghost"

@@ -1,5 +1,5 @@
-import { useId, type InputHTMLAttributes, type ReactNode } from "react";
-import { cx } from "../../lib/cx";
+import { useId, type InputHTMLAttributes, type ReactNode } from 'react';
+import { cx } from '../../lib/cx';
 
 /**
  * ESDS Radio Field: radio + label row, optional indented description.
@@ -13,7 +13,10 @@ export function RadioField({
   disabled,
   id,
   ...props
-}: Omit<InputHTMLAttributes<HTMLInputElement>, "className" | "type" | "size"> & {
+}: Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'className' | 'type' | 'size'
+> & {
   label: ReactNode;
   description?: ReactNode;
   className?: string;
@@ -23,12 +26,12 @@ export function RadioField({
   const descriptionId = description ? `${controlId}-description` : undefined;
 
   return (
-    <div className={cx("gap-detail-fine flex flex-col items-start", className)}>
+    <div className={cx('gap-detail-fine flex flex-col items-start', className)}>
       <label
         htmlFor={controlId}
         className={cx(
-          "gap-detail-next flex min-w-[120px] items-center",
-          disabled ? "cursor-not-allowed" : "cursor-pointer",
+          'gap-detail-next flex min-w-[120px] items-center',
+          disabled ? 'cursor-not-allowed' : 'cursor-pointer',
         )}
       >
         <span className="relative size-4 shrink-0">
@@ -43,19 +46,19 @@ export function RadioField({
           <span
             aria-hidden
             className={cx(
-              "pointer-events-none flex size-4 items-center justify-center overflow-clip rounded-full border",
-              "peer-focus-visible:ring-stroke-active peer-focus-visible:ring-2 peer-focus-visible:ring-offset-2",
+              'pointer-events-none flex size-4 items-center justify-center overflow-clip rounded-full border',
+              'peer-focus-visible:ring-stroke-active peer-focus-visible:ring-2 peer-focus-visible:ring-offset-2',
               "peer-checked:border-2 after:size-2 after:scale-0 after:rounded-full after:content-[''] peer-checked:after:scale-100",
               disabled
-                ? "border-stroke-primary bg-surface-secondary after:bg-icon-disabled"
-                : "border-stroke-primary bg-icon-inverse peer-checked:border-icon-primary after:bg-icon-primary",
+                ? 'border-stroke-primary bg-surface-secondary after:bg-icon-disabled'
+                : 'border-stroke-primary bg-icon-inverse peer-checked:border-icon-primary after:bg-icon-primary',
             )}
           />
         </span>
         <span
           className={cx(
-            "type-body min-w-px flex-1 [overflow-wrap:anywhere]",
-            disabled ? "text-text-tertiary" : "text-text-primary",
+            'type-body min-w-px flex-1 [overflow-wrap:anywhere]',
+            disabled ? 'text-text-tertiary' : 'text-text-primary',
           )}
         >
           {label}
@@ -67,8 +70,8 @@ export function RadioField({
           <p
             id={descriptionId}
             className={cx(
-              "type-body m-0 min-w-px flex-1 [overflow-wrap:anywhere]",
-              disabled ? "text-text-disabled" : "text-text-secondary",
+              'type-body m-0 min-w-px flex-1 [overflow-wrap:anywhere]',
+              disabled ? 'text-text-disabled' : 'text-text-secondary',
             )}
           >
             {description}
@@ -78,4 +81,3 @@ export function RadioField({
     </div>
   );
 }
-

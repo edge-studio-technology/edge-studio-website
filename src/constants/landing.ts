@@ -59,7 +59,8 @@ export const features: Feature[] = [
     title: 'Automation',
     text: 'Chain triggers, conditions, and actions into repeatable workflows.',
     Icon: Workflow,
-    detail: 'Build repeatable workflows from triggers, conditions, and actions.',
+    detail:
+      'Build repeatable workflows from triggers, conditions, and actions.',
   },
   {
     title: 'Integritas',
