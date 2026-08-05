@@ -32,107 +32,311 @@
 - Rebuilt the feature showcase with an animated detail panel, adaptive tab rail, stable panel sizing, and reduced-motion support.
 - Renamed the feature labels to Integritas and Minima for clearer presentation.
 
-- [ADDED 2026-08-04] — Added layered hero cursor interactions including grid highlight, halo, pulse, trail, parallax, and accent responses
+### [ADDED 2026-08-04] — Layered hero cursor interactions
 
-- [FIXED 2026-08-04] — Removed the gap between the fixed navbar and the hero section
+#### Added
 
-- [ADDED 2026-08-04] — Added a reduced-motion-aware cursor glow layered between the hero checker background and content
+- Added grid highlight, halo, pulse, trail, parallax, and accent responses.
 
-- [ADDED 2026-08-04] — Added outside-click dismissal for the tablet navigation drawer
+### [FIXED 2026-08-04] — Removed the navbar-to-hero gap
 
-- [CHANGED 2026-08-04] — Fixed the responsive navbar to remain visible while scrolling on mobile and tablet
+#### Fixed
 
-- [ADDED 2026-08-04] — Added Motion-powered navigation, modal, hero, feature-preview, and roadmap transitions with reduced-motion support
+- Removed the gap between the fixed navbar and the hero section.
 
-- [CHANGED 2026-08-04] — Made active roadmap cards solid brand-color blocks to distinguish them from selectable cards
+### [ADDED 2026-08-04] — Added reduced-motion-aware cursor glow
 
-- [CHANGED 2026-08-04] — Refined link affordances with consistent hover underlines and hero GitHub link styling
+#### Added
 
-- [FIXED 2026-08-04] — Replaced text arrow characters with right-aligned external-link icons
+- Added a cursor glow layered between the hero checker background and content.
 
-- [CHANGED 2026-08-04] — Added consistent external-link indicators to GitHub links and Docs actions
+### [ADDED 2026-08-04] — Added tablet navigation outside-click dismissal
 
-- [CHANGED 2026-08-04] — Simplified the install command panel and restored the text-based Raspberry Pi navbar mark
+#### Added
 
-- [FIXED 2026-08-04] — Connected feature tab selection to responsive preview content
+- Added outside-click dismissal for the tablet navigation drawer.
 
-- [FIXED 2026-08-04] — Restored the desktop feature preview height to match the tab grid
+### [CHANGED 2026-08-04] — Kept the responsive navbar visible
 
-- [CHANGED 2026-08-04] — Standardized feature preview styling across all breakpoints
+#### Changed
 
-- [FIXED 2026-08-04] — Removed duplicate responsive feature previews and aligned mobile/tablet styling
+- Fixed the responsive navbar to remain visible while scrolling on mobile and tablet.
 
-- [FIXED 2026-08-04] — Kept the tablet feature image outside the tabs and description wrapper
+### [ADDED 2026-08-04] — Added Motion-powered transitions
 
-- [CHANGED 2026-08-04] — Split feature tab layouts cleanly across mobile, tablet, and desktop
+#### Added
 
-- [CHANGED 2026-08-04] — Removed tablet feature tab title top spacing
+- Added navigation, modal, hero, feature-preview, and roadmap transitions with reduced-motion support.
 
-- [FIXED 2026-08-04] — Corrected tablet tab orientation and mobile feature content order
+### [CHANGED 2026-08-04] — Refined roadmap card states
 
-- [FIXED 2026-08-04] — Restored the desktop feature tab layout after responsive changes
+#### Changed
 
-- [CHANGED 2026-08-04] — Removed the tablet feature content wrapper
+- Made active roadmap cards solid brand-color blocks to distinguish them from selectable cards.
 
-- [CHANGED 2026-08-04] — Refined mobile and tablet feature tab layouts
+### [CHANGED 2026-08-04] — Refined link affordances
 
-- [CHANGED 2026-08-04] — Made feature tabs icon-only with combined responsive content panels
+#### Changed
 
-- [CHANGED 2026-08-04] — Added an explicit close button inside responsive navigation menus
+- Added consistent hover underlines and refined hero GitHub link styling.
 
-- [ADDED 2026-08-04] — Added full-screen mobile and sliding tablet navigation menus
+### [FIXED 2026-08-04] — Replaced text arrows with external-link icons
 
-- [CHANGED 2026-08-04] — Made the shared navbar fit smaller screens
+#### Fixed
 
-- [CHANGED 2026-08-04] — Increased roadmap phase badge size
+- Replaced text arrow characters with right-aligned external-link icons.
 
-- [CHANGED 2026-08-04] — Styled roadmap phase labels as compact badges
+### [CHANGED 2026-08-04] — Standardized external-link indicators
 
-- [FIXED 2026-08-04] — Layered roadmap markers above connectors with opaque fills
+#### Changed
 
-- [CHANGED 2026-08-04] — Moved roadmap phase labels inside cards and enlarged milestone copy
+- Added consistent external-link indicators to GitHub links and Docs actions.
 
-- [CHANGED 2026-08-04] — Moved roadmap phase labels to large markers beside each card
+### [CHANGED 2026-08-04] — Simplified the install command panel
 
-- [CHANGED 2026-08-03] — Made roadmap milestones vertical and moved landing content into reusable constants
+#### Changed
 
-- [CHANGED 2026-08-03] — Made the navbar brand scroll smoothly to the top
+- Simplified the install command panel and restored the text-based Raspberry Pi navbar mark.
 
-- [CHANGED 2026-08-03] — Highlighted active roadmap cards with the primary brand border
+### [FIXED 2026-08-04] — Connected feature tabs to preview content
 
-- [CHANGED 2026-08-03] — Removed section dividers and added a roadmap navbar link
+#### Fixed
 
-- [FIXED 2026-08-03] — Replaced the unreliable grid mask with a visible hero fade overlay
+- Connected feature tab selection to responsive preview content.
 
-- [FIXED 2026-08-03] — Made the hero grid background fade reliably across browsers
+### [FIXED 2026-08-04] — Restored desktop feature preview height
 
-- [CHANGED 2026-08-03] — Simplified the roadmap into aligned points, lines, and milestone boxes
+#### Fixed
 
-- [CHANGED 2026-08-03] — Reworked the roadmap into a connected timeline component
+- Restored the desktop feature preview height to match the tab grid.
 
-- [ADDED 2026-08-03] — Added a roadmap section to the landing page
+### [CHANGED 2026-08-04] — Standardized feature preview styling
 
-- [CHANGED 2026-08-03] — Added a text variant to the Raspberry Pi mark and enabled it in the navbar
+#### Changed
 
-- [FIXED 2026-08-03] — Fixed Raspberry Pi mark sizing by removing the conflicting width utility
+- Standardized feature preview styling across all breakpoints.
 
-- [CHANGED 2026-08-03] — Added configurable sizing to the Raspberry Pi mark
+### [FIXED 2026-08-04] — Removed duplicate feature previews
 
-- [CHANGED 2026-08-03] — Replaced the text Raspberry Pi badge with the Raspberry Pi SVG mark
+#### Fixed
 
-- [CHANGED 2026-08-03] — Simplified the compact Pi marker to text-only styling
+- Removed duplicate responsive feature previews and aligned mobile/tablet styling.
 
-- [CHANGED 2026-08-03] — Switched the navbar to the compact Pi marker
+### [FIXED 2026-08-04] — Preserved tablet feature image placement
 
-- [CHANGED 2026-08-03] — Extracted Raspberry Pi navbar marker into a reusable component with a compact Pi variant
+#### Fixed
 
-- [CHANGED 2026-08-03] — Added a tilted Raspberry Pi marker to the navbar brand
+- Kept the tablet feature image outside the tabs and description wrapper.
 
-- [CHANGED 2026-08-03] — Made the shared navbar sticky while scrolling
+### [CHANGED 2026-08-04] — Split feature tab layouts by breakpoint
 
-- [CHANGED 2026-08-03] — Removed the hero section bottom border
+#### Changed
 
-- [CHANGED 2026-08-03] — Softened the hero background grid fade
+- Split feature tab layouts cleanly across mobile, tablet, and desktop.
+
+### [CHANGED 2026-08-04] — Removed tablet feature tab title spacing
+
+#### Changed
+
+- Removed tablet feature tab title top spacing.
+
+### [FIXED 2026-08-04] — Corrected responsive feature tab order
+
+#### Fixed
+
+- Corrected tablet tab orientation and mobile feature content order.
+
+### [FIXED 2026-08-04] — Restored desktop feature tab layout
+
+#### Fixed
+
+- Restored the desktop feature tab layout after responsive changes.
+
+### [CHANGED 2026-08-04] — Removed the tablet feature content wrapper
+
+#### Changed
+
+- Removed the tablet feature content wrapper.
+
+### [CHANGED 2026-08-04] — Refined mobile and tablet feature tabs
+
+#### Changed
+
+- Refined mobile and tablet feature tab layouts.
+
+### [CHANGED 2026-08-04] — Combined responsive feature content panels
+
+#### Changed
+
+- Made feature tabs icon-only with combined responsive content panels.
+
+### [CHANGED 2026-08-04] — Added responsive navigation close controls
+
+#### Changed
+
+- Added an explicit close button inside responsive navigation menus.
+
+### [ADDED 2026-08-04] — Added responsive navigation menus
+
+#### Added
+
+- Added full-screen mobile and sliding tablet navigation menus.
+
+### [CHANGED 2026-08-04] — Improved navbar small-screen fit
+
+#### Changed
+
+- Made the shared navbar fit smaller screens.
+
+### [CHANGED 2026-08-04] — Increased roadmap phase badge size
+
+#### Changed
+
+- Increased roadmap phase badge size.
+
+### [CHANGED 2026-08-04] — Styled roadmap phase labels as badges
+
+#### Changed
+
+- Styled roadmap phase labels as compact badges.
+
+### [FIXED 2026-08-04] — Layered roadmap markers above connectors
+
+#### Fixed
+
+- Layered roadmap markers above connectors with opaque fills.
+
+### [CHANGED 2026-08-04] — Repositioned roadmap phase labels
+
+#### Changed
+
+- Moved roadmap phase labels inside cards and enlarged milestone copy.
+
+### [CHANGED 2026-08-04] — Enlarged roadmap phase markers
+
+#### Changed
+
+- Moved roadmap phase labels to large markers beside each card.
+
+### [CHANGED 2026-08-03] — Made roadmap milestones vertical
+
+#### Changed
+
+- Made roadmap milestones vertical and moved landing content into reusable constants.
+
+### [CHANGED 2026-08-03] — Added smooth navbar brand scrolling
+
+#### Changed
+
+- Made the navbar brand scroll smoothly to the top.
+
+### [CHANGED 2026-08-03] — Highlighted active roadmap cards
+
+#### Changed
+
+- Highlighted active roadmap cards with the primary brand border.
+
+### [CHANGED 2026-08-03] — Added roadmap navigation
+
+#### Changed
+
+- Removed section dividers and added a roadmap navbar link.
+
+### [FIXED 2026-08-03] — Replaced the unreliable grid mask
+
+#### Fixed
+
+- Replaced the unreliable grid mask with a visible hero fade overlay.
+
+### [FIXED 2026-08-03] — Made the hero grid fade cross-browser
+
+#### Fixed
+
+- Made the hero grid background fade reliably across browsers.
+
+### [CHANGED 2026-08-03] — Simplified the roadmap layout
+
+#### Changed
+
+- Simplified the roadmap into aligned points, lines, and milestone boxes.
+
+### [CHANGED 2026-08-03] — Reworked the roadmap timeline
+
+#### Changed
+
+- Reworked the roadmap into a connected timeline component.
+
+### [ADDED 2026-08-03] — Added the roadmap section
+
+#### Added
+
+- Added a roadmap section to the landing page.
+
+### [CHANGED 2026-08-03] — Added a text Raspberry Pi mark variant
+
+#### Changed
+
+- Added a text variant to the Raspberry Pi mark and enabled it in the navbar.
+
+### [FIXED 2026-08-03] — Fixed Raspberry Pi mark sizing
+
+#### Fixed
+
+- Fixed Raspberry Pi mark sizing by removing the conflicting width utility.
+
+### [CHANGED 2026-08-03] — Added configurable Raspberry Pi mark sizing
+
+#### Changed
+
+- Added configurable sizing to the Raspberry Pi mark.
+
+### [CHANGED 2026-08-03] — Replaced the text Raspberry Pi badge
+
+#### Changed
+
+- Replaced the text Raspberry Pi badge with the Raspberry Pi SVG mark.
+
+### [CHANGED 2026-08-03] — Simplified the compact Pi marker
+
+#### Changed
+
+- Simplified the compact Pi marker to text-only styling.
+
+### [CHANGED 2026-08-03] — Switched the navbar to the compact Pi marker
+
+#### Changed
+
+- Switched the navbar to the compact Pi marker.
+
+### [CHANGED 2026-08-03] — Extracted the Raspberry Pi navbar marker
+
+#### Changed
+
+- Extracted the Raspberry Pi navbar marker into a reusable component with a compact Pi variant.
+
+### [CHANGED 2026-08-03] — Added a tilted Raspberry Pi navbar marker
+
+#### Changed
+
+- Added a tilted Raspberry Pi marker to the navbar brand.
+
+### [CHANGED 2026-08-03] — Made the shared navbar sticky
+
+#### Changed
+
+- Made the shared navbar sticky while scrolling.
+
+### [CHANGED 2026-08-03] — Removed the hero section bottom border
+
+#### Changed
+
+- Removed the hero section bottom border.
+
+### [CHANGED 2026-08-03] — Softened the hero grid fade
+
+#### Changed
+
+- Softened the hero background grid fade.
 
 ### [FIXED 2026-08-03] — Restore compact legal-page back arrow
 
