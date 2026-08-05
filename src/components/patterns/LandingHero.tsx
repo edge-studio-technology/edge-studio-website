@@ -1,9 +1,11 @@
 import { useRef, useState } from 'react';
 import {
   motion,
+  useMotionTemplate,
   useMotionValue,
   useReducedMotion,
   useSpring,
+  useTransform,
 } from 'motion/react';
 import { Check, ExternalLink, Image, Link2 } from 'lucide-react';
 import { Button } from '../ui/Button';
@@ -37,9 +39,17 @@ export function LandingHero() {
   const heroRef = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
   const [active, setActive] = useState(false);
-  const [hue, setHue] = useState(0);
-  const glowX = useSpring(useMotionValue(0), { stiffness: 180, damping: 28 });
-  const glowY = useSpring(useMotionValue(0), { stiffness: 180, damping: 28 });
+  const pointerX = useSpring(useMotionValue(0), {
+    stiffness: 180,
+    damping: 28,
+  });
+  const pointerY = useSpring(useMotionValue(0), {
+    stiffness: 180,
+    damping: 28,
+  });
+  const glowX = useTransform(pointerX, (value) => value - 160);
+  const glowY = useTransform(pointerY, (value) => value - 160);
+  const gridHighlightMask = useMotionTemplate`radial-gradient(circle 180px at ${pointerX}px ${pointerY}px, black 0%, rgba(0, 0, 0, 0.8) 42%, transparent 72%)`;
   const parallaxX = useSpring(useMotionValue(0), {
     stiffness: 120,
     damping: 24,
@@ -55,11 +65,22 @@ export function LandingHero() {
     if (!bounds) return;
     const x = event.clientX - bounds.left;
     const y = event.clientY - bounds.top;
-    glowX.set(x - 160);
-    glowY.set(y - 160);
+    pointerX.set(x);
+    pointerY.set(y);
     parallaxX.set((x / bounds.width - 0.5) * 8);
     parallaxY.set((y / bounds.height - 0.5) * 8);
-    setHue(Math.round((x / bounds.width) * 28 - 14));
+  }
+
+  function handlePointerEnter(event: React.PointerEvent<HTMLElement>) {
+    if (reduceMotion || event.pointerType === 'touch') return;
+    handlePointerMove(event);
+    setActive(true);
+  }
+
+  function handlePointerLeave() {
+    setActive(false);
+    parallaxX.set(0);
+    parallaxY.set(0);
   }
 
   const reveal = reduceMotion ? undefined : { opacity: 0, y: 18 };
@@ -67,34 +88,55 @@ export function LandingHero() {
     <section
       ref={heroRef}
       className="relative overflow-hidden border-b border-grey-02"
-      onPointerEnter={() => setActive(true)}
-      onPointerLeave={() => setActive(false)}
+      onPointerEnter={handlePointerEnter}
+      onPointerLeave={handlePointerLeave}
       onPointerMove={handlePointerMove}
     >
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(#e6e8ea_1px,transparent_1px),linear-gradient(90deg,#e6e8ea_1px,transparent_1px)] bg-size-[48px_48px]" />
       {!reduceMotion && (
-        <motion.div
-          aria-hidden="true"
-          className="pointer-events-none absolute left-0 top-0 z-[1] size-80 rounded-full blur-3xl"
-          style={{
-            x: glowX,
-            y: glowY,
-            filter: `hue-rotate(${hue}deg) blur(64px)`,
-            background:
-              'radial-gradient(circle, rgba(109,72,220,0.3), transparent 68%)',
-          }}
-          animate={{
-            opacity: active ? 0.8 : 0,
-            scale: active ? [1, 1.06, 1] : 1,
-          }}
-          transition={{
-            duration: 2.4,
-            ease: 'easeInOut',
-            repeat: active ? Infinity : 0,
-          }}
-        />
+        <>
+          <motion.div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(rgba(109,72,220,0.42)_1px,transparent_1px),linear-gradient(90deg,rgba(109,72,220,0.42)_1px,transparent_1px)] bg-size-[48px_48px]"
+            style={{
+              maskImage: gridHighlightMask,
+              WebkitMaskImage: gridHighlightMask,
+            }}
+            animate={{ opacity: active ? 1 : 0 }}
+            transition={{ duration: 0.2 }}
+          />
+          <motion.div
+            aria-hidden="true"
+            className="pointer-events-none absolute left-0 top-0 z-[2] size-80 rounded-full blur-2xl"
+            style={{
+              x: glowX,
+              y: glowY,
+              background:
+                'radial-gradient(circle, rgba(109,72,220,0.3), rgba(109,72,220,0.12) 42%, transparent 70%)',
+            }}
+            animate={{
+              opacity: active ? [0.72, 0.9, 0.72] : 0,
+              scale: active ? [1, 1.04, 1] : 0.96,
+            }}
+            transition={{
+              duration: active ? 2.4 : 0.2,
+              ease: 'easeInOut',
+              repeat: active ? Infinity : 0,
+            }}
+          />
+          <motion.div
+            aria-hidden="true"
+            className="pointer-events-none absolute left-0 top-0 z-[3] size-80 rounded-full border border-brand-01/25"
+            style={{ x: glowX, y: glowY }}
+            animate={{
+              opacity: active ? 1 : 0,
+              scale: active ? 1 : 0.96,
+            }}
+            transition={{ duration: 0.22 }}
+          />
+        </>
       )}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-linear-to-b from-transparent to-grey-01" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[4] h-48 bg-linear-to-b from-transparent to-grey-01" />
       <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-28">
         <motion.div
           initial={reveal}
@@ -112,11 +154,9 @@ export function LandingHero() {
             {landingCopy.heroText}
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-5">
-            <motion.div style={{ x: parallaxX, y: parallaxY }}>
-              <Button variant="accent" iconEnd={<Link2 size={16} />}>
-                {landingCopy.docsLink}
-              </Button>
-            </motion.div>
+            <Button variant="accent" iconEnd={<Link2 size={16} />}>
+              {landingCopy.docsLink}
+            </Button>
             <a
               href="https://github.com"
               target="_blank"

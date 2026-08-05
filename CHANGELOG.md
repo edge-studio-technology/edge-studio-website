@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+### [FIXED 2026-08-05] — Restored layered hero cursor motion
+
+#### Fixed
+
+- Restored the cursor-following glow, highlighted grid, and crisp glow outline lost during the component refactor.
+- Kept parallax movement on the hero preview only and returned it to center when the pointer leaves the hero.
+
 ### [FIXED 2026-08-05] — Hardened responsive styling and accessibility
 
 #### Fixed
