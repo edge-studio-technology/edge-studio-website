@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### [CHANGED 2026-08-05] — Emphasized the hero install prompt
+
+#### Changed
+
+- Turned the install heading into a larger tab connected to the command box, moved the prompt closer to the main hero content, and placed its script link below the box on mobile.
+
 ### [FIXED 2026-08-05] — Restored layered hero cursor motion
 
 #### Fixed

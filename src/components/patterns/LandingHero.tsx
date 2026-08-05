@@ -137,7 +137,7 @@ export function LandingHero() {
         </>
       )}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[4] h-48 bg-linear-to-b from-transparent to-grey-01" />
-      <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-28">
+      <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-5 pt-20 pb-12 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:pt-28 lg:pb-16">
         <motion.div
           initial={reveal}
           animate={{ opacity: 1, y: 0 }}
@@ -186,22 +186,24 @@ export function LandingHero() {
         </motion.div>
       </div>
       <div className="relative z-10 mx-auto max-w-6xl px-5 pb-20 lg:px-8 lg:pb-28">
-        <div className="mb-2 flex items-center justify-between gap-3 text-xs font-semibold">
-          <span>{landingCopy.installTitle}</span>
+        <div className="relative">
+          <h2 className="type-callout relative z-10 w-fit rounded-t-soft bg-core-black px-5 py-3 text-core-white">
+            {landingCopy.installTitle}
+          </h2>
+          <div className="-mt-px rounded-b-soft rounded-tr-soft border border-core-black bg-core-black p-3 font-mono text-xs text-core-white">
+            <CopyableCode
+              value={
+                'git clone <your-fork-or-repo> edge-studio\ncd edge-studio && ./install.sh'
+              }
+            />
+          </div>
           <a
-            className="inline-flex min-h-11 items-center gap-1 rounded-tight underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-01"
+            className="mt-2 ml-auto flex min-h-11 w-fit items-center gap-1 rounded-tight text-sm underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-01 sm:absolute sm:top-0 sm:right-0 sm:mt-0"
             href="#install"
           >
             {landingCopy.installLink}
             <ExternalLink size={15} />
           </a>
-        </div>
-        <div className="rounded-soft border border-grey-03 bg-core-black p-3 font-mono text-xs text-core-white">
-          <CopyableCode
-            value={
-              'git clone <your-fork-or-repo> edge-studio\ncd edge-studio && ./install.sh'
-            }
-          />
         </div>
       </div>
     </section>

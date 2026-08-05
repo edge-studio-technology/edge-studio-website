@@ -30,7 +30,7 @@ export const landingCopy = {
   githubLink: 'View on GitHub',
   previewTitle: 'Dashboard screenshot',
   previewText: 'A real Edge Studio view will appear here.',
-  installTitle: 'Install on Linux & Raspberry Pi',
+  installTitle: 'Install on Raspberry Pi',
   installLink: 'View install script',
   featuresEyebrow: 'What you get',
   featuresTitle: 'Everything runs on the Pi you already own.',
