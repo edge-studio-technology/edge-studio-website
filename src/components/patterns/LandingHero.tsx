@@ -92,12 +92,12 @@ export function LandingHero() {
       onPointerLeave={handlePointerLeave}
       onPointerMove={handlePointerMove}
     >
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(#e6e8ea_1px,transparent_1px),linear-gradient(90deg,#e6e8ea_1px,transparent_1px)] bg-size-[48px_48px]" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(#e6e8ea_1px,transparent_1px),linear-gradient(90deg,#e6e8ea_1px,transparent_1px)] bg-size-[52px_52px]" />
       {!reduceMotion && (
         <>
           <motion.div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(rgba(109,72,220,0.42)_1px,transparent_1px),linear-gradient(90deg,rgba(109,72,220,0.42)_1px,transparent_1px)] bg-size-[48px_48px]"
+            className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(rgba(109,72,220,0.42)_1px,transparent_1px),linear-gradient(90deg,rgba(109,72,220,0.42)_1px,transparent_1px)] bg-size-[52px_52px]"
             style={{
               maskImage: gridHighlightMask,
               WebkitMaskImage: gridHighlightMask,
@@ -136,7 +136,6 @@ export function LandingHero() {
           />
         </>
       )}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[4] h-48 bg-linear-to-b from-transparent to-grey-01" />
       <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-5 pt-20 pb-12 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:pt-28 lg:pb-16">
         <motion.div
           initial={reveal}

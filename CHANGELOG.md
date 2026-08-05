@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### [CHANGED 2026-08-05] — Simplified the hero checkerboard
+
+#### Changed
+
+- Removed the bottom fade and increased the hero checkerboard spacing so the pattern remains clean and consistent across the section.
+
 ### [CHANGED 2026-08-05] — Refined landing section color rhythm
 
 #### Changed
