@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### [CHANGED 2026-08-05] — Centered feature showcase content
+
+#### Changed
+
+- Vertically centered the feature showcase card contents for a more balanced layout.
+
 ### [CHANGED 2026-08-05] — Updated roadmap priorities
 
 #### Changed

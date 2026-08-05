@@ -46,7 +46,7 @@ export function FeatureSection() {
           {landingCopy.featuresTitle}
         </h2>
       </div>
-      <Card className="mb-8 grid gap-8 border border-grey-02 bg-core-white sm:grid-cols-[0.8fr_1.2fr]">
+      <Card className="mb-8 grid gap-8 items-center border border-grey-02 bg-core-white sm:grid-cols-[0.8fr_1.2fr]">
         <div>
           <span className="mb-4 inline-flex rounded-full bg-brand-01 p-3 text-core-white">
             <LayoutDashboard size={26} />
