@@ -62,13 +62,13 @@ export const features: Feature[] = [
     detail: 'Build repeatable workflows from triggers, conditions, and actions.',
   },
   {
-    title: 'Stamping & proofs',
+    title: 'Integritas',
     text: 'Hash and stamp any file or automated reading, then check its status anytime.',
     Icon: ShieldCheck,
     detail: 'Turn readings and files into verifiable proofs with one click.',
   },
   {
-    title: 'Minima node',
+    title: 'Minima',
     text: 'A real node on the ledger, running on your own hardware.',
     Icon: Server,
     detail: 'Keep a live ledger node running locally on your Raspberry Pi.',

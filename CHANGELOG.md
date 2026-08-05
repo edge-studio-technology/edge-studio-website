@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+### [CHANGED 2026-08-05] — Reworked the responsive feature showcase
+
+#### Changed
+
+- Rebuilt the feature showcase with an animated detail panel, adaptive tab rail, stable panel sizing, and reduced-motion support.
+- Renamed the feature labels to Integritas and Minima for clearer presentation.
+
 - [ADDED 2026-08-04] — Added layered hero cursor interactions including grid highlight, halo, pulse, trail, parallax, and accent responses
 
 - [FIXED 2026-08-04] — Removed the gap between the fixed navbar and the hero section
