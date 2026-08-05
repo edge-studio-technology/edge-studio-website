@@ -42,4 +42,5 @@ export {
 } from './patterns/Table';
 export { FeatureSection } from './patterns/FeatureSection';
 export { LandingHero } from './patterns/LandingHero';
+export { PoweredBySection } from './patterns/PoweredBySection';
 export { SiteFooter } from './patterns/SiteFooter';

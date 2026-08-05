@@ -2,6 +2,7 @@ import {
   FeatureSection,
   LandingHero,
   Navbar,
+  PoweredBySection,
   RoadmapTimeline,
   SiteFooter,
 } from './components';
@@ -14,6 +15,7 @@ function App() {
       <main id="top">
         <LandingHero />
         <FeatureSection />
+        <PoweredBySection />
         <section
           id="roadmap"
           className="scroll-mt-20 bg-core-white sm:scroll-mt-24"

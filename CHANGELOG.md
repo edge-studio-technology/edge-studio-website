@@ -2,6 +2,18 @@
 
 ## [Unreleased]
 
+### [CHANGED 2026-08-05] — Refined landing section color rhythm
+
+#### Changed
+
+- Alternated white and light-grey landing sections, removed internal partner dividers, and standardized full-width section separators.
+
+### [ADDED 2026-08-05] — Added technology partner section
+
+#### Added
+
+- Added a landing-page section promoting Minima and Integritas with clearly labeled placeholders for their final logos.
+
 ### [CHANGED 2026-08-05] — Centered feature showcase content
 
 #### Changed

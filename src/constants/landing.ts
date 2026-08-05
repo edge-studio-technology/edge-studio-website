@@ -41,6 +41,10 @@ export const landingCopy = {
     'Automate it with chained workflow rules',
     'Stamp it and verify proof anytime',
   ],
+  poweredByEyebrow: 'Built on verifiable foundations',
+  poweredByTitle: 'Powered by Minima and Integritas.',
+  poweredByText:
+    'Minima runs the local ledger. Integritas hashes and stamps the data Edge Studio captures.',
   roadmapEyebrow: 'Roadmap',
   roadmapTitle: 'A clearer path from data to trust.',
   roadmapText:
