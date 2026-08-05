@@ -30,7 +30,7 @@ export const landingCopy = {
   githubLink: 'View on GitHub',
   previewTitle: 'Dashboard screenshot',
   previewText: 'A real Edge Studio view will appear here.',
-  installTitle: 'Install on Linux & Raspberry Pi',
+  installTitle: 'Install on Raspberry Pi',
   installLink: 'View install script',
   featuresEyebrow: 'What you get',
   featuresTitle: 'Everything runs on the Pi you already own.',
@@ -41,6 +41,10 @@ export const landingCopy = {
     'Automate it with chained workflow rules',
     'Stamp it and verify proof anytime',
   ],
+  poweredByEyebrow: 'Built on verifiable foundations',
+  poweredByTitle: 'Powered by Minima and Integritas.',
+  poweredByText:
+    'Minima runs the local ledger. Integritas hashes and stamps the data Edge Studio captures.',
   roadmapEyebrow: 'Roadmap',
   roadmapTitle: 'A clearer path from data to trust.',
   roadmapText:
@@ -59,16 +63,17 @@ export const features: Feature[] = [
     title: 'Automation',
     text: 'Chain triggers, conditions, and actions into repeatable workflows.',
     Icon: Workflow,
-    detail: 'Build repeatable workflows from triggers, conditions, and actions.',
+    detail:
+      'Build repeatable workflows from triggers, conditions, and actions.',
   },
   {
-    title: 'Stamping & proofs',
+    title: 'Integritas',
     text: 'Hash and stamp any file or automated reading, then check its status anytime.',
     Icon: ShieldCheck,
     detail: 'Turn readings and files into verifiable proofs with one click.',
   },
   {
-    title: 'Minima node',
+    title: 'Minima',
     text: 'A real node on the ledger, running on your own hardware.',
     Icon: Server,
     detail: 'Keep a live ledger node running locally on your Raspberry Pi.',
@@ -83,15 +88,21 @@ export const roadmap: RoadmapItem[] = [
     state: 'active',
   },
   {
-    phase: 'Next',
-    title: 'Automation flows',
-    text: 'Build repeatable workflows from triggers and actions.',
-    state: 'passive',
-  },
-  {
     phase: 'Soon',
     title: 'More integrations',
     text: 'Bring more sensors, APIs, and edge devices into the same view.',
+    state: 'passive',
+  },
+  {
+    phase: 'Next',
+    title: 'Modules building with an in-app IDE',
+    text: 'Build and customize modules directly inside Edge Studio.',
+    state: 'passive',
+  },
+  {
+    phase: 'V2',
+    title: 'Marketplace',
+    text: 'Discover and install community-built modules to build scale pools, monetize your data assets, and turn them into data products.',
     state: 'passive',
   },
 ];

@@ -1,4 +1,4 @@
-import { cx } from "../lib/cx";
+import { cx } from '../../lib/cx';
 
 export type SubTabOption<T extends string> = {
   value: T;
@@ -19,7 +19,14 @@ export function SubTabs<T extends string>({
   className?: string;
 }) {
   return (
-    <div className={cx("flex w-fit flex-wrap gap-1.5 rounded-[18px] border border-slate-200 bg-slate-100/80 p-1.5 shadow-sm", className)} role="tablist" aria-label={label}>
+    <div
+      className={cx(
+        'flex w-fit flex-wrap gap-1.5 rounded-[18px] border border-slate-200 bg-slate-100/80 p-1.5 shadow-sm',
+        className,
+      )}
+      role="tablist"
+      aria-label={label}
+    >
       {options.map((option) => {
         const active = value === option.value;
 
@@ -30,10 +37,10 @@ export function SubTabs<T extends string>({
             role="tab"
             aria-selected={active}
             className={cx(
-              "rounded-[14px] border px-3.5 py-2.5 text-sm font-extrabold transition-colors",
+              'rounded-[14px] border px-3.5 py-2.5 text-sm font-extrabold transition-colors',
               active
-                ? "border-slate-950 bg-slate-950 text-white shadow-sm"
-                : "border-transparent bg-transparent text-slate-600 hover:bg-white hover:text-slate-950",
+                ? 'border-slate-950 bg-slate-950 text-white shadow-sm'
+                : 'border-transparent bg-transparent text-slate-600 hover:bg-white hover:text-slate-950',
             )}
             onClick={() => onChange(option.value)}
           >
@@ -44,4 +51,3 @@ export function SubTabs<T extends string>({
     </div>
   );
 }
-

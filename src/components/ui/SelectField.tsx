@@ -1,10 +1,10 @@
-import { useId, type ReactNode, type SelectHTMLAttributes } from "react";
-import { ChevronDown } from "lucide-react";
-import { cx } from "../../lib/cx";
-import { Label } from "./Label";
+import { useId, type ReactNode, type SelectHTMLAttributes } from 'react';
+import { ChevronDown } from 'lucide-react';
+import { cx } from '../../lib/cx';
+import { Label } from './Label';
 
 const selectClass =
-  "h-[44px] min-w-[120px] w-full appearance-none rounded-loose border border-stroke-primary bg-surface-always-white py-0 pl-detail-close pr-10 type-body text-text-primary outline-none transition-[border-color] duration-200 focus-visible:border-stroke-active disabled:cursor-not-allowed disabled:bg-surface-primary disabled:text-text-disabled aria-invalid:border-stroke-error motion-reduce:transition-none";
+  'h-[44px] min-w-[120px] w-full appearance-none rounded-loose border border-stroke-primary bg-surface-always-white py-0 pl-detail-close pr-10 type-body text-text-primary outline-none transition-[border-color] duration-200 focus-visible:border-stroke-active disabled:cursor-not-allowed disabled:bg-surface-primary disabled:text-text-disabled aria-invalid:border-stroke-error motion-reduce:transition-none';
 
 export type SelectOption = {
   value: string;
@@ -20,7 +20,8 @@ function Select({
   children,
   ...props
 }: SelectHTMLAttributes<HTMLSelectElement>) {
-  const isPlaceholder = value === "" || (value === undefined && defaultValue === "");
+  const isPlaceholder =
+    value === '' || (value === undefined && defaultValue === '');
 
   return (
     <div className="relative w-full min-w-[120px]">
@@ -29,15 +30,19 @@ function Select({
         value={value}
         defaultValue={defaultValue}
         disabled={disabled}
-        className={cx(selectClass, isPlaceholder && "text-text-disabled", className)}
+        className={cx(
+          selectClass,
+          isPlaceholder && 'text-text-disabled',
+          className,
+        )}
       >
         {children}
       </select>
       <ChevronDown
         aria-hidden
         className={cx(
-          "right-detail-close pointer-events-none absolute top-1/2 size-4 -translate-y-1/2",
-          disabled ? "text-icon-disabled" : "text-icon-primary",
+          'right-detail-close pointer-events-none absolute top-1/2 size-4 -translate-y-1/2',
+          disabled ? 'text-icon-disabled' : 'text-icon-primary',
         )}
       />
     </div>
@@ -58,7 +63,7 @@ export function SelectField({
   options,
   placeholder,
   ...props
-}: Omit<SelectHTMLAttributes<HTMLSelectElement>, "className" | "children"> & {
+}: Omit<SelectHTMLAttributes<HTMLSelectElement>, 'className' | 'children'> & {
   label?: ReactNode;
   description?: ReactNode;
   error?: ReactNode;
@@ -70,10 +75,11 @@ export function SelectField({
   const controlId = id ?? autoId;
   const descriptionId = description ? `${controlId}-description` : undefined;
   const errorId = error ? `${controlId}-error` : undefined;
-  const describedBy = [descriptionId, errorId].filter(Boolean).join(" ") || undefined;
+  const describedBy =
+    [descriptionId, errorId].filter(Boolean).join(' ') || undefined;
 
   return (
-    <div className={cx("gap-detail-next flex flex-col", className)}>
+    <div className={cx('gap-detail-next flex flex-col', className)}>
       {label ? (
         <Label htmlFor={controlId} disabled={disabled}>
           {label}
@@ -83,8 +89,8 @@ export function SelectField({
         <p
           id={descriptionId}
           className={cx(
-            "type-meta m-0 leading-none",
-            disabled ? "text-text-disabled" : "text-text-secondary",
+            'type-meta m-0 leading-none',
+            disabled ? 'text-text-disabled' : 'text-text-secondary',
           )}
         >
           {description}
@@ -99,17 +105,24 @@ export function SelectField({
       >
         {placeholder != null ? <option value="">{placeholder}</option> : null}
         {options.map((option) => (
-          <option key={option.value} value={option.value} disabled={option.disabled}>
+          <option
+            key={option.value}
+            value={option.value}
+            disabled={option.disabled}
+          >
             {option.label}
           </option>
         ))}
       </Select>
       {error ? (
-        <p id={errorId} role="alert" className="type-meta text-text-error m-0 leading-none">
+        <p
+          id={errorId}
+          role="alert"
+          className="type-meta text-text-error m-0 leading-none"
+        >
           {error}
         </p>
       ) : null}
     </div>
   );
 }
-

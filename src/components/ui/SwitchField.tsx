@@ -1,5 +1,5 @@
-import { useId, type InputHTMLAttributes, type ReactNode } from "react";
-import { cx } from "../../lib/cx";
+import { useId, type InputHTMLAttributes, type ReactNode } from 'react';
+import { cx } from '../../lib/cx';
 
 /**
  * ESDS Switch Field: label + 40×24 switch row, optional full-width description.
@@ -12,7 +12,10 @@ export function SwitchField({
   disabled,
   id,
   ...props
-}: Omit<InputHTMLAttributes<HTMLInputElement>, "className" | "type" | "size" | "role"> & {
+}: Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'className' | 'type' | 'size' | 'role'
+> & {
   label?: ReactNode;
   description?: ReactNode;
   className?: string;
@@ -22,19 +25,24 @@ export function SwitchField({
   const descriptionId = description ? `${controlId}-description` : undefined;
 
   return (
-    <div className={cx("gap-detail-fine flex min-w-[120px] flex-col items-start", className)}>
+    <div
+      className={cx(
+        'gap-detail-fine flex min-w-[120px] flex-col items-start',
+        className,
+      )}
+    >
       <label
         htmlFor={controlId}
         className={cx(
-          "gap-detail-next flex w-full items-center",
-          disabled ? "cursor-not-allowed" : "cursor-pointer",
+          'gap-detail-next flex w-full items-center',
+          disabled ? 'cursor-not-allowed' : 'cursor-pointer',
         )}
       >
-        {label != null && label !== "" ? (
+        {label != null && label !== '' ? (
           <span
             className={cx(
-              "type-body min-w-px flex-1 [overflow-wrap:anywhere]",
-              disabled ? "text-text-disabled" : "text-text-primary",
+              'type-body min-w-px flex-1 [overflow-wrap:anywhere]',
+              disabled ? 'text-text-disabled' : 'text-text-primary',
             )}
           >
             {label}
@@ -53,12 +61,12 @@ export function SwitchField({
           <span
             aria-hidden
             className={cx(
-              "pointer-events-none flex h-6 w-10 items-center rounded-full border p-[3px]",
-              "peer-focus-visible:ring-stroke-active peer-focus-visible:ring-2 peer-focus-visible:ring-offset-2",
-              "peer-checked:[&>span]:translate-x-[16px]",
+              'pointer-events-none flex h-6 w-10 items-center rounded-full border p-[3px]',
+              'peer-focus-visible:ring-stroke-active peer-focus-visible:ring-2 peer-focus-visible:ring-offset-2',
+              'peer-checked:[&>span]:translate-x-[16px]',
               disabled
-                ? "border-stroke-primary bg-surface-secondary [&>span]:bg-icon-disabled"
-                : "border-stroke-primary bg-icon-inverse [&>span]:bg-icon-tertiary peer-checked:border-transparent peer-checked:bg-icon-primary peer-checked:[&>span]:bg-icon-inverse",
+                ? 'border-stroke-primary bg-surface-secondary [&>span]:bg-icon-disabled'
+                : 'border-stroke-primary bg-icon-inverse [&>span]:bg-icon-tertiary peer-checked:border-transparent peer-checked:bg-icon-primary peer-checked:[&>span]:bg-icon-inverse',
             )}
           >
             <span className="size-[18px] rounded-full transition-transform" />
@@ -69,8 +77,8 @@ export function SwitchField({
         <p
           id={descriptionId}
           className={cx(
-            "type-body m-0 w-full [overflow-wrap:anywhere]",
-            disabled ? "text-text-disabled" : "text-text-secondary",
+            'type-body m-0 w-full [overflow-wrap:anywhere]',
+            disabled ? 'text-text-disabled' : 'text-text-secondary',
           )}
         >
           {description}
@@ -79,4 +87,3 @@ export function SwitchField({
     </div>
   );
 }
-

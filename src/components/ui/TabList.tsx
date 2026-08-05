@@ -1,5 +1,5 @@
-import type { ButtonHTMLAttributes, ReactNode } from "react";
-import { cx } from "../../lib/cx";
+import type { ButtonHTMLAttributes, ReactNode } from 'react';
+import { cx } from '../../lib/cx';
 
 export type TabOption<T extends string> = {
   value: T;
@@ -10,15 +10,15 @@ export type TabOption<T extends string> = {
 };
 
 const tabItemBaseClass =
-  "inline-flex cursor-pointer items-center justify-center gap-detail-next overflow-clip border-b border-solid p-detail-next type-body transition-colors duration-200 focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-stroke-active focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed motion-reduce:transition-none";
+  'inline-flex cursor-pointer items-center justify-center gap-detail-next overflow-clip border-b border-solid p-detail-next type-body transition-colors duration-200 focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-stroke-active focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed motion-reduce:transition-none';
 
-const tabItemSelectedClass = "border-stroke-active text-text-primary";
+const tabItemSelectedClass = 'border-stroke-active text-text-primary';
 
 const tabItemIdleClass =
-  "border-stroke-secondary text-text-tertiary enabled:hover:border-stroke-primary enabled:hover:text-text-primary disabled:border-transparent disabled:text-text-disabled";
+  'border-stroke-secondary text-text-tertiary enabled:hover:border-stroke-primary enabled:hover:text-text-primary disabled:border-transparent disabled:text-text-disabled';
 
 const iconSlotClass =
-  "inline-flex size-4 shrink-0 items-center justify-center text-current [&>svg]:size-full";
+  'inline-flex size-4 shrink-0 items-center justify-center text-current [&>svg]:size-full';
 
 /**
  * ESDS Tab: underline segment.
@@ -30,7 +30,7 @@ function TabItem({
   iconEnd,
   iconStart,
   selected,
-  type = "button",
+  type = 'button',
   ...props
 }: ButtonHTMLAttributes<HTMLButtonElement> & {
   children: ReactNode;
@@ -75,7 +75,11 @@ export function TabList<T extends string>({
   className?: string;
 }) {
   return (
-    <div role="tablist" aria-label={label} className={cx("inline-flex items-center", className)}>
+    <div
+      role="tablist"
+      aria-label={label}
+      className={cx('inline-flex items-center', className)}
+    >
       {options.map((option) => {
         const selected = value === option.value;
 

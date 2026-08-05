@@ -7,11 +7,11 @@ import {
   useState,
   type HTMLAttributes,
   type ReactNode,
-} from "react";
-import { createPortal } from "react-dom";
-import { cx } from "../../lib/cx";
+} from 'react';
+import { createPortal } from 'react-dom';
+import { cx } from '../../lib/cx';
 
-export type TooltipPlacement = "top" | "bottom" | "left" | "right";
+export type TooltipPlacement = 'top' | 'bottom' | 'left' | 'right';
 
 const GAP_PX = 8;
 const OPEN_DELAY_MS = 150;
@@ -19,25 +19,25 @@ const CLOSE_DELAY_MS = 100;
 const VIEWPORT_PAD = 8;
 
 const OPPOSITE: Record<TooltipPlacement, TooltipPlacement> = {
-  top: "bottom",
-  bottom: "top",
-  left: "right",
-  right: "left",
+  top: 'bottom',
+  bottom: 'top',
+  left: 'right',
+  right: 'left',
 };
 
 const beakPositionClass: Record<TooltipPlacement, string> = {
-  top: "bottom-[-4px] left-1/2 -translate-x-1/2",
-  bottom: "top-[-4px] left-1/2 -translate-x-1/2",
-  left: "right-[-4px] top-1/2 -translate-y-1/2",
-  right: "left-[-4px] top-1/2 -translate-y-1/2",
+  top: 'bottom-[-4px] left-1/2 -translate-x-1/2',
+  bottom: 'top-[-4px] left-1/2 -translate-x-1/2',
+  left: 'right-[-4px] top-1/2 -translate-y-1/2',
+  right: 'left-[-4px] top-1/2 -translate-y-1/2',
 };
 
 /** Two sides of the rotated square so the outline continues into the beak tip. */
 const beakBorderClass: Record<TooltipPlacement, string> = {
-  top: "border-b border-r",
-  bottom: "border-t border-l",
-  left: "border-t border-r",
-  right: "border-b border-l",
+  top: 'border-b border-r',
+  bottom: 'border-t border-l',
+  left: 'border-t border-r',
+  right: 'border-b border-l',
 };
 
 type Coords = { top: number; left: number };
@@ -49,22 +49,22 @@ function coordsFor(
   gap: number,
 ): Coords {
   switch (placement) {
-    case "top":
+    case 'top':
       return {
         top: trigger.top - tip.height - gap,
         left: trigger.left + trigger.width / 2 - tip.width / 2,
       };
-    case "bottom":
+    case 'bottom':
       return {
         top: trigger.bottom + gap,
         left: trigger.left + trigger.width / 2 - tip.width / 2,
       };
-    case "left":
+    case 'left':
       return {
         top: trigger.top + trigger.height / 2 - tip.height / 2,
         left: trigger.left - tip.width - gap,
       };
-    case "right":
+    case 'right':
       return {
         top: trigger.top + trigger.height / 2 - tip.height / 2,
         left: trigger.right + gap,
@@ -81,7 +81,10 @@ function fits(coords: Coords, tip: { width: number; height: number }) {
   );
 }
 
-function clampToViewport(coords: Coords, tip: { width: number; height: number }): Coords {
+function clampToViewport(
+  coords: Coords,
+  tip: { width: number; height: number },
+): Coords {
   return {
     top: Math.min(
       Math.max(coords.top, VIEWPORT_PAD),
@@ -103,11 +106,14 @@ function resolvePosition(
     const coords = coordsFor(placement, trigger, tip, GAP_PX);
     if (fits(coords, tip)) return { ...coords, placement };
   }
-  const coords = clampToViewport(coordsFor(preferred, trigger, tip, GAP_PX), tip);
+  const coords = clampToViewport(
+    coordsFor(preferred, trigger, tip, GAP_PX),
+    tip,
+  );
   return { ...coords, placement: preferred };
 }
 
-type TooltipBubbleProps = Omit<HTMLAttributes<HTMLDivElement>, "title"> & {
+type TooltipBubbleProps = Omit<HTMLAttributes<HTMLDivElement>, 'title'> & {
   title: ReactNode;
   body?: ReactNode;
   actions?: ReactNode;
@@ -119,7 +125,7 @@ function TooltipBubble({
   title,
   body,
   actions,
-  placement = "top",
+  placement = 'top',
   className,
   role,
   titleId,
@@ -128,17 +134,19 @@ function TooltipBubble({
   return (
     <div
       {...props}
-      role={role ?? (actions ? "dialog" : "tooltip")}
+      role={role ?? (actions ? 'dialog' : 'tooltip')}
       className={cx(
-        "border-stroke-secondary bg-surface-always-white gap-detail-close rounded-soft p-margin-tight relative flex max-w-[400px] flex-col border",
-        placement === "left" || placement === "right" ? "items-start" : "items-center",
+        'border-stroke-secondary bg-surface-always-white gap-detail-close rounded-soft p-margin-tight relative flex max-w-[400px] flex-col border',
+        placement === 'left' || placement === 'right'
+          ? 'items-start'
+          : 'items-center',
         className,
       )}
     >
       <span
         aria-hidden
         className={cx(
-          "border-stroke-secondary bg-surface-always-white pointer-events-none absolute size-2 rotate-45",
+          'border-stroke-secondary bg-surface-always-white pointer-events-none absolute size-2 rotate-45',
           beakPositionClass[placement],
           beakBorderClass[placement],
         )}
@@ -147,7 +155,9 @@ function TooltipBubble({
         <div id={titleId} className="type-body-em text-text-primary w-full">
           {title}
         </div>
-        {body != null ? <div className="type-body text-text-secondary w-full">{body}</div> : null}
+        {body != null ? (
+          <div className="type-body text-text-secondary w-full">{body}</div>
+        ) : null}
       </div>
       {actions ? (
         <div className="gap-detail-next relative flex w-full items-center justify-end">
@@ -180,7 +190,7 @@ export function Tooltip({
   title,
   body,
   actions,
-  placement = "top",
+  placement = 'top',
   className,
   open: openProp,
   defaultOpen = false,
@@ -197,7 +207,6 @@ export function Tooltip({
   const [coords, setCoords] = useState<Coords>({ top: 0, left: 0 });
   const [resolvedPlacement, setResolvedPlacement] = useState(placement);
   const [entered, setEntered] = useState(false);
-  const [mounted, setMounted] = useState(false);
 
   const isOpen = openProp ?? uncontrolledOpen;
 
@@ -237,7 +246,6 @@ export function Tooltip({
   }, [clearTimers, setOpen]);
 
   useEffect(() => {
-    setMounted(true);
     return clearTimers;
   }, [clearTimers]);
 
@@ -268,11 +276,11 @@ export function Tooltip({
     function onScrollOrResize() {
       updatePosition();
     }
-    window.addEventListener("resize", onScrollOrResize);
-    window.addEventListener("scroll", onScrollOrResize, true);
+    window.addEventListener('resize', onScrollOrResize);
+    window.addEventListener('scroll', onScrollOrResize, true);
     return () => {
-      window.removeEventListener("resize", onScrollOrResize);
-      window.removeEventListener("scroll", onScrollOrResize, true);
+      window.removeEventListener('resize', onScrollOrResize);
+      window.removeEventListener('scroll', onScrollOrResize, true);
     };
   }, [isOpen, updatePosition]);
 
@@ -292,12 +300,12 @@ export function Tooltip({
     focusables[0]?.focus();
 
     function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") {
+      if (event.key === 'Escape') {
         event.preventDefault();
         closeNow();
         return;
       }
-      if (event.key !== "Tab" || focusables.length === 0) return;
+      if (event.key !== 'Tab' || focusables.length === 0) return;
       const first = focusables[0];
       const last = focusables[focusables.length - 1];
       if (event.shiftKey && document.activeElement === first) {
@@ -311,15 +319,19 @@ export function Tooltip({
 
     function onPointerDown(event: MouseEvent) {
       const target = event.target as Node;
-      if (tipRef.current?.contains(target) || triggerRef.current?.contains(target)) return;
+      if (
+        tipRef.current?.contains(target) ||
+        triggerRef.current?.contains(target)
+      )
+        return;
       closeNow();
     }
 
-    window.addEventListener("keydown", onKeyDown);
-    window.addEventListener("mousedown", onPointerDown);
+    window.addEventListener('keydown', onKeyDown);
+    window.addEventListener('mousedown', onPointerDown);
     return () => {
-      window.removeEventListener("keydown", onKeyDown);
-      window.removeEventListener("mousedown", onPointerDown);
+      window.removeEventListener('keydown', onKeyDown);
+      window.removeEventListener('mousedown', onPointerDown);
       previouslyFocused?.focus?.();
     };
   }, [isOpen, isToggletip, closeNow]);
@@ -343,19 +355,19 @@ export function Tooltip({
         }
         aria-describedby={!isToggletip && isOpen ? tipId : undefined}
         aria-expanded={isToggletip ? isOpen : undefined}
-        aria-haspopup={isToggletip ? "dialog" : undefined}
+        aria-haspopup={isToggletip ? 'dialog' : undefined}
         aria-controls={isToggletip ? tipId : undefined}
       >
         {children}
       </span>
-      {mounted && isOpen
+      {isOpen && typeof document !== 'undefined'
         ? createPortal(
             <div
               ref={tipRef}
               style={{ top: coords.top, left: coords.left }}
               className={cx(
-                "fixed z-50 transition-opacity duration-200 motion-reduce:transition-none",
-                entered ? "opacity-100" : "opacity-0",
+                'fixed z-50 transition-opacity duration-200 motion-reduce:transition-none',
+                entered ? 'opacity-100' : 'opacity-0',
               )}
               onMouseEnter={isToggletip ? undefined : openNow}
               onMouseLeave={isToggletip ? undefined : closeSoft}
@@ -378,4 +390,3 @@ export function Tooltip({
     </>
   );
 }
-
