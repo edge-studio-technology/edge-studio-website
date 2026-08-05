@@ -102,7 +102,7 @@ export const roadmap: RoadmapItem[] = [
   {
     phase: 'V2',
     title: 'Marketplace',
-    text: 'Discover and install community-built modules for your edge setup.',
+    text: 'Discover and install community-built modules to build scale pools, monetize your data assets, and turn them into data products.',
     state: 'passive',
   },
 ];

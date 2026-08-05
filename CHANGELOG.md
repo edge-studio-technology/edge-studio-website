@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### [CHANGED 2026-08-05] — Expanded Marketplace roadmap positioning
+
+#### Changed
+
+- Connected community-built modules with building scale pools, monetizing data assets, and creating data products.
+
 ### [CHANGED 2026-08-05] — Simplified the hero checkerboard
 
 #### Changed
