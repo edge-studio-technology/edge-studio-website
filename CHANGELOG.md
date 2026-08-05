@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### [CHANGED 2026-08-05] — Refined landing-page visual consistency
+
+#### Changed
+
+- Matched the Dashboard icon size to the Data sources icon and refined the hero GitHub link styling.
+
 ### [CHANGED 2026-08-05] — Emphasized the hero install prompt
 
 #### Changed

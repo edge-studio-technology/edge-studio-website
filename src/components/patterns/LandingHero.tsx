@@ -161,7 +161,7 @@ export function LandingHero() {
               href="https://github.com"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex min-h-11 items-center gap-1 rounded-tight border-b border-text-primary text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-01"
+              className="inline-flex min-h-11 items-center gap-1 border-b border-text-primary text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-01"
             >
               {landingCopy.githubLink}
               <ExternalLink size={15} />

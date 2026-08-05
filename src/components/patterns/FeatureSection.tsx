@@ -49,7 +49,7 @@ export function FeatureSection() {
       <Card className="mb-8 grid gap-8 border border-grey-02 bg-core-white sm:grid-cols-[0.8fr_1.2fr]">
         <div>
           <span className="mb-4 inline-flex rounded-full bg-brand-01 p-3 text-core-white">
-            <LayoutDashboard size={18} />
+            <LayoutDashboard size={26} />
           </span>
           <h3 className="type-title">{landingCopy.dashboardTitle}</h3>
           <p className="mt-2 text-sm text-text-secondary">
