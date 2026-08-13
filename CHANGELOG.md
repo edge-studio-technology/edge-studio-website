@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### [CHANGED 2026-08-13] — Aligned website copy with the Edge Studio product
+
+#### Changed
+
+- Rewrote the landing page, roadmap, preview, metadata, and legal drafts around Edge Studio's current local-first device, workflow, Minima, and Integritas capabilities.
+
 ### [FIXED 2026-08-13] — Restored the Integritas partner icon
 
 #### Fixed

@@ -28,9 +28,9 @@ export function LegalPage({ title, intro, sections }: LegalPageProps) {
           ))}
         </div>
         <p className="mt-14 border-t border-grey-02 pt-6 text-xs text-text-secondary">
-          Last updated: August 3, 2026. These pages are placeholder text and
-          should be reviewed for your organisation and jurisdiction before
-          launch.
+          Draft updated: August 13, 2026. This copy reflects the current Edge
+          Studio prototype and is not final legal text. It should be reviewed
+          for your organisation and jurisdiction before publication.
         </p>
       </main>
       <SiteFooter legal />
@@ -41,28 +41,28 @@ export function LegalPage({ title, intro, sections }: LegalPageProps) {
 export function TermsPage() {
   return (
     <LegalPage
-      title="Terms of use"
-      intro="These basic terms describe the general conditions for using Edge Studio. Replace this placeholder with terms reviewed for your product before publishing."
+      title="Terms of use (draft)"
+      intro="Edge Studio is an experimental, self-hosted Raspberry Pi application. These draft terms describe the responsibilities that come with installing it, connecting devices, and running automations on hardware and networks you control."
       sections={[
         {
-          heading: 'Using the service',
-          body: 'You may use Edge Studio only in compliance with applicable laws and these terms. You are responsible for your account, your devices, and the data and automations you run through the service.',
+          heading: 'Installing and operating Edge Studio',
+          body: 'You are responsible for the Raspberry Pi, network, credentials, connected devices, and configuration used to run Edge Studio. Use the software only where you have permission and in compliance with applicable laws and device safety requirements.',
         },
         {
-          heading: 'Your content',
-          body: 'You retain responsibility for content, files, readings, and other information you provide or process. You must have the necessary rights and permissions to use that content.',
+          heading: 'Your data and automations',
+          body: 'You remain responsible for the files, sensor readings, camera captures, messages, transactions, and other data your workflows process. Review workflows before enabling them, especially when they control hardware, publish data, or send Minima.',
         },
         {
-          heading: 'Availability and changes',
-          body: 'Edge Studio is provided on an ongoing basis, but features may change and availability is not guaranteed. We may update, suspend, or discontinue parts of the service when reasonably necessary.',
+          heading: 'Connected services and networks',
+          body: 'Some features connect to Integritas, GitHub, the Minima network, or endpoints you configure. Those connections may be governed by separate terms, and blockchain actions such as payments or token operations may be irreversible.',
         },
         {
-          heading: 'Disclaimer and liability',
-          body: 'The service is provided as available and without warranties beyond those required by law. To the extent permitted by law, Edge Studio is not responsible for indirect or consequential losses arising from use of the service.',
+          heading: 'Prototype status',
+          body: 'Edge Studio is a learning prototype and is not production-hardened. Features, interfaces, and data formats may change. Back up important data, restrict access to trusted networks, and do not rely on the prototype for safety-critical or high-value operations.',
         },
         {
           heading: 'Contact',
-          body: 'For questions about these terms, contact the Edge Studio team through the project repository or your designated support channel.',
+          body: 'For questions about Edge Studio or these draft terms, contact the project team through the GitHub repository or your designated Integritas Technology support channel.',
         },
       ]}
     />
@@ -72,28 +72,28 @@ export function TermsPage() {
 export function PrivacyPage() {
   return (
     <LegalPage
-      title="Privacy policy"
-      intro="This basic policy explains the types of information Edge Studio may handle. Replace this placeholder with details about your actual data flows, providers, retention, and legal basis."
+      title="Privacy notice (draft)"
+      intro="Edge Studio is designed to keep its application state and operational history on your Raspberry Pi. Data leaves the device only when a feature, workflow, or network connection you configure requires it."
       sections={[
         {
-          heading: 'Information we handle',
-          body: 'Depending on how Edge Studio is configured, we may handle account details, device and configuration data, logs, support messages, and content that you choose to process through the service.',
+          heading: 'Information stored on your Pi',
+          body: 'Edge Studio may store local administrator credentials, device and workflow configuration, read and run history, proof records, audit events, Minima node and wallet data, and files captured or selected for processing. Runtime state is stored on the Raspberry Pi or storage you configure.',
         },
         {
-          heading: 'How we use information',
-          body: 'We use information to provide, secure, maintain, and improve Edge Studio, respond to requests, and meet legal obligations. We do not use your locally stored device data for unrelated purposes.',
+          heading: 'When data leaves the device',
+          body: 'Integritas features may send account or device identifiers, hashes, and proof requests to Integritas services. Minima connects to its peer network. Update checks contact GitHub, and workflows may call HTTP or MQTT endpoints that you configure.',
         },
         {
-          heading: 'Sharing and storage',
-          body: 'We share information only with service providers needed to operate the service, when you direct us to, or when required by law. Self-hosted data remains on infrastructure you control unless you connect an external service.',
+          heading: 'Your workflow choices',
+          body: 'You decide which inputs, captures, files, and workflow outputs are sent to external services. Before enabling a workflow, check its blocks, destination settings, and any attached Integritas stamping action.',
         },
         {
-          heading: 'Retention and your choices',
-          body: 'We retain information only as long as needed for the purposes described above or as required by law. You may request access, correction, deletion, or clarification about your information where applicable.',
+          heading: 'Retention and security',
+          body: 'Retention varies by data type and configuration. For example, camera captures can be pruned automatically, while other local histories remain until you delete them or remove the installation. Edge Studio provides local authentication and HTTPS, but you are responsible for device security, backups, network access, and the services you connect.',
         },
         {
           heading: 'Contact',
-          body: 'For privacy questions or requests, contact the Edge Studio team through the project repository or your designated privacy channel.',
+          body: 'For questions about this draft notice or data handled by Integritas services, contact Integritas Technology through your designated support or privacy channel.',
         },
       ]}
     />

@@ -28,88 +28,94 @@ export const externalLinks = {
 } as const;
 
 export const landingCopy = {
-  eyebrow: 'self-hosted by design',
-  heroTitle: 'Your Raspberry Pi, turned into a',
-  heroAccent: 'trust layer.',
+  eyebrow: 'local-first · built for Raspberry Pi',
+  heroTitle: 'Turn your Raspberry Pi into a',
+  heroAccent: 'verifiable edge studio.',
   heroText:
-    'Edge Studio runs a dashboard, API, local Minima node, and auto-updater on one Pi — capture data, automate it, and stamp it as proof, all under your own roof.',
+    'Connect physical devices and web services, build visual workflows, and stamp selected data through Integritas—with a Minima node and wallet running on your Pi.',
   docsLink: 'Read the docs',
   githubLink: 'View on GitHub',
-  previewTitle: 'Dashboard screenshot',
-  previewText: 'A real Edge Studio view will appear here.',
-  installTitle: 'Install on Raspberry Pi',
+  previewTitle: 'Your edge, in one workspace',
+  previewText:
+    'Monitor the Pi, connected devices, workflow runs, Minima, and Integritas from one local dashboard.',
+  installTitle: 'Install Edge Studio on Raspberry Pi',
   installLink: 'View install script',
-  featuresEyebrow: 'What you get',
-  featuresTitle: 'Everything runs on the Pi you already own.',
-  dashboardTitle: 'Dashboard',
-  dashboardText: 'Watch every device and proof at a glance.',
+  featuresEyebrow: 'One local workspace',
+  featuresTitle: 'Connect, automate, and prove—right at the edge.',
+  dashboardTitle: 'Operate from one dashboard',
+  dashboardText:
+    'See the health of your Pi, devices, Minima node, and Integritas connection at a glance.',
   dashboardBullets: [
-    'Capture data from APIs, sensors, and cameras',
-    'Automate it with chained workflow rules',
-    'Stamp it and verify proof anytime',
+    'Manage devices, workflows, proofs, wallet, and updates',
+    'Review device reads and every workflow run',
+    'Keep configuration and operational history on your Pi',
   ],
-  poweredByEyebrow: 'Built on verifiable foundations',
-  poweredByTitle: 'Powered by Minima and Integritas.',
+  poweredByEyebrow: 'Two layers of trust',
+  poweredByTitle: 'Minima on your Pi. Integritas for proof.',
   poweredByText:
-    'Minima runs the local ledger. Integritas hashes and stamps the data Edge Studio captures.',
-  roadmapEyebrow: 'Roadmap',
-  roadmapTitle: 'A clearer path from data to trust.',
+    'Run and manage a Minima node locally, then use Integritas to stamp and verify the files and workflow data you choose.',
+  roadmapEyebrow: 'What is next',
+  roadmapTitle: 'The prototype is working. The studio keeps growing.',
   roadmapText:
-    'Edge Studio is growing around the things that make local, verifiable automation useful every day.',
-  footerText: 'Edge Studio — self-hosted on your own Raspberry Pi.',
+    'Edge Studio is evolving from a capable Raspberry Pi workspace into a more guided, extensible platform for edge automation.',
+  footerText:
+    'Edge Studio — local-first automation and verifiable data on Raspberry Pi.',
 } as const;
 
 export const features: Feature[] = [
   {
-    title: 'Data sources',
-    text: 'Pull HTTP APIs, receive webhooks, or watch GPIO, MQTT, and the Pi Camera.',
+    title: 'Devices',
+    text: 'Bring HTTP, webhooks, MQTT, GPIO, environmental sensors, and the Pi Camera into one workspace.',
     Icon: Database,
-    detail: 'Connect APIs, sensors, webhooks, and cameras in one place.',
+    detail:
+      'Connect web services and physical devices as readable inputs, capture devices, or controllable outputs.',
   },
   {
-    title: 'Automation',
-    text: 'Chain triggers, conditions, and actions into repeatable workflows.',
+    title: 'Workflows',
+    text: 'Compose starts, data steps, logic, and actions into repeatable edge workflows.',
     Icon: Workflow,
     detail:
-      'Build repeatable workflows from triggers, conditions, and actions.',
+      'Trigger on schedules or events, process data, control outputs, create previews, and attach proof stamping.',
   },
   {
-    title: 'Integritas',
-    text: 'Hash and stamp any file or automated reading, then check its status anytime.',
+    title: 'Proofs',
+    text: 'Stamp files and selected workflow data, then verify and export the resulting proof records.',
     Icon: ShieldCheck,
-    detail: 'Turn readings and files into verifiable proofs with one click.',
+    detail:
+      'Create an auditable link between the data captured at the edge and a proof you can check later.',
   },
   {
     title: 'Minima',
-    text: 'A real node on the ledger, running on your own hardware.',
+    text: 'Run and monitor a Minima node, wallet, peers, and tokens on your own hardware.',
     Icon: Server,
-    detail: 'Keep a live ledger node running locally on your Raspberry Pi.',
+    detail:
+      'Manage node health and wallet activity from the same browser interface as your edge workflows.',
   },
 ];
 
 export const roadmap: RoadmapItem[] = [
   {
-    phase: 'Now',
-    title: 'Core dashboard',
-    text: 'Connect your Pi, devices, and first proofs.',
+    phase: 'Today',
+    title: 'Local edge workspace',
+    text: 'Install on a Pi, connect devices, build workflows, and create verifiable records.',
     state: 'active',
   },
   {
-    phase: 'Soon',
-    title: 'More integrations',
-    text: 'Bring more sensors, APIs, and edge devices into the same view.',
+    phase: 'In progress',
+    title: 'Richer workflow builder',
+    text: 'Make building, editing, watching, and diagnosing visual workflows more intuitive.',
     state: 'passive',
   },
   {
     phase: 'Next',
-    title: 'Modules building with an in-app IDE',
-    text: 'Build and customize modules directly inside Edge Studio.',
+    title: 'Guided device onboarding',
+    text: 'Add more device guides and starter workflows for common Raspberry Pi and MQTT setups.',
     state: 'passive',
   },
   {
-    phase: 'V2',
-    title: 'Marketplace',
-    text: 'Discover and install community-built modules to build scale pools, monetize your data assets, and turn them into data products.',
+    phase: 'Later',
+    title: 'Module marketplace',
+    text: 'Discover and install integrations and add-ons from inside Edge Studio.',
     state: 'passive',
   },
 ];

@@ -31,7 +31,7 @@ function DashboardPreview({
       <strong className="mt-4 text-lg text-text-primary">{title}</strong>
       <span className="mt-2 max-w-xs text-sm">{description}</span>
       <span className="mt-4 rounded-full bg-core-white px-3 py-1 font-mono text-[10px]">
-        image placeholder
+        Product preview coming soon
       </span>
     </div>
   );
