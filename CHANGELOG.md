@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### [CHANGED 2026-08-13] — Added product imagery to the landing showcase
+
+#### Changed
+
+- Replaced feature placeholders with focused Edge Studio screenshots and added reduced-motion-aware guided cursors to the feature slides and hero preview.
+
 ### [CHANGED 2026-08-13] — Aligned website copy with the Edge Studio product
 
 #### Changed

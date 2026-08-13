@@ -7,32 +7,31 @@ import {
   useSpring,
   useTransform,
 } from 'motion/react';
-import { Check, ExternalLink, Image, Link2 } from 'lucide-react';
+import { Check, ExternalLink, Link2 } from 'lucide-react';
 import { CopyableCode } from '../ui/CopyableCode';
+import { FakeCursor } from '../ui/FakeCursor';
 import { externalLinks, landingCopy } from '../../constants/landing';
 import { cx } from '../../lib/cx';
+import dashboardImage from '../../assets/images/es_dashboard.png';
 
 export type LandingHeroBackground = 'grid' | 'violet';
 
-function DashboardPreview({
-  className = '',
-  description = landingCopy.previewText,
-  title = landingCopy.previewTitle,
-}: {
-  className?: string;
-  description?: string;
-  title?: string;
-}) {
+function DashboardPreview() {
   return (
-    <div
-      className={`flex aspect-16/10 flex-col items-center justify-center border-2 border-dashed border-grey-04 bg-grey-02 p-6 text-center text-grey-06/80 sm:p-10 ${className}`}
-    >
-      <Image size={48} strokeWidth={1.25} />
-      <strong className="mt-4 text-lg text-text-primary">{title}</strong>
-      <span className="mt-2 max-w-xs text-sm">{description}</span>
-      <span className="mt-4 rounded-full bg-core-white px-3 py-1 font-mono text-[10px]">
-        Product preview coming soon
-      </span>
+    <div className="relative overflow-hidden">
+      <img
+        src={dashboardImage}
+        alt="Edge Studio dashboard with the guided workspace open"
+        className="block h-auto w-full"
+      />
+      <FakeCursor
+        points={[
+          { x: '72%', y: '70%' },
+          { x: '50%', y: '46%' },
+          { x: '36%', y: '51%' },
+          { x: '36%', y: '51%' },
+        ]}
+      />
     </div>
   );
 }

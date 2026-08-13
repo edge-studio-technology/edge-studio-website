@@ -1,8 +1,13 @@
 import { useState, type CSSProperties } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
-import { Check, Image, LayoutDashboard } from 'lucide-react';
+import { Check, LayoutDashboard } from 'lucide-react';
 import { Card } from '../ui/Card';
+import { FakeCursor } from '../ui/FakeCursor';
 import { features, landingCopy } from '../../constants/landing';
+import devicesImage from '../../assets/images/es_data_source_devices.png';
+import workflowsImage from '../../assets/images/es_workflows_canvas.png';
+import proofsImage from '../../assets/images/es_integritas_stamp_ok.png';
+import minimaImage from '../../assets/images/es_minima.png';
 
 const tabColumns = [
   'calc(100% - 12.75rem) 3.5rem 3.5rem 3.5rem',
@@ -11,18 +16,72 @@ const tabColumns = [
   '3.5rem 3.5rem 3.5rem calc(100% - 12.75rem)',
 ] as const;
 
-function Preview({
-  title,
-  description,
-}: {
-  title: string;
-  description: string;
-}) {
+const featurePreviews = [
+  {
+    src: devicesImage,
+    alt: 'Edge Studio device input source picker',
+    position: '50% 48%',
+    scale: 1.08,
+    cursor: [
+      { x: '69%', y: '72%' },
+      { x: '66%', y: '70%' },
+      { x: '65%', y: '69%' },
+      { x: '65%', y: '69%' },
+    ],
+  },
+  {
+    src: workflowsImage,
+    alt: 'Edge Studio visual workflow canvas and block toolkit',
+    position: '53% 60%',
+    scale: 1.13,
+    cursor: [
+      { x: '84%', y: '58%' },
+      { x: '74%', y: '58%' },
+      { x: '58%', y: '64%' },
+      { x: '58%', y: '64%' },
+    ],
+  },
+  {
+    src: proofsImage,
+    alt: 'Edge Studio Integritas proof confirmed on-chain',
+    position: '58% 57%',
+    scale: 1.12,
+    cursor: [
+      { x: '70%', y: '45%' },
+      { x: '58%', y: '58%' },
+      { x: '53%', y: '65%' },
+      { x: '53%', y: '65%' },
+    ],
+  },
+  {
+    src: minimaImage,
+    alt: 'Edge Studio Minima node and container health dashboard',
+    position: '55% 48%',
+    scale: 1.1,
+    cursor: [
+      { x: '72%', y: '69%' },
+      { x: '62%', y: '68%' },
+      { x: '58%', y: '67%' },
+      { x: '58%', y: '67%' },
+    ],
+  },
+] as const;
+
+function Preview({ index }: { index: number }) {
+  const preview = featurePreviews[index];
+
   return (
-    <div className="flex h-full flex-col items-center justify-center border-2 border-dashed border-grey-04 bg-grey-02 p-6 text-center text-grey-06/80">
-      <Image size={48} strokeWidth={1.25} />
-      <strong className="mt-4 text-lg text-text-primary">{title}</strong>
-      <span className="mt-2 max-w-xs text-sm">{description}</span>
+    <div className="relative h-full overflow-hidden rounded-soft border border-grey-02 bg-grey-02 shadow-[0_18px_45px_-32px_rgb(0_0_0/0.55)]">
+      <img
+        src={preview.src}
+        alt={preview.alt}
+        className="h-full w-full object-cover"
+        style={{
+          objectPosition: preview.position,
+          transform: `scale(${preview.scale})`,
+        }}
+      />
+      <FakeCursor points={preview.cursor} />
     </div>
   );
 }
@@ -140,7 +199,7 @@ export function FeatureSection() {
                 exit={reduceMotion ? undefined : { opacity: 0, x: -18 }}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
               >
-                <Preview title={feature.title} description={feature.detail} />
+                <Preview index={active} />
               </motion.div>
             </AnimatePresence>
           </div>
