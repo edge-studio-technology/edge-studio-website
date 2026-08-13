@@ -11,6 +11,9 @@ import { Check, ExternalLink, Image, Link2 } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { CopyableCode } from '../ui/CopyableCode';
 import { landingCopy } from '../../constants/landing';
+import { cx } from '../../lib/cx';
+
+export type LandingHeroBackground = 'grid' | 'violet';
 
 function DashboardPreview({
   className = '',
@@ -35,9 +38,14 @@ function DashboardPreview({
   );
 }
 
-export function LandingHero() {
+export function LandingHero({
+  background = 'grid',
+}: {
+  background?: LandingHeroBackground;
+}) {
   const heroRef = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
+  const hasVioletBackground = background === 'violet';
   const [active, setActive] = useState(false);
   const pointerX = useSpring(useMotionValue(0), {
     stiffness: 180,
@@ -58,6 +66,18 @@ export function LandingHero() {
     stiffness: 120,
     damping: 24,
   });
+  const sheenX = useSpring(useMotionValue(0), {
+    stiffness: 90,
+    damping: 26,
+  });
+  const sheenY = useSpring(useMotionValue(0), {
+    stiffness: 90,
+    damping: 26,
+  });
+  const sheenRotate = useSpring(useMotionValue(0), {
+    stiffness: 75,
+    damping: 24,
+  });
 
   function handlePointerMove(event: React.PointerEvent<HTMLElement>) {
     if (reduceMotion || event.pointerType === 'touch') return;
@@ -69,6 +89,9 @@ export function LandingHero() {
     pointerY.set(y);
     parallaxX.set((x / bounds.width - 0.5) * 8);
     parallaxY.set((y / bounds.height - 0.5) * 8);
+    sheenX.set((x / bounds.width - 0.5) * bounds.width * 0.9);
+    sheenY.set((y / bounds.height - 0.5) * bounds.height * 0.2);
+    sheenRotate.set((x / bounds.width - 0.5) * 6);
   }
 
   function handlePointerEnter(event: React.PointerEvent<HTMLElement>) {
@@ -81,19 +104,45 @@ export function LandingHero() {
     setActive(false);
     parallaxX.set(0);
     parallaxY.set(0);
+    sheenX.set(0);
+    sheenY.set(0);
+    sheenRotate.set(0);
   }
 
   const reveal = reduceMotion ? undefined : { opacity: 0, y: 18 };
   return (
     <section
       ref={heroRef}
-      className="relative overflow-hidden border-b border-grey-02"
+      className={cx(
+        'relative overflow-hidden border-b',
+        hasVioletBackground
+          ? 'border-grey-06 bg-core-black text-core-white'
+          : 'border-grey-02',
+      )}
       onPointerEnter={handlePointerEnter}
       onPointerLeave={handlePointerLeave}
       onPointerMove={handlePointerMove}
     >
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(#e6e8ea_1px,transparent_1px),linear-gradient(90deg,#e6e8ea_1px,transparent_1px)] bg-size-[52px_52px]" />
-      {!reduceMotion && (
+      {hasVioletBackground ? (
+        <>
+          <div
+            aria-hidden="true"
+            className="hero-background-violet pointer-events-none absolute inset-0"
+          />
+          {!reduceMotion && (
+            <motion.div
+              aria-hidden="true"
+              className="hero-satin-sheen pointer-events-none absolute -inset-[35%] z-[1]"
+              style={{ x: sheenX, y: sheenY, rotate: sheenRotate }}
+              animate={{ opacity: active ? 1 : 0 }}
+              transition={{ duration: active ? 0.45 : 0.25 }}
+            />
+          )}
+        </>
+      ) : (
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(#e6e8ea_1px,transparent_1px),linear-gradient(90deg,#e6e8ea_1px,transparent_1px)] bg-size-[52px_52px]" />
+      )}
+      {!hasVioletBackground && !reduceMotion && (
         <>
           <motion.div
             aria-hidden="true"
@@ -142,14 +191,30 @@ export function LandingHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-brand-01">
+          <span
+            className={cx(
+              'flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em]',
+              hasVioletBackground ? 'text-brand-02' : 'text-brand-01',
+            )}
+          >
             <Check size={15} /> {landingCopy.eyebrow}
           </span>
           <h1 className="type-display mt-5 max-w-xl text-5xl sm:text-6xl">
             {landingCopy.heroTitle}{' '}
-            <span className="text-brand-01">{landingCopy.heroAccent}</span>
+            <span
+              className={
+                hasVioletBackground ? 'text-brand-02' : 'text-brand-01'
+              }
+            >
+              {landingCopy.heroAccent}
+            </span>
           </h1>
-          <p className="type-callout mt-6 max-w-xl text-text-secondary">
+          <p
+            className={cx(
+              'type-callout mt-6 max-w-xl',
+              hasVioletBackground ? 'text-grey-03' : 'text-text-secondary',
+            )}
+          >
             {landingCopy.heroText}
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-5">
@@ -160,7 +225,12 @@ export function LandingHero() {
               href="https://github.com"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex min-h-11 items-center gap-1 border-b border-text-primary text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-01"
+              className={cx(
+                'inline-flex min-h-11 items-center gap-1 border-b text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-01',
+                hasVioletBackground
+                  ? 'border-core-white text-core-white'
+                  : 'border-text-primary',
+              )}
             >
               {landingCopy.githubLink}
               <ExternalLink size={15} />
@@ -197,7 +267,10 @@ export function LandingHero() {
             />
           </div>
           <a
-            className="mt-2 ml-auto flex min-h-11 w-fit items-center gap-1 rounded-tight text-sm underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-01 sm:absolute sm:top-0 sm:right-0 sm:mt-0"
+            className={cx(
+              'mt-2 ml-auto flex min-h-11 w-fit items-center gap-1 rounded-tight text-sm underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-01 sm:absolute sm:top-0 sm:right-0 sm:mt-0',
+              hasVioletBackground && 'text-core-white',
+            )}
             href="#install"
           >
             {landingCopy.installLink}

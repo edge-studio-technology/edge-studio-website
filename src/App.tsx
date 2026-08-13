@@ -13,7 +13,7 @@ function App() {
     <div className="min-h-screen bg-grey-01 text-text-primary">
       <Navbar />
       <main id="top">
-        <LandingHero />
+        <LandingHero background="violet" />
         <FeatureSection />
         <PoweredBySection />
         <section

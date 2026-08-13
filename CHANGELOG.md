@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+### [ADDED 2026-08-13] — Added an alternate violet hero background
+
+#### Added
+
+- Added a selectable dark violet hero treatment while preserving the original interactive grid variant for easy comparison.
+- Added a reduced-motion-aware satin light sweep that responds to pointer movement on the violet treatment.
+
 ### [CHANGED 2026-08-05] — Expanded Marketplace roadmap positioning
 
 #### Changed
