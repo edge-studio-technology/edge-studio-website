@@ -2,6 +2,18 @@
 
 ## [Unreleased]
 
+### [FIXED 2026-08-13] — Restored the Integritas partner icon
+
+#### Fixed
+
+- Corrected the Integritas SVG asset path so its icon renders in the Powered by section.
+
+### [CHANGED 2026-08-13] — Added partner branding to the landing page
+
+#### Changed
+
+- Replaced the Powered by placeholders with linked Minima and Integritas icon-and-wordmark lockups, shape-aware shadows, and pointer-responsive movement matching the hero preview.
+
 ### [ADDED 2026-08-13] — Added an alternate violet hero background
 
 #### Added

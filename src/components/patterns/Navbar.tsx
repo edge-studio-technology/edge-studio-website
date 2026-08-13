@@ -30,7 +30,7 @@ export function Navbar({ legal = false }: { legal?: boolean }) {
   }, [menuOpen]);
 
   return (
-    <header className="sticky inset-x-0 top-0 z-50 border-b border-grey-06 bg-surface-inverse text-text-inverse">
+    <header className="sticky inset-x-0 top-0 z-50  bg-surface-inverse text-text-inverse">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-5 lg:px-8">
         <Link
           className="flex min-h-11 min-w-0 items-center gap-2 rounded-tight text-xl font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-core-white sm:gap-4 sm:text-2xl"
