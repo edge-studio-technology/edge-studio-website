@@ -9,16 +9,16 @@ import { landingCopy } from '../../constants/landing';
 
 const partners = [
   {
-    href: 'https://minima.global/',
-    iconSrc: '/minima_logo/Black/svg/Minima Logo Mark 2023_Black.svg',
-    name: 'Minima',
-    wordmarkSrc: '/minima_logo/Black/svg/Minima Word Mark 2023_Black-01.svg',
-  },
-  {
     href: 'https://integritas.technology/',
     iconSrc: '/integritas_logo/svg/integritas-gradient_icon.svg',
     name: 'Integritas',
     wordmarkSrc: '/integritas_logo/svg/integritas-gradient.svg',
+  },
+  {
+    href: 'https://minima.global/',
+    iconSrc: '/minima_logo/Black/svg/Minima Logo Mark 2023_Black.svg',
+    name: 'Minima',
+    wordmarkSrc: '/minima_logo/Black/svg/Minima Word Mark 2023_Black-01.svg',
   },
 ] as const;
 
@@ -71,10 +71,10 @@ export function PoweredBySection() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2">
-          {partners.map(({ href, iconSrc, name, wordmarkSrc }) => (
+        <div className="flex flex-col items-center justify-center py-6 sm:flex-row sm:py-10">
+          {partners.map(({ href, iconSrc, name, wordmarkSrc }, index) => (
             <div
-              className="flex min-h-44 items-center justify-center p-6"
+              className={`flex min-h-40 items-center justify-center px-2 sm:min-h-0 sm:w-48 sm:px-0 ${index === 0 ? 'sm:order-2 sm:-translate-y-5' : 'sm:order-1 sm:translate-y-5'}`}
               key={name}
             >
               <motion.a
@@ -88,11 +88,29 @@ export function PoweredBySection() {
                 }}
                 target="_blank"
               >
-                <img
-                  alt=""
-                  className="size-24 object-contain drop-shadow-[0_18px_16px_rgb(0_0_0/0.22)] sm:size-28"
-                  src={iconSrc}
-                />
+                <motion.div
+                  initial={false}
+                  animate={
+                    reduceMotion
+                      ? { rotate: 0, y: 0 }
+                      : {
+                          rotate: [0, -0.7, 0, 0.5, 0],
+                          y: [0, -5, 0, 2, 0],
+                        }
+                  }
+                  transition={{
+                    duration: 6.2 + index * 0.6,
+                    ease: 'easeInOut',
+                    repeat: reduceMotion ? 0 : Infinity,
+                    delay: index * 0.8,
+                  }}
+                >
+                  <img
+                    alt=""
+                    className="size-24 object-contain drop-shadow-[0_18px_16px_rgb(0_0_0/0.22)] sm:size-28"
+                    src={iconSrc}
+                  />
+                </motion.div>
                 <img
                   alt={`${name} logo`}
                   className="h-7 w-32 object-contain"

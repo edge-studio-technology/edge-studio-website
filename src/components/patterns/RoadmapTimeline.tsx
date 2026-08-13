@@ -27,8 +27,15 @@ export function RoadmapTimeline({ items }: { items: readonly RoadmapItem[] }) {
             )}
           </div>
           <div className="pb-5">
-            <div
+            <motion.div
               className={`grid gap-5 rounded-soft border p-6 sm:grid-cols-[1fr_auto] sm:items-center ${item.state === 'active' ? 'border-brand-01 bg-brand-01 text-core-white' : 'border-grey-02 bg-core-white'}`}
+              whileHover={reduceMotion ? undefined : { x: 7 }}
+              transition={{
+                type: 'spring',
+                stiffness: 55,
+                damping: 18,
+                mass: 1.4,
+              }}
             >
               <div>
                 <h3 className="text-2xl font-semibold">{item.title}</h3>
@@ -43,7 +50,7 @@ export function RoadmapTimeline({ items }: { items: readonly RoadmapItem[] }) {
               >
                 {item.phase}
               </span>
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       ))}

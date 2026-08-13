@@ -1,7 +1,6 @@
-import { useState, type CSSProperties } from 'react';
+import { useEffect, useState, type CSSProperties } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
-import { Check, LayoutDashboard } from 'lucide-react';
-import { Card } from '../ui/Card';
+import { Check } from 'lucide-react';
 import { FakeCursor } from '../ui/FakeCursor';
 import { features, landingCopy } from '../../constants/landing';
 import devicesImage from '../../assets/images/es_data_source_devices.png';
@@ -15,6 +14,61 @@ const tabColumns = [
   '3.5rem 3.5rem calc(100% - 12.75rem) 3.5rem',
   '3.5rem 3.5rem 3.5rem calc(100% - 12.75rem)',
 ] as const;
+
+const typewriterWords = ['Connect', 'Automate', 'Prove'] as const;
+
+function TypewriterWords({ reduceMotion }: { reduceMotion: boolean }) {
+  const [wordIndex, setWordIndex] = useState(0);
+  const [characterCount, setCharacterCount] = useState(0);
+  const [deleting, setDeleting] = useState(false);
+  const word = typewriterWords[wordIndex];
+
+  useEffect(() => {
+    if (reduceMotion) return;
+
+    const atEnd = characterCount === word.length;
+    const atStart = characterCount === 0;
+    let delay = deleting ? 55 : 90;
+
+    if (!deleting && atEnd) delay = 1300;
+    if (deleting && atStart) delay = 260;
+
+    const timeout = window.setTimeout(() => {
+      if (!deleting && atEnd) {
+        setDeleting(true);
+        return;
+      }
+
+      if (deleting && atStart) {
+        setDeleting(false);
+        setWordIndex((current) => (current + 1) % typewriterWords.length);
+        return;
+      }
+
+      setCharacterCount((current) => current + (deleting ? -1 : 1));
+    }, delay);
+
+    return () => window.clearTimeout(timeout);
+  }, [characterCount, deleting, reduceMotion, word.length]);
+
+  return (
+    <div className="mb-5 flex min-h-8 items-center font-mono text-lg font-semibold uppercase tracking-[0.14em] text-brand-02">
+      <span className="sr-only">Connect, automate, and prove</span>
+      <span aria-hidden="true" className="inline-flex min-w-[9ch] items-center">
+        {reduceMotion
+          ? typewriterWords.join(' · ')
+          : word.slice(0, characterCount)}
+        {!reduceMotion && (
+          <motion.span
+            className="ml-1 h-6 w-0.5 bg-brand-02"
+            animate={{ opacity: [1, 1, 0, 0] }}
+            transition={{ duration: 0.8, repeat: Infinity, ease: 'linear' }}
+          />
+        )}
+      </span>
+    </div>
+  );
+}
 
 const featurePreviews = [
   {
@@ -106,17 +160,15 @@ export function FeatureSection() {
             {landingCopy.featuresTitle}
           </h2>
         </div>
-        <Card className="mb-8 grid gap-8 items-center border border-grey-02 bg-core-white sm:grid-cols-[0.8fr_1.2fr]">
-          <div>
-            <span className="mb-4 inline-flex rounded-full bg-brand-01 p-3 text-core-white">
-              <LayoutDashboard size={26} />
-            </span>
+        <div className="mb-14 grid overflow-hidden rounded-soft border border-grey-02 bg-core-white sm:mb-16 sm:grid-cols-2">
+          <div className="flex flex-col justify-center bg-core-black p-8 text-core-white sm:p-10">
+            <TypewriterWords reduceMotion={Boolean(reduceMotion)} />
             <h3 className="type-title">{landingCopy.dashboardTitle}</h3>
-            <p className="mt-2 text-sm text-text-secondary">
+            <p className="mt-2 text-sm text-grey-03">
               {landingCopy.dashboardText}
             </p>
           </div>
-          <ul className="space-y-3 text-sm">
+          <ul className="flex flex-col justify-center space-y-3 p-8 text-sm sm:p-10">
             {landingCopy.dashboardBullets.map((item) => (
               <li className="flex items-center gap-3" key={item}>
                 <span className="rounded-full bg-feedback-positive p-1 text-core-white">
@@ -126,9 +178,9 @@ export function FeatureSection() {
               </li>
             ))}
           </ul>
-        </Card>
+        </div>
         <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
-          <div className="flex flex-col rounded-soft border border-grey-02 bg-core-white p-6 sm:p-8">
+          <div className="flex flex-col rounded-soft bg-core-white p-6 sm:p-8">
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={feature.title}

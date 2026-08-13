@@ -2,11 +2,25 @@
 
 ## [Unreleased]
 
+### [CHANGED 2026-08-13] — Added roadmap hover movement
+
+#### Changed
+
+- Added a subtle rightward hover shift to roadmap cards while keeping timeline markers fixed and respecting reduced-motion preferences.
+
+### [CHANGED 2026-08-13] — Added ambient motion to partner icons
+
+#### Changed
+
+- Added slow, offset idle movement to the Minima and Integritas icons while preserving pointer response and reduced-motion behavior.
+- Reordered and staggered the partner marks so Integritas sits above Minima on desktop and appears first in the mobile stack.
+
 ### [CHANGED 2026-08-13] — Added product imagery to the landing showcase
 
 #### Changed
 
 - Replaced feature placeholders with focused Edge Studio screenshots and added reduced-motion-aware guided cursors to the feature slides and hero preview.
+- Replaced the dashboard icon with a cycling Connect, Automate, and Prove typewriter treatment, with a static reduced-motion fallback.
 
 ### [CHANGED 2026-08-13] — Aligned website copy with the Edge Studio product
 
