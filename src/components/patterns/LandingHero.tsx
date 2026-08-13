@@ -8,9 +8,8 @@ import {
   useTransform,
 } from 'motion/react';
 import { Check, ExternalLink, Image, Link2 } from 'lucide-react';
-import { Button } from '../ui/Button';
 import { CopyableCode } from '../ui/CopyableCode';
-import { landingCopy } from '../../constants/landing';
+import { externalLinks, landingCopy } from '../../constants/landing';
 import { cx } from '../../lib/cx';
 
 export type LandingHeroBackground = 'grid' | 'violet';
@@ -218,11 +217,17 @@ export function LandingHero({
             {landingCopy.heroText}
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-5">
-            <Button variant="accent" iconEnd={<Link2 size={16} />}>
-              {landingCopy.docsLink}
-            </Button>
             <a
-              href="https://github.com"
+              className="gap-detail-next rounded-loose inline-flex h-11 w-fit cursor-pointer items-center justify-center overflow-clip border border-transparent bg-surface-accent px-detail-close type-body text-text-inverse transition-colors duration-200 hover:bg-surface-accent-hover focus-visible:ring-2 focus-visible:ring-stroke-active focus-visible:outline-none"
+              href={externalLinks.docs}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {landingCopy.docsLink}
+              <Link2 size={16} />
+            </a>
+            <a
+              href={externalLinks.github}
               target="_blank"
               rel="noreferrer"
               className={cx(
@@ -271,7 +276,9 @@ export function LandingHero({
               'mt-2 ml-auto flex min-h-11 w-fit items-center gap-1 rounded-tight text-sm underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-01 sm:absolute sm:top-0 sm:right-0 sm:mt-0',
               hasVioletBackground && 'text-core-white',
             )}
-            href="#install"
+            href={externalLinks.installScript}
+            target="_blank"
+            rel="noreferrer"
           >
             {landingCopy.installLink}
             <ExternalLink size={15} />

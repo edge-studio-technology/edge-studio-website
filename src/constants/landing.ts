@@ -20,6 +20,13 @@ export type RoadmapItem = {
   state: 'active' | 'passive';
 };
 
+export const externalLinks = {
+  github: 'https://github.com/integritas-technology/edge-studio',
+  docs: 'https://github.com/integritas-technology/edge-studio/wiki',
+  installScript:
+    'https://github.com/integritas-technology/edge-studio/blob/main/install.sh',
+} as const;
+
 export const landingCopy = {
   eyebrow: 'self-hosted by design',
   heroTitle: 'Your Raspberry Pi, turned into a',
