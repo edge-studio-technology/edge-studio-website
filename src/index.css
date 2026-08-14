@@ -282,22 +282,6 @@ button {
   );
 }
 
-.hero-satin-sheen {
-  background: linear-gradient(
-    112deg,
-    transparent 38%,
-    rgb(72 44 160 / 6%) 43%,
-    rgb(124 88 224 / 19%) 47%,
-    rgb(218 207 255 / 20%) 50%,
-    rgb(98 62 196 / 15%) 53%,
-    transparent 59%
-  );
-  filter: blur(16px);
-  mix-blend-mode: screen;
-  transform-origin: center;
-  will-change: transform, opacity;
-}
-
 .hero-preview-frame {
   border: 1px solid var(--color-grey-03);
   background: var(--color-core-white);

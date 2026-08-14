@@ -7,33 +7,31 @@ import {
   useSpring,
   useTransform,
 } from 'motion/react';
-import { Check, ExternalLink, Image, Link2 } from 'lucide-react';
-import { Button } from '../ui/Button';
+import { Check, ExternalLink, Link2 } from 'lucide-react';
 import { CopyableCode } from '../ui/CopyableCode';
-import { landingCopy } from '../../constants/landing';
+import { FakeCursor } from '../ui/FakeCursor';
+import { externalLinks, landingCopy } from '../../constants/landing';
 import { cx } from '../../lib/cx';
+import dashboardImage from '../../assets/images/es_dashboard.png';
 
 export type LandingHeroBackground = 'grid' | 'violet';
 
-function DashboardPreview({
-  className = '',
-  description = landingCopy.previewText,
-  title = landingCopy.previewTitle,
-}: {
-  className?: string;
-  description?: string;
-  title?: string;
-}) {
+function DashboardPreview() {
   return (
-    <div
-      className={`flex aspect-16/10 flex-col items-center justify-center border-2 border-dashed border-grey-04 bg-grey-02 p-6 text-center text-grey-06/80 sm:p-10 ${className}`}
-    >
-      <Image size={48} strokeWidth={1.25} />
-      <strong className="mt-4 text-lg text-text-primary">{title}</strong>
-      <span className="mt-2 max-w-xs text-sm">{description}</span>
-      <span className="mt-4 rounded-full bg-core-white px-3 py-1 font-mono text-[10px]">
-        image placeholder
-      </span>
+    <div className="relative overflow-hidden">
+      <img
+        src={dashboardImage}
+        alt="Edge Studio dashboard with the guided workspace open"
+        className="block h-auto w-full"
+      />
+      <FakeCursor
+        points={[
+          { x: '72%', y: '70%' },
+          { x: '50%', y: '46%' },
+          { x: '36%', y: '51%' },
+          { x: '36%', y: '51%' },
+        ]}
+      />
     </div>
   );
 }
@@ -57,6 +55,8 @@ export function LandingHero({
   });
   const glowX = useTransform(pointerX, (value) => value - 160);
   const glowY = useTransform(pointerY, (value) => value - 160);
+  const circleCursorX = useTransform(pointerX, (value) => value - 224);
+  const circleCursorY = useTransform(pointerY, (value) => value - 224);
   const gridHighlightMask = useMotionTemplate`radial-gradient(circle 180px at ${pointerX}px ${pointerY}px, black 0%, rgba(0, 0, 0, 0.8) 42%, transparent 72%)`;
   const parallaxX = useSpring(useMotionValue(0), {
     stiffness: 120,
@@ -66,19 +66,6 @@ export function LandingHero({
     stiffness: 120,
     damping: 24,
   });
-  const sheenX = useSpring(useMotionValue(0), {
-    stiffness: 90,
-    damping: 26,
-  });
-  const sheenY = useSpring(useMotionValue(0), {
-    stiffness: 90,
-    damping: 26,
-  });
-  const sheenRotate = useSpring(useMotionValue(0), {
-    stiffness: 75,
-    damping: 24,
-  });
-
   function handlePointerMove(event: React.PointerEvent<HTMLElement>) {
     if (reduceMotion || event.pointerType === 'touch') return;
     const bounds = heroRef.current?.getBoundingClientRect();
@@ -89,9 +76,6 @@ export function LandingHero({
     pointerY.set(y);
     parallaxX.set((x / bounds.width - 0.5) * 8);
     parallaxY.set((y / bounds.height - 0.5) * 8);
-    sheenX.set((x / bounds.width - 0.5) * bounds.width * 0.9);
-    sheenY.set((y / bounds.height - 0.5) * bounds.height * 0.2);
-    sheenRotate.set((x / bounds.width - 0.5) * 6);
   }
 
   function handlePointerEnter(event: React.PointerEvent<HTMLElement>) {
@@ -104,9 +88,6 @@ export function LandingHero({
     setActive(false);
     parallaxX.set(0);
     parallaxY.set(0);
-    sheenX.set(0);
-    sheenY.set(0);
-    sheenRotate.set(0);
   }
 
   const reveal = reduceMotion ? undefined : { opacity: 0, y: 18 };
@@ -132,10 +113,13 @@ export function LandingHero({
           {!reduceMotion && (
             <motion.div
               aria-hidden="true"
-              className="hero-satin-sheen pointer-events-none absolute -inset-[35%] z-[1]"
-              style={{ x: sheenX, y: sheenY, rotate: sheenRotate }}
-              animate={{ opacity: active ? 1 : 0 }}
-              transition={{ duration: active ? 0.45 : 0.25 }}
+              className="pointer-events-none absolute left-0 top-0 z-[2] size-[28rem] rounded-full border-2 border-brand-02/35 bg-brand-01/5"
+              style={{
+                x: circleCursorX,
+                y: circleCursorY,
+              }}
+              animate={{ opacity: active ? 0.8 : 0 }}
+              transition={{ duration: active ? 0.2 : 0.15 }}
             />
           )}
         </>
@@ -218,11 +202,17 @@ export function LandingHero({
             {landingCopy.heroText}
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-5">
-            <Button variant="accent" iconEnd={<Link2 size={16} />}>
-              {landingCopy.docsLink}
-            </Button>
             <a
-              href="https://github.com"
+              className="gap-detail-next rounded-loose inline-flex h-11 w-fit cursor-pointer items-center justify-center overflow-clip border border-transparent bg-surface-accent px-detail-close type-body text-text-inverse transition-colors duration-200 hover:bg-surface-accent-hover focus-visible:ring-2 focus-visible:ring-stroke-active focus-visible:outline-none"
+              href={externalLinks.docs}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {landingCopy.docsLink}
+              <Link2 size={16} />
+            </a>
+            <a
+              href={externalLinks.github}
               target="_blank"
               rel="noreferrer"
               className={cx(
@@ -262,7 +252,7 @@ export function LandingHero({
           <div className="-mt-px rounded-b-soft rounded-tr-soft border border-core-black bg-core-black p-3 font-mono text-xs text-core-white">
             <CopyableCode
               value={
-                'git clone <your-fork-or-repo> edge-studio\ncd edge-studio && ./install.sh'
+                'curl -fsSL https://raw.githubusercontent.com/integritas-technology/edge-studio/main/install.sh | sudo bash'
               }
             />
           </div>
@@ -271,7 +261,9 @@ export function LandingHero({
               'mt-2 ml-auto flex min-h-11 w-fit items-center gap-1 rounded-tight text-sm underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-01 sm:absolute sm:top-0 sm:right-0 sm:mt-0',
               hasVioletBackground && 'text-core-white',
             )}
-            href="#install"
+            href={externalLinks.installScript}
+            target="_blank"
+            rel="noreferrer"
           >
             {landingCopy.installLink}
             <ExternalLink size={15} />

@@ -2,6 +2,56 @@
 
 ## [Unreleased]
 
+### [CHANGED 2026-08-14] — Simplified feature tab styling
+
+#### Changed
+
+- Replaced the active feature tab's rounded outline with a square, bottom-border-only treatment.
+
+### [CHANGED 2026-08-14] — Added an alternate hero cursor experiment
+
+#### Changed
+
+- Replaced the previous satin cursor treatment with a single transparent Motion-powered violet circle that follows the pointer without deforming.
+
+### [CHANGED 2026-08-13] — Added roadmap hover movement
+
+#### Changed
+
+- Added a subtle rightward hover shift to roadmap cards while keeping timeline markers fixed and respecting reduced-motion preferences.
+
+### [CHANGED 2026-08-13] — Added ambient motion to partner icons
+
+#### Changed
+
+- Added slow, offset idle movement to the Minima and Integritas icons while preserving pointer response and reduced-motion behavior.
+- Reordered and staggered the partner marks so Integritas sits above Minima on desktop and appears first in the mobile stack.
+
+### [CHANGED 2026-08-13] — Added product imagery to the landing showcase
+
+#### Changed
+
+- Replaced feature placeholders with focused Edge Studio screenshots and added reduced-motion-aware guided cursors to the feature slides and hero preview.
+- Replaced the dashboard icon with a cycling Connect, Automate, and Prove typewriter treatment, with a static reduced-motion fallback.
+
+### [CHANGED 2026-08-13] — Aligned website copy with the Edge Studio product
+
+#### Changed
+
+- Rewrote the landing page, roadmap, preview, metadata, and legal drafts around Edge Studio's current local-first device, workflow, Minima, and Integritas capabilities.
+
+### [FIXED 2026-08-13] — Restored the Integritas partner icon
+
+#### Fixed
+
+- Corrected the Integritas SVG asset path so its icon renders in the Powered by section.
+
+### [CHANGED 2026-08-13] — Added partner branding to the landing page
+
+#### Changed
+
+- Replaced the Powered by placeholders with linked Minima and Integritas icon-and-wordmark lockups, shape-aware shadows, and pointer-responsive movement matching the hero preview.
+
 ### [ADDED 2026-08-13] — Added an alternate violet hero background
 
 #### Added

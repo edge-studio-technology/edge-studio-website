@@ -1,8 +1,12 @@
-import { useState, type CSSProperties } from 'react';
+import { useEffect, useState, type CSSProperties } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
-import { Check, Image, LayoutDashboard } from 'lucide-react';
-import { Card } from '../ui/Card';
+import { Check } from 'lucide-react';
+import { FakeCursor } from '../ui/FakeCursor';
 import { features, landingCopy } from '../../constants/landing';
+import devicesImage from '../../assets/images/es_data_source_devices.png';
+import workflowsImage from '../../assets/images/es_workflows_canvas.png';
+import proofsImage from '../../assets/images/es_integritas_stamp_ok.png';
+import minimaImage from '../../assets/images/es_minima.png';
 
 const tabColumns = [
   'calc(100% - 12.75rem) 3.5rem 3.5rem 3.5rem',
@@ -11,18 +15,127 @@ const tabColumns = [
   '3.5rem 3.5rem 3.5rem calc(100% - 12.75rem)',
 ] as const;
 
-function Preview({
-  title,
-  description,
-}: {
-  title: string;
-  description: string;
-}) {
+const typewriterWords = ['Connect', 'Automate', 'Prove'] as const;
+
+function TypewriterWords({ reduceMotion }: { reduceMotion: boolean }) {
+  const [wordIndex, setWordIndex] = useState(0);
+  const [characterCount, setCharacterCount] = useState(0);
+  const [deleting, setDeleting] = useState(false);
+  const word = typewriterWords[wordIndex];
+
+  useEffect(() => {
+    if (reduceMotion) return;
+
+    const atEnd = characterCount === word.length;
+    const atStart = characterCount === 0;
+    let delay = deleting ? 55 : 90;
+
+    if (!deleting && atEnd) delay = 1300;
+    if (deleting && atStart) delay = 260;
+
+    const timeout = window.setTimeout(() => {
+      if (!deleting && atEnd) {
+        setDeleting(true);
+        return;
+      }
+
+      if (deleting && atStart) {
+        setDeleting(false);
+        setWordIndex((current) => (current + 1) % typewriterWords.length);
+        return;
+      }
+
+      setCharacterCount((current) => current + (deleting ? -1 : 1));
+    }, delay);
+
+    return () => window.clearTimeout(timeout);
+  }, [characterCount, deleting, reduceMotion, word.length]);
+
   return (
-    <div className="flex h-full flex-col items-center justify-center border-2 border-dashed border-grey-04 bg-grey-02 p-6 text-center text-grey-06/80">
-      <Image size={48} strokeWidth={1.25} />
-      <strong className="mt-4 text-lg text-text-primary">{title}</strong>
-      <span className="mt-2 max-w-xs text-sm">{description}</span>
+    <div className="mb-5 flex min-h-8 items-center font-mono text-lg font-semibold uppercase tracking-[0.14em] text-brand-02">
+      <span className="sr-only">Connect, automate, and prove</span>
+      <span aria-hidden="true" className="inline-flex min-w-[9ch] items-center">
+        {reduceMotion
+          ? typewriterWords.join(' · ')
+          : word.slice(0, characterCount)}
+        {!reduceMotion && (
+          <motion.span
+            className="ml-1 h-6 w-0.5 bg-brand-02"
+            animate={{ opacity: [1, 1, 0, 0] }}
+            transition={{ duration: 0.8, repeat: Infinity, ease: 'linear' }}
+          />
+        )}
+      </span>
+    </div>
+  );
+}
+
+const featurePreviews = [
+  {
+    src: devicesImage,
+    alt: 'Edge Studio device input source picker',
+    position: '50% 48%',
+    scale: 1.08,
+    cursor: [
+      { x: '69%', y: '72%' },
+      { x: '66%', y: '70%' },
+      { x: '65%', y: '69%' },
+      { x: '65%', y: '69%' },
+    ],
+  },
+  {
+    src: workflowsImage,
+    alt: 'Edge Studio visual workflow canvas and block toolkit',
+    position: '53% 60%',
+    scale: 1.13,
+    cursor: [
+      { x: '84%', y: '58%' },
+      { x: '74%', y: '58%' },
+      { x: '58%', y: '64%' },
+      { x: '58%', y: '64%' },
+    ],
+  },
+  {
+    src: proofsImage,
+    alt: 'Edge Studio Integritas proof confirmed on-chain',
+    position: '58% 57%',
+    scale: 1.12,
+    cursor: [
+      { x: '70%', y: '45%' },
+      { x: '58%', y: '58%' },
+      { x: '53%', y: '65%' },
+      { x: '53%', y: '65%' },
+    ],
+  },
+  {
+    src: minimaImage,
+    alt: 'Edge Studio Minima node and container health dashboard',
+    position: '55% 48%',
+    scale: 1.1,
+    cursor: [
+      { x: '72%', y: '69%' },
+      { x: '62%', y: '68%' },
+      { x: '58%', y: '67%' },
+      { x: '58%', y: '67%' },
+    ],
+  },
+] as const;
+
+function Preview({ index }: { index: number }) {
+  const preview = featurePreviews[index];
+
+  return (
+    <div className="relative h-full overflow-hidden rounded-soft border border-grey-02 bg-grey-02 shadow-[0_18px_45px_-32px_rgb(0_0_0/0.55)]">
+      <img
+        src={preview.src}
+        alt={preview.alt}
+        className="h-full w-full object-cover"
+        style={{
+          objectPosition: preview.position,
+          transform: `scale(${preview.scale})`,
+        }}
+      />
+      <FakeCursor points={preview.cursor} />
     </div>
   );
 }
@@ -47,17 +160,15 @@ export function FeatureSection() {
             {landingCopy.featuresTitle}
           </h2>
         </div>
-        <Card className="mb-8 grid gap-8 items-center border border-grey-02 bg-core-white sm:grid-cols-[0.8fr_1.2fr]">
-          <div>
-            <span className="mb-4 inline-flex rounded-full bg-brand-01 p-3 text-core-white">
-              <LayoutDashboard size={26} />
-            </span>
+        <div className="mb-14 grid overflow-hidden rounded-soft border border-grey-02 bg-core-white sm:mb-16 sm:grid-cols-2">
+          <div className="flex flex-col justify-center bg-core-black p-8 text-core-white sm:p-10">
+            <TypewriterWords reduceMotion={Boolean(reduceMotion)} />
             <h3 className="type-title">{landingCopy.dashboardTitle}</h3>
-            <p className="mt-2 text-sm text-text-secondary">
+            <p className="mt-2 text-sm text-grey-03">
               {landingCopy.dashboardText}
             </p>
           </div>
-          <ul className="space-y-3 text-sm">
+          <ul className="flex flex-col justify-center space-y-3 p-8 text-sm sm:p-10">
             {landingCopy.dashboardBullets.map((item) => (
               <li className="flex items-center gap-3" key={item}>
                 <span className="rounded-full bg-feedback-positive p-1 text-core-white">
@@ -67,9 +178,9 @@ export function FeatureSection() {
               </li>
             ))}
           </ul>
-        </Card>
+        </div>
         <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
-          <div className="flex flex-col rounded-soft border border-grey-02 bg-core-white p-6 sm:p-8">
+          <div className="flex flex-col rounded-soft bg-core-white p-6 sm:p-8">
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={feature.title}
@@ -117,7 +228,7 @@ export function FeatureSection() {
                     data-active={isActive}
                     onClick={() => setActive(index)}
                     key={title}
-                    className={`feature-tab relative h-14 min-w-0 overflow-hidden rounded-soft border transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-01 ${isActive ? 'border-brand-01 bg-core-white text-brand-01' : 'border-transparent text-text-secondary hover:border-grey-03 hover:bg-grey-01'}`}
+                    className={`feature-tab relative h-14 min-w-0 overflow-hidden border-b-2 border-transparent transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-01 ${isActive ? 'border-b-brand-01 bg-core-white text-brand-01' : 'text-text-secondary hover:border-b-grey-03 hover:bg-grey-01'}`}
                   >
                     <span className="feature-tab-icon absolute top-1/2 flex size-5 items-center justify-center">
                       <Icon size={20} />
@@ -140,7 +251,7 @@ export function FeatureSection() {
                 exit={reduceMotion ? undefined : { opacity: 0, x: -18 }}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
               >
-                <Preview title={feature.title} description={feature.detail} />
+                <Preview index={active} />
               </motion.div>
             </AnimatePresence>
           </div>

@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, ExternalLink, Link2, Menu, X } from 'lucide-react';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { BrandMark } from '../ui/BrandMark';
-import { Button } from '../ui/Button';
 import { RaspberryPiMark } from '../ui/RaspberryPiMark';
+import { externalLinks } from '../../constants/landing';
 
 export function Navbar({ legal = false }: { legal?: boolean }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -30,7 +30,7 @@ export function Navbar({ legal = false }: { legal?: boolean }) {
   }, [menuOpen]);
 
   return (
-    <header className="sticky inset-x-0 top-0 z-50 border-b border-grey-06 bg-surface-inverse text-text-inverse">
+    <header className="sticky inset-x-0 top-0 z-50  bg-surface-inverse text-text-inverse">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-5 lg:px-8">
         <Link
           className="flex min-h-11 min-w-0 items-center gap-2 rounded-tight text-xl font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-core-white sm:gap-4 sm:text-2xl"
@@ -74,21 +74,21 @@ export function Navbar({ legal = false }: { legal?: boolean }) {
               </a>
               <a
                 className="hidden min-h-11 items-center gap-1 rounded-tight px-1 text-grey-03 hover:text-core-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-core-white sm:flex"
-                href="https://github.com"
+                href={externalLinks.github}
                 target="_blank"
                 rel="noreferrer"
               >
                 <span>View on GitHub</span>
                 <ExternalLink size={15} />
               </a>
-              <Button
-                className="focus-visible:ring-core-white"
-                iconEnd={<Link2 size={16} />}
-                size="sm"
-                variant="accent"
+              <a
+                className="gap-detail-next rounded-loose inline-flex h-8 w-fit items-center justify-center overflow-clip border border-transparent bg-surface-accent px-detail-close type-meta text-text-inverse transition-colors duration-200 hover:bg-surface-accent-hover focus-visible:ring-2 focus-visible:ring-core-white focus-visible:outline-none"
+                href={externalLinks.docs}
+                target="_blank"
+                rel="noreferrer"
               >
-                Docs
-              </Button>
+                Docs <Link2 size={16} />
+              </a>
             </>
           )}
         </nav>
@@ -157,7 +157,7 @@ export function Navbar({ legal = false }: { legal?: boolean }) {
                   </a>
                   <a
                     className="flex min-h-11 items-center gap-1 rounded-tight text-grey-03 hover:text-core-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-core-white"
-                    href="https://github.com"
+                    href={externalLinks.github}
                     onClick={closeMenu}
                     rel="noreferrer"
                     target="_blank"
@@ -165,14 +165,15 @@ export function Navbar({ legal = false }: { legal?: boolean }) {
                     <span>View on GitHub</span>
                     <ExternalLink size={16} />
                   </a>
-                  <Button
-                    className="focus-visible:ring-core-white"
-                    iconEnd={<Link2 size={16} />}
+                  <a
+                    className="gap-detail-next rounded-loose inline-flex h-11 w-fit items-center justify-center overflow-clip border border-transparent bg-surface-accent px-detail-close type-body text-text-inverse transition-colors duration-200 hover:bg-surface-accent-hover focus-visible:ring-2 focus-visible:ring-core-white focus-visible:outline-none"
+                    href={externalLinks.docs}
                     onClick={closeMenu}
-                    variant="accent"
+                    target="_blank"
+                    rel="noreferrer"
                   >
-                    Docs
-                  </Button>
+                    Docs <Link2 size={16} />
+                  </a>
                 </>
               )}
             </motion.nav>

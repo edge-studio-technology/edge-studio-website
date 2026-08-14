@@ -1,6 +1,6 @@
 import { ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { landingCopy } from '../../constants/landing';
+import { externalLinks, landingCopy } from '../../constants/landing';
 
 export function SiteFooter({ legal = false }: { legal?: boolean }) {
   const linkClass =
@@ -29,7 +29,7 @@ export function SiteFooter({ legal = false }: { legal?: boolean }) {
           </Link>
           <a
             className={`${linkClass} gap-1`}
-            href="https://github.com"
+            href={externalLinks.github}
             target="_blank"
             rel="noreferrer"
           >
