@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### [ADDED 2026-08-14] — Added production container deployment
+
+#### Added
+
+- Added a multi-stage Docker image and Compose service that serves the Vite site from unprivileged Nginx on VPS port 4146 with SPA routing and health checks.
+
 ### [CHANGED 2026-08-14] — Simplified feature tab styling
 
 #### Changed

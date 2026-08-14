@@ -1,0 +1,12 @@
+.git
+.gitignore
+.agents
+.claude
+.codex
+node_modules
+dist
+npm-debug.log*
+Dockerfile*
+README.md
+docs
+mock
