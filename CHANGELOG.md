@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### [CHANGED 2026-08-14] — Simplified feature tab styling
+
+#### Changed
+
+- Replaced the active feature tab's rounded outline with a square, bottom-border-only treatment.
+
 ### [CHANGED 2026-08-14] — Added an alternate hero cursor experiment
 
 #### Changed

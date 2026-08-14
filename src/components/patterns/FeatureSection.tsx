@@ -228,7 +228,7 @@ export function FeatureSection() {
                     data-active={isActive}
                     onClick={() => setActive(index)}
                     key={title}
-                    className={`feature-tab relative h-14 min-w-0 overflow-hidden rounded-soft border transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-01 ${isActive ? 'border-brand-01 bg-core-white text-brand-01' : 'border-transparent text-text-secondary hover:border-grey-03 hover:bg-grey-01'}`}
+                    className={`feature-tab relative h-14 min-w-0 overflow-hidden border-b-2 border-transparent transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-01 ${isActive ? 'border-b-brand-01 bg-core-white text-brand-01' : 'text-text-secondary hover:border-b-grey-03 hover:bg-grey-01'}`}
                   >
                     <span className="feature-tab-icon absolute top-1/2 flex size-5 items-center justify-center">
                       <Icon size={20} />
