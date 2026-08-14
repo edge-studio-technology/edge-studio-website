@@ -55,6 +55,8 @@ export function LandingHero({
   });
   const glowX = useTransform(pointerX, (value) => value - 160);
   const glowY = useTransform(pointerY, (value) => value - 160);
+  const circleCursorX = useTransform(pointerX, (value) => value - 224);
+  const circleCursorY = useTransform(pointerY, (value) => value - 224);
   const gridHighlightMask = useMotionTemplate`radial-gradient(circle 180px at ${pointerX}px ${pointerY}px, black 0%, rgba(0, 0, 0, 0.8) 42%, transparent 72%)`;
   const parallaxX = useSpring(useMotionValue(0), {
     stiffness: 120,
@@ -64,19 +66,6 @@ export function LandingHero({
     stiffness: 120,
     damping: 24,
   });
-  const sheenX = useSpring(useMotionValue(0), {
-    stiffness: 90,
-    damping: 26,
-  });
-  const sheenY = useSpring(useMotionValue(0), {
-    stiffness: 90,
-    damping: 26,
-  });
-  const sheenRotate = useSpring(useMotionValue(0), {
-    stiffness: 75,
-    damping: 24,
-  });
-
   function handlePointerMove(event: React.PointerEvent<HTMLElement>) {
     if (reduceMotion || event.pointerType === 'touch') return;
     const bounds = heroRef.current?.getBoundingClientRect();
@@ -87,9 +76,6 @@ export function LandingHero({
     pointerY.set(y);
     parallaxX.set((x / bounds.width - 0.5) * 8);
     parallaxY.set((y / bounds.height - 0.5) * 8);
-    sheenX.set((x / bounds.width - 0.5) * bounds.width * 0.9);
-    sheenY.set((y / bounds.height - 0.5) * bounds.height * 0.2);
-    sheenRotate.set((x / bounds.width - 0.5) * 6);
   }
 
   function handlePointerEnter(event: React.PointerEvent<HTMLElement>) {
@@ -102,9 +88,6 @@ export function LandingHero({
     setActive(false);
     parallaxX.set(0);
     parallaxY.set(0);
-    sheenX.set(0);
-    sheenY.set(0);
-    sheenRotate.set(0);
   }
 
   const reveal = reduceMotion ? undefined : { opacity: 0, y: 18 };
@@ -130,10 +113,13 @@ export function LandingHero({
           {!reduceMotion && (
             <motion.div
               aria-hidden="true"
-              className="hero-satin-sheen pointer-events-none absolute -inset-[35%] z-[1]"
-              style={{ x: sheenX, y: sheenY, rotate: sheenRotate }}
-              animate={{ opacity: active ? 1 : 0 }}
-              transition={{ duration: active ? 0.45 : 0.25 }}
+              className="pointer-events-none absolute left-0 top-0 z-[2] size-[28rem] rounded-full border-2 border-brand-02/35 bg-brand-01/5"
+              style={{
+                x: circleCursorX,
+                y: circleCursorY,
+              }}
+              animate={{ opacity: active ? 0.8 : 0 }}
+              transition={{ duration: active ? 0.2 : 0.15 }}
             />
           )}
         </>

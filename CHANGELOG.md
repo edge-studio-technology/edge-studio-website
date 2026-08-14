@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### [CHANGED 2026-08-14] — Added an alternate hero cursor experiment
+
+#### Changed
+
+- Replaced the previous satin cursor treatment with a single transparent Motion-powered violet circle that follows the pointer without deforming.
+
 ### [CHANGED 2026-08-13] — Added roadmap hover movement
 
 #### Changed
