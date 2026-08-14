@@ -11,17 +11,17 @@ npm run dev
 
 ## Docker deployment
 
-Build and run the production image:
+Build and start the production container with Docker Compose:
 
 ```bash
-docker build -t edge-studio-website .
-docker run --detach --name edge-studio-website --restart unless-stopped \
-  --publish 8080:8080 edge-studio-website
+docker compose up --detach --build
 ```
 
-The site is then available at `http://localhost:8080`. On a VPS, point your TLS-terminating reverse proxy at port `8080`. The container includes a health check and serves client-side routes with an HTML fallback.
+The site is then available on the VPS at `http://127.0.0.1:4146`. Point your TLS-terminating reverse proxy at that address. Port `4146` is bound to localhost intentionally, so the container cannot bypass the proxy and expose plain HTTP publicly.
 
-To deploy an updated version, rebuild the image and replace the running container.
+To deploy an update, pull the new source and run the same command again. To inspect the service, use `docker compose ps` or `docker compose logs website`.
+
+The container listens internally on port `8080`, includes a health check, and serves client-side routes with an HTML fallback. If the service must be accessed directly from another machine, change the Compose port mapping from `127.0.0.1:4146:8080` to `4146:8080` and secure that port with the VPS firewall.
 
 ## Available scripts
 

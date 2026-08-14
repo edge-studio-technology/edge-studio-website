@@ -9,7 +9,7 @@ Edge Studio Website is a client-side Vite application that needs a portable prod
 
 ## Decision
 
-Use a multi-stage Docker build. Node.js installs locked dependencies and produces the Vite build, then an unprivileged Nginx image serves only the generated `dist` directory over port 8080. Nginx falls back to `index.html` for client-side routes and gives fingerprinted Vite assets long-lived cache headers. TLS and public routing remain the responsibility of the host reverse proxy.
+Use a multi-stage Docker build. Node.js installs locked dependencies and produces the Vite build, then an unprivileged Nginx image serves only the generated `dist` directory over port 8080. Docker Compose maps that service to `127.0.0.1:4146` on the host so it remains reachable by a local reverse proxy without exposing plain HTTP publicly. Nginx falls back to `index.html` for client-side routes and gives fingerprinted Vite assets long-lived cache headers. TLS and public routing remain the responsibility of the host reverse proxy.
 
 ## Alternatives considered
 
@@ -33,5 +33,6 @@ Use a multi-stage Docker build. Node.js installs locked dependencies and produce
 ## References
 
 - `Dockerfile`
+- `compose.yaml`
 - `nginx.conf`
 - `README.md`

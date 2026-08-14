@@ -6,7 +6,7 @@
 
 #### Added
 
-- Added a multi-stage Docker image that builds the Vite site and serves it from unprivileged Nginx with SPA routing and health checks.
+- Added a multi-stage Docker image and Compose service that serves the Vite site from unprivileged Nginx on VPS port 4146 with SPA routing and health checks.
 
 ### [CHANGED 2026-08-14] — Simplified feature tab styling
 
