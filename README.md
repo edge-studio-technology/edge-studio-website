@@ -1,4 +1,40 @@
-# React + TypeScript + Vite
+# Edge Studio Website
+
+The public website for Edge Studio, built with React, TypeScript, and Vite.
+
+## Local development
+
+```bash
+npm ci
+npm run dev
+```
+
+## Docker deployment
+
+Build and run the production image:
+
+```bash
+docker build -t edge-studio-website .
+docker run --detach --name edge-studio-website --restart unless-stopped \
+  --publish 8080:8080 edge-studio-website
+```
+
+The site is then available at `http://localhost:8080`. On a VPS, point your TLS-terminating reverse proxy at port `8080`. The container includes a health check and serves client-side routes with an HTML fallback.
+
+To deploy an updated version, rebuild the image and replace the running container.
+
+## Available scripts
+
+```bash
+npm run dev          # Start the Vite development server
+npm run build        # Type-check and create the production build
+npm run lint         # Run ESLint
+npm run format:check # Check source formatting
+npm run format       # Format source files
+npm run preview      # Preview a completed production build locally
+```
+
+## Vite template notes
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### [ADDED 2026-08-14] — Added production container deployment
+
+#### Added
+
+- Added a multi-stage Docker image that builds the Vite site and serves it from unprivileged Nginx with SPA routing and health checks.
+
 ### [CHANGED 2026-08-14] — Simplified feature tab styling
 
 #### Changed
