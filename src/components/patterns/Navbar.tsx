@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { ArrowLeft, ExternalLink, Link2, Menu, X } from 'lucide-react';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { BrandMark } from '../ui/BrandMark';
-import { RaspberryPiMark } from '../ui/RaspberryPiMark';
+// import { RaspberryPiMark } from '../ui/RaspberryPiMark';
 import { externalLinks } from '../../constants/landing';
 
 export function Navbar({ legal = false }: { legal?: boolean }) {
