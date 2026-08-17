@@ -76,6 +76,7 @@ export function LandingHero({
     pointerY.set(y);
     parallaxX.set((x / bounds.width - 0.5) * 8);
     parallaxY.set((y / bounds.height - 0.5) * 8);
+    setActive(true);
   }
 
   function handlePointerEnter(event: React.PointerEvent<HTMLElement>) {

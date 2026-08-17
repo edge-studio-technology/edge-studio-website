@@ -1,4 +1,5 @@
-import { motion, useReducedMotion } from 'motion/react';
+import { useEffect } from 'react';
+import { motion, useAnimationControls, useReducedMotion } from 'motion/react';
 
 type CursorPoint = {
   x: string;
@@ -13,35 +14,40 @@ export function FakeCursor({
   className?: string;
 }) {
   const reduceMotion = useReducedMotion();
+  const controls = useAnimationControls();
+  const startingPoint = points.at(0) ?? { x: '50%', y: '50%' };
   const restingPoint = points.at(-1) ?? { x: '50%', y: '50%' };
+  const initialPoint = reduceMotion ? restingPoint : startingPoint;
+
+  useEffect(() => {
+    if (reduceMotion) {
+      controls.set({ left: restingPoint.x, top: restingPoint.y, scale: 1 });
+      return;
+    }
+
+    void controls.start({
+      left: points.map(({ x }) => x),
+      top: points.map(({ y }) => y),
+      scale: points.map((_, index) => (index === points.length - 2 ? 0.82 : 1)),
+      transition: {
+        duration: 4.8,
+        ease: 'easeInOut',
+        repeat: Infinity,
+        repeatDelay: 0.8,
+        times: points.map((_, index) => index / (points.length - 1)),
+      },
+    });
+
+    return () => controls.stop();
+  }, [controls, points, reduceMotion, restingPoint.x, restingPoint.y]);
 
   return (
     <motion.div
       aria-hidden="true"
       className={`pointer-events-none absolute z-20 drop-shadow-[0_2px_2px_rgb(0_0_0/0.35)] ${className}`}
       initial={false}
-      animate={
-        reduceMotion
-          ? { left: restingPoint.x, top: restingPoint.y }
-          : {
-              left: points.map(({ x }) => x),
-              top: points.map(({ y }) => y),
-              scale: points.map((_, index) =>
-                index === points.length - 2 ? 0.82 : 1,
-              ),
-            }
-      }
-      transition={
-        reduceMotion
-          ? { duration: 0 }
-          : {
-              duration: 4.8,
-              ease: 'easeInOut',
-              repeat: Infinity,
-              repeatDelay: 0.8,
-              times: points.map((_, index) => index / (points.length - 1)),
-            }
-      }
+      animate={controls}
+      style={{ left: initialPoint.x, top: initialPoint.y, scale: 1 }}
     >
       <svg viewBox="0 0 28 30" className="h-7 w-7 sm:h-8 sm:w-8" fill="none">
         <path

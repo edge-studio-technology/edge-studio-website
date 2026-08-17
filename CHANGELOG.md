@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### [FIXED 2026-08-17] — Restored landing-page motion after prerendering
+
+#### Fixed
+
+- Started guided preview cursors after hydration and activated the hero pointer effect on movement so both hero and Devices motion work immediately after SSG rendering.
+
 ### [CHANGED 2026-08-17] — Pre-rendered public routes with Vike
 
 #### Changed
