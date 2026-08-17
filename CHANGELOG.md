@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+### [CHANGED 2026-08-17] — Pre-rendered public routes with Vike
+
+#### Changed
+
+- Replaced the React Router SPA with Vike filesystem routes that generate content-bearing HTML and route metadata for the home, terms, and privacy pages.
+- Updated the production container to serve `dist/client` directly and return 404 for unknown URLs instead of falling back to the home page.
+
 ### [ADDED 2026-08-14] — Added production container deployment
 
 #### Added

@@ -1,6 +1,6 @@
 # ADR 001: Serve the static build with unprivileged Nginx
 
-- Status: Accepted
+- Status: Superseded by [ADR 002](002-use-vike-for-static-site-generation.md)
 - Date: 2026-08-14
 
 ## Context

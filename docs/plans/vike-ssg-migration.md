@@ -1,5 +1,7 @@
 # Spec: Vike SSG Migration
 
+Status: Completed
+
 ## Goal
 
 Convert the existing React/Vite website to Vike's React integration and pre-render every public route as static HTML while preserving the current UI and Nginx deployment model.
@@ -51,3 +53,11 @@ Convert the existing React/Vite website to Vike's React integration and pre-rend
 - Run the production preview and use browser checks for all routes, navigation, hash links, hydration, responsive layout, and console errors.
 - Build and start the Docker Compose service, verify the three direct routes, and verify that an unknown route returns 404.
 - Audit the manifest and lockfile for Vike/Vite/React compatibility and consistency.
+
+## Verification results
+
+- Formatting, ESLint, TypeScript, and `npm run build` pass.
+- Vike pre-renders content-bearing HTML and route metadata for `/`, `/terms`, and `/privacy` under `dist/client/`.
+- Browser checks pass for hydration, client navigation, hash scrolling, the mobile menu, five responsive viewport tiers, and console health.
+- The production container is healthy; the three public routes return 200 and an unknown route returns 404.
+- The manifest, lockfile, and installed dependency tree are consistent, with React Router removed.

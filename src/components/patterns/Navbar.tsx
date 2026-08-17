@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { ArrowLeft, ExternalLink, Link2, Menu, X } from 'lucide-react';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { BrandMark } from '../ui/BrandMark';
@@ -32,9 +31,9 @@ export function Navbar({ legal = false }: { legal?: boolean }) {
   return (
     <header className="sticky inset-x-0 top-0 z-50  bg-surface-inverse text-text-inverse">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-5 lg:px-8">
-        <Link
+        <a
           className="flex min-h-11 min-w-0 items-center gap-2 rounded-tight text-xl font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-core-white sm:gap-4 sm:text-2xl"
-          to="/"
+          href="/"
           onClick={() =>
             window.scrollTo({
               top: 0,
@@ -45,19 +44,19 @@ export function Navbar({ legal = false }: { legal?: boolean }) {
           <BrandMark size={28} />
           <div className="flex min-w-0 items-center gap-1">
             <span className="truncate">Edge Studio</span>
-            <RaspberryPiMark />
+            {/* <RaspberryPiMark /> */}
             {/* <RaspberryPiMark variant='text' /> */}
           </div>
-        </Link>
+        </a>
         <nav className="hidden items-center gap-5 text-sm lg:flex">
           {legal ? (
-            <Link
+            <a
               className="flex min-h-11 items-center gap-2 rounded-tight px-1 text-grey-03 hover:text-core-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-core-white"
-              to="/"
+              href="/"
             >
               <ArrowLeft size={16} />
               Back to home
-            </Link>
+            </a>
           ) : (
             <>
               <a
@@ -131,14 +130,14 @@ export function Navbar({ legal = false }: { legal?: boolean }) {
                 <X size={20} />
               </button>
               {legal ? (
-                <Link
+                <a
                   className="flex min-h-11 items-center gap-2 rounded-tight text-grey-03 hover:text-core-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-core-white"
+                  href="/"
                   onClick={closeMenu}
-                  to="/"
                 >
                   <ArrowLeft size={18} />
                   Back to home
-                </Link>
+                </a>
               ) : (
                 <>
                   <a
