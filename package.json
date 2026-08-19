@@ -9,7 +9,8 @@
     "format": "prettier --write src pages package.json vite.config.ts",
     "format:check": "prettier --check src pages package.json vite.config.ts",
     "lint": "eslint .",
-    "preview": "vike preview"
+    "preview": "vike preview",
+    "test:security": "bash scripts/security-smoke.sh"
   },
   "dependencies": {
     "@fontsource/azeret-mono": "^5.3.0",

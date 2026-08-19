@@ -2,6 +2,18 @@
 
 ## [Unreleased]
 
+### [CHANGED 2026-08-19] — Hardened the container supply chain and runtime
+
+#### Changed
+
+- Excluded local environment and editable design-source files from releases, pinned automatically updated base images, restricted the container runtime, and added a live security-header CI check.
+
+### [CHANGED 2026-08-19] — Hardened production browser responses
+
+#### Changed
+
+- Added a restrictive browser security-header policy to every Nginx response and documented the website's concrete privacy, secret-handling, and deployment rules.
+
 ### [FIXED 2026-08-19] — Restored partner icon animations
 
 #### Fixed

@@ -4,5 +4,12 @@ services:
       context: .
     image: edge-studio-website:latest
     restart: unless-stopped
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=16m,mode=1777
     ports:
       - '127.0.0.1:4146:8080'

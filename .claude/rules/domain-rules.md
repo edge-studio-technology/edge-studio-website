@@ -1,49 +1,27 @@
 # Domain Rules
 
-<!--
-This is a placeholder for your project's non-negotiable rules (compliance,
-privacy, safety, performance, etc.). If your project has no such rules, delete
-this file and remove references to it and to the `domain-check` skill.
-
-Otherwise, replace the bracketed sections below with real rules. Keep the same
-shape: short, concrete, with explicit thresholds and mechanisms named.
--->
-
-These apply to every feature and every automated action. Non-negotiable.
+These rules apply to the public Edge Studio website. They do not describe the separately deployed Edge Studio application.
 
 ## Data handling
 
-- Never upload or echo raw `<RAW_INPUT, e.g. PII, message bodies, logs>`
-- Only derived fields are allowed to leave `<BOUNDARY, e.g. the device / backend>`: `<DERIVED_FIELDS, e.g. hashes, counters, aggregates>`
-- `<INTERNAL_STORE, e.g. database / cache>` stores derived / sanitized fields only — no raw `<SENSITIVE_DATA, e.g. PII>`
-- All `<STRUCTURED_OUTPUT, e.g. LLM outputs>` must validate against `<SCHEMA_FORMAT, e.g. JSON Schema>` in `<SCHEMA_DIR>` before acting on them
+- Keep the website static: it must not collect form submissions, identifiers, analytics events, or other visitor data unless the privacy notice and this policy are updated first.
+- Do not add cookies, browser storage, tracking pixels, or third-party analytics without an explicit privacy and security review.
+- Keep fonts, scripts, styles, and images self-hosted. Any new third-party browser connection requires review and must be allowed explicitly by the Content Security Policy.
 
-## Confidence gating
+## Browser security
 
-- If `<CONFIDENCE_METRIC>` < `<THRESHOLD>`: set `<CONFIRM_FLAG>` and include a `<EXPLANATION_LIMIT>` explanation
-- Explainability and evidence provenance must be visible for any automated action
+- Production responses must retain the security headers defined in `security-headers.conf`; changes to allowed CSP sources require review.
+- Links opened in a new tab must use `rel="noreferrer"` or the stricter `rel="noopener noreferrer"`.
+- Do not render untrusted HTML or introduce `dangerouslySetInnerHTML`, `eval`, or dynamically constructed executable code.
 
-## Platform constraints
+## Secrets and build output
 
-**<PLATFORM_1, e.g. iOS / Web>**
+- The frontend and generated `dist/client` output must contain no credentials, private keys, access tokens, or backend-only configuration.
+- Treat every `VITE_` variable as public because Vite can include it in browser bundles; never place a secret in one.
+- Keep secret files and local tooling out of the Docker build context through `.dockerignore`, and copy only `dist/client` into the runtime image.
 
-- <Restriction 1>
-- <Restriction 2>
-- Background: `<BACKGROUND_MECHANISM_1>`
+## Deployment
 
-**<PLATFORM_2, e.g. Android / Node.js>**
-
-- <Restriction 1>
-- <Restriction 2>
-- Background: `<BACKGROUND_MECHANISM_2>`
-
-## Resource budgets
-
-- Tasks must complete within `<TIME_BUDGET>`
-- `<RESOURCE_BUDGET, e.g. memory / battery target>`
-- Gate heavy work behind `<GATING_CHECK>` where appropriate
-
-## Secrets
-
-- `<SECRET_VAR_1>` and `<SECRET_VAR_2>` are backend-only — never prefix with `<CLIENT_ENV_PREFIX, e.g. EXPO_PUBLIC_>`
-- `<AUTH_TOKENS, e.g. OAuth tokens>` must be stored in `<SECURE_STORAGE>`, not `<INSECURE_STORAGE>`
+- Serve production files from the unprivileged Nginx runtime image and keep the Compose port bound to localhost behind the TLS-terminating reverse proxy.
+- The public deployment must use HTTPS. The reverse proxy must preserve or strengthen the application security headers.
+- Dependency updates must retain the lockfile, use `npm ci` in builds, and pass the production dependency audit before release.

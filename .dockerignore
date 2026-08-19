@@ -6,6 +6,12 @@
 node_modules
 dist
 npm-debug.log*
+.env
+.env.*
+!.env.example
+**/.DS_Store
+public/**/*.ai
+public/**/*.zip
 Dockerfile*
 README.md
 docs
