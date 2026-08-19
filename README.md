@@ -32,7 +32,13 @@ The site is then available on the VPS at `http://127.0.0.1:4146`. Point your TLS
 
 To deploy an update, pull the new source and run the same command again. To inspect the service, use `docker compose ps` or `docker compose logs website`.
 
-The container listens internally on port `8080`, includes a health check, and serves the pre-rendered files from `dist/client/`. Nginx resolves generated route directories, returns 404 for unknown URLs instead of rewriting them to the home page, and applies the browser security policy in `security-headers.conf`. The TLS reverse proxy must preserve or strengthen those headers. If the service must be accessed directly from another machine, change the Compose port mapping from `127.0.0.1:4146:8080` to `4146:8080` and secure that port with the VPS firewall.
+The container listens internally on port `8080`, includes a health check, and serves the pre-rendered files from `dist/client/`. Nginx resolves generated route directories, returns 404 for unknown URLs instead of rewriting them to the home page, and applies the browser security policy in `security-headers.conf`. The service runs with a read-only root filesystem, no Linux capabilities, and `no-new-privileges`; its only writable path is a small `/tmp` tmpfs. The TLS reverse proxy must preserve or strengthen the application headers. If the service must be accessed directly from another machine, change the Compose port mapping from `127.0.0.1:4146:8080` to `4146:8080` and secure that port with the VPS firewall.
+
+Run the container hardening and response-header smoke test with Docker available:
+
+```bash
+npm run test:security
+```
 
 ## Available scripts
 
@@ -43,4 +49,5 @@ npm run lint         # Run ESLint
 npm run format:check # Check source formatting
 npm run format       # Format source files
 npm run preview      # Preview the pre-rendered production build locally
+npm run test:security # Build the hardened container and verify response headers
 ```

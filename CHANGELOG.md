@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### [CHANGED 2026-08-19] — Hardened the container supply chain and runtime
+
+#### Changed
+
+- Excluded local environment and editable design-source files from releases, pinned automatically updated base images, restricted the container runtime, and added a live security-header CI check.
+
 ### [CHANGED 2026-08-19] — Hardened production browser responses
 
 #### Changed
