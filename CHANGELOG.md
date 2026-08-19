@@ -2,6 +2,25 @@
 
 ## [Unreleased]
 
+### [FIXED 2026-08-19] — Restored partner icon animations
+
+#### Fixed
+
+- Started the Powered by partner icon loops after hydration so their ambient motion works on the statically rendered landing page.
+
+### [FIXED 2026-08-17] — Restored landing-page motion after prerendering
+
+#### Fixed
+
+- Started guided preview cursors after hydration and activated the hero pointer effect on movement so both hero and Devices motion work immediately after SSG rendering.
+
+### [CHANGED 2026-08-17] — Pre-rendered public routes with Vike
+
+#### Changed
+
+- Replaced the React Router SPA with Vike filesystem routes that generate content-bearing HTML and route metadata for the home, terms, and privacy pages.
+- Updated the production container to serve `dist/client` directly and return 404 for unknown URLs instead of falling back to the home page.
+
 ### [ADDED 2026-08-14] — Added production container deployment
 
 #### Added

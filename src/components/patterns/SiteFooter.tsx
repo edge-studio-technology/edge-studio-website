@@ -1,5 +1,4 @@
 import { ExternalLink } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import { externalLinks, landingCopy } from '../../constants/landing';
 
 export function SiteFooter({ legal = false }: { legal?: boolean }) {
@@ -21,12 +20,12 @@ export function SiteFooter({ legal = false }: { legal?: boolean }) {
               </a>
             </>
           )}
-          <Link className={linkClass} to="/terms">
+          <a className={linkClass} href="/terms">
             Terms
-          </Link>
-          <Link className={linkClass} to="/privacy">
+          </a>
+          <a className={linkClass} href="/privacy">
             Privacy
-          </Link>
+          </a>
           <a
             className={`${linkClass} gap-1`}
             href={externalLinks.github}

@@ -1,6 +1,7 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import {
   motion,
+  useAnimationControls,
   useMotionValue,
   useReducedMotion,
   useSpring,
@@ -21,6 +22,48 @@ const partners = [
     wordmarkSrc: '/minima_logo/Black/svg/Minima Word Mark 2023_Black-01.svg',
   },
 ] as const;
+
+function PartnerIcon({
+  iconSrc,
+  index,
+  reduceMotion,
+}: {
+  iconSrc: string;
+  index: number;
+  reduceMotion: boolean;
+}) {
+  const controls = useAnimationControls();
+
+  useEffect(() => {
+    if (reduceMotion) {
+      controls.set({ rotate: 0, y: 0 });
+      return;
+    }
+
+    void controls.start({
+      rotate: [0, -0.7, 0, 0.5, 0],
+      y: [0, -5, 0, 2, 0],
+      transition: {
+        duration: 6.2 + index * 0.6,
+        ease: 'easeInOut',
+        repeat: Infinity,
+        delay: index * 0.8,
+      },
+    });
+
+    return () => controls.stop();
+  }, [controls, index, reduceMotion]);
+
+  return (
+    <motion.div animate={controls} initial={false}>
+      <img
+        alt=""
+        className="size-24 object-contain drop-shadow-[0_18px_16px_rgb(0_0_0/0.22)] sm:size-28"
+        src={iconSrc}
+      />
+    </motion.div>
+  );
+}
 
 export function PoweredBySection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -88,29 +131,11 @@ export function PoweredBySection() {
                 }}
                 target="_blank"
               >
-                <motion.div
-                  initial={false}
-                  animate={
-                    reduceMotion
-                      ? { rotate: 0, y: 0 }
-                      : {
-                          rotate: [0, -0.7, 0, 0.5, 0],
-                          y: [0, -5, 0, 2, 0],
-                        }
-                  }
-                  transition={{
-                    duration: 6.2 + index * 0.6,
-                    ease: 'easeInOut',
-                    repeat: reduceMotion ? 0 : Infinity,
-                    delay: index * 0.8,
-                  }}
-                >
-                  <img
-                    alt=""
-                    className="size-24 object-contain drop-shadow-[0_18px_16px_rgb(0_0_0/0.22)] sm:size-28"
-                    src={iconSrc}
-                  />
-                </motion.div>
+                <PartnerIcon
+                  iconSrc={iconSrc}
+                  index={index}
+                  reduceMotion={Boolean(reduceMotion)}
+                />
                 <img
                   alt={`${name} logo`}
                   className="h-7 w-32 object-contain"

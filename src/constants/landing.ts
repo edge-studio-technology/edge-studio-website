@@ -21,10 +21,10 @@ export type RoadmapItem = {
 };
 
 export const externalLinks = {
-  github: 'https://github.com/integritas-technology/edge-studio',
-  docs: 'https://github.com/integritas-technology/edge-studio/wiki',
+  github: 'https://github.com/edge-studio-technology/edge-studio',
+  docs: 'https://github.com/edge-studio-technology/edge-studio/wiki',
   installScript:
-    'https://github.com/integritas-technology/edge-studio/blob/main/install.sh',
+    'https://github.com/edge-studio-technology/edge-studio/blob/main/install.sh',
 } as const;
 
 export const landingCopy = {

@@ -4,12 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "format": "prettier --write src package.json",
-    "format:check": "prettier --check src package.json",
+    "dev": "vike dev",
+    "build": "tsc -b && vike build",
+    "format": "prettier --write src pages package.json vite.config.ts",
+    "format:check": "prettier --check src pages package.json vite.config.ts",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vike preview"
   },
   "dependencies": {
     "@fontsource/azeret-mono": "^5.3.0",
@@ -18,7 +18,8 @@
     "motion": "^12.43.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "react-router-dom": "^7.18.2"
+    "vike": "^0.4.260",
+    "vike-react": "^0.6.26"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
