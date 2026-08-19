@@ -253,7 +253,7 @@ export function LandingHero({
           <div className="-mt-px rounded-b-soft rounded-tr-soft border border-core-black bg-core-black p-3 font-mono text-xs text-core-white">
             <CopyableCode
               value={
-                'curl -fsSL https://raw.githubusercontent.com/integritas-technology/edge-studio/main/install.sh | sudo bash'
+                'curl -fsSL https://raw.githubusercontent.com/edge-studio-technology/edge-studio/main/install.sh | sudo bash'
               }
             />
           </div>
