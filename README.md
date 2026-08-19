@@ -32,7 +32,7 @@ The site is then available on the VPS at `http://127.0.0.1:4146`. Point your TLS
 
 To deploy an update, pull the new source and run the same command again. To inspect the service, use `docker compose ps` or `docker compose logs website`.
 
-The container listens internally on port `8080`, includes a health check, and serves the pre-rendered files from `dist/client/`. Nginx resolves generated route directories and returns 404 for unknown URLs instead of rewriting them to the home page. If the service must be accessed directly from another machine, change the Compose port mapping from `127.0.0.1:4146:8080` to `4146:8080` and secure that port with the VPS firewall.
+The container listens internally on port `8080`, includes a health check, and serves the pre-rendered files from `dist/client/`. Nginx resolves generated route directories, returns 404 for unknown URLs instead of rewriting them to the home page, and applies the browser security policy in `security-headers.conf`. The TLS reverse proxy must preserve or strengthen those headers. If the service must be accessed directly from another machine, change the Compose port mapping from `127.0.0.1:4146:8080` to `4146:8080` and secure that port with the VPS firewall.
 
 ## Available scripts
 

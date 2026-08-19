@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### [CHANGED 2026-08-19] — Hardened production browser responses
+
+#### Changed
+
+- Added a restrictive browser security-header policy to every Nginx response and documented the website's concrete privacy, secret-handling, and deployment rules.
+
 ### [FIXED 2026-08-19] — Restored partner icon animations
 
 #### Fixed
