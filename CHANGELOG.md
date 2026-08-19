@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### [FIXED 2026-08-19] — Restored partner icon animations
+
+#### Fixed
+
+- Started the Powered by partner icon loops after hydration so their ambient motion works on the statically rendered landing page.
+
 ### [FIXED 2026-08-17] — Restored landing-page motion after prerendering
 
 #### Fixed
