@@ -77,8 +77,8 @@ const featurePreviews = [
     position: '50% 48%',
     scale: 1.08,
     cursor: [
-      { x: '69%', y: '72%' },
-      { x: '66%', y: '70%' },
+      { x: '35%', y: '44%' },
+      { x: '65%', y: '44%' },
       { x: '65%', y: '69%' },
       { x: '65%', y: '69%' },
     ],
@@ -89,8 +89,8 @@ const featurePreviews = [
     position: '53% 60%',
     scale: 1.13,
     cursor: [
-      { x: '84%', y: '58%' },
-      { x: '74%', y: '58%' },
+      { x: '84%', y: '50%' },
+      { x: '76%', y: '50%' },
       { x: '58%', y: '64%' },
       { x: '58%', y: '64%' },
     ],
@@ -98,25 +98,25 @@ const featurePreviews = [
   {
     src: proofsImage,
     alt: 'Edge Studio Integritas proof confirmed on-chain',
-    position: '58% 57%',
-    scale: 1.12,
+    position: '45% 50%',
+    scale: 1,
     cursor: [
-      { x: '70%', y: '45%' },
-      { x: '58%', y: '58%' },
-      { x: '53%', y: '65%' },
-      { x: '53%', y: '65%' },
+      { x: '72%', y: '28%' },
+      { x: '53%', y: '40%' },
+      { x: '47%', y: '79%' },
+      { x: '47%', y: '79%' },
     ],
   },
   {
     src: minimaImage,
     alt: 'Edge Studio Minima node and container health dashboard',
-    position: '55% 48%',
-    scale: 1.1,
+    position: '50% 50%',
+    scale: 1,
     cursor: [
-      { x: '72%', y: '69%' },
-      { x: '62%', y: '68%' },
-      { x: '58%', y: '67%' },
-      { x: '58%', y: '67%' },
+      { x: '80%', y: '48%' },
+      { x: '75%', y: '62%' },
+      { x: '51%', y: '86%' },
+      { x: '51%', y: '86%' },
     ],
   },
 ] as const;
@@ -184,7 +184,7 @@ export function FeatureSection() {
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={feature.title}
-                className="flex min-h-0 flex-1 flex-col items-center justify-center text-center lg:items-start lg:text-left"
+                className="flex min-h-60 flex-1 flex-col items-center justify-center text-center sm:min-h-64 lg:items-start lg:text-left"
                 initial={
                   reduceMotion ? false : { opacity: 0, y: 18, scale: 0.98 }
                 }

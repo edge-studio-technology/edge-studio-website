@@ -15,11 +15,11 @@ export function SiteFooter({ legal = false }: { legal?: boolean }) {
               <a className={linkClass} href="#build-ideas">
                 Build ideas
               </a>
-              <a className={linkClass} href="#how-it-works">
-                How it works
-              </a>
               <a className={linkClass} href="#features">
                 Features
+              </a>
+              <a className={linkClass} href="#how-it-works">
+                How it works
               </a>
               <a className={linkClass} href="#roadmap">
                 Roadmap

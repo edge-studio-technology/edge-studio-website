@@ -2,6 +2,18 @@
 
 ## [Unreleased]
 
+### [CHANGED 2026-08-31] — Refined feature preview framing
+
+#### Changed
+
+- Reframed the Proofs and Minima screenshots and retargeted each animated cursor to keep important interface details visible.
+
+### [FIXED 2026-08-31] — Stabilized feature tab height
+
+#### Fixed
+
+- Kept the feature content panel at a consistent height so switching between tabs no longer shifts the surrounding layout.
+
 ### [CHANGED 2026-08-31] — Aligned landing-section headers
 
 #### Changed
