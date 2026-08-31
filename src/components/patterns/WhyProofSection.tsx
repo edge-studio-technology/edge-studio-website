@@ -1,24 +1,37 @@
 import proofOriginImage from '../../assets/images/es_proof_01.jpg';
 import proofTimeImage from '../../assets/images/es_proof_02.jpg';
 import proofIntegrityImage from '../../assets/images/es_proof_03.jpg';
+import proofOriginImageAlt from '../../assets/images/es_proof_04.jpg';
+import proofTimeImageAlt from '../../assets/images/es_proof_05.jpg';
+import proofIntegrityImageAlt from '../../assets/images/es_proof_06.jpg';
+
+// Change this value to switch all three proof-card banners together.
+const proofImageSet: 'brandImg' | 'altImg' = 'brandImg';
+
+const proofImages = {
+  brandImg: [proofOriginImage, proofTimeImage, proofIntegrityImage],
+  altImg: [proofOriginImageAlt, proofTimeImageAlt, proofIntegrityImageAlt],
+} as const;
+
+const [originImage, timeImage, integrityImage] = proofImages[proofImageSet];
 
 const proofReasons = [
   {
     title: 'Where it came from',
     text: 'Link records back to the device or project that created them.',
-    image: proofOriginImage,
+    image: originImage,
     imageAlt: 'Abstract fingerprint pattern',
   },
   {
     title: 'When it happened',
     text: 'Preserve a timestamped history of physical-world events.',
-    image: proofTimeImage,
+    image: timeImage,
     imageAlt: 'Clock on a vivid orange background',
   },
   {
     title: 'Whether it changed',
     text: 'Make tampering or later edits visible instead of invisible.',
-    image: proofIntegrityImage,
+    image: integrityImage,
     imageAlt: 'Linked blocks representing a connected record',
   },
 ] as const;

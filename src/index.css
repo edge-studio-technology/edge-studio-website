@@ -190,6 +190,63 @@
   }
 }
 
+@keyframes build-ideas-carousel-scroll {
+  to {
+    transform: translateX(calc(-50% - 0.5rem));
+  }
+}
+
+.build-ideas-carousel {
+  --carousel-edge-fade: 1.5rem;
+  overflow: hidden;
+  padding-block: 1rem;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black var(--carousel-edge-fade),
+    black calc(100% - var(--carousel-edge-fade)),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black var(--carousel-edge-fade),
+    black calc(100% - var(--carousel-edge-fade)),
+    transparent
+  );
+}
+
+.build-ideas-carousel-track,
+.build-ideas-carousel-group {
+  display: flex;
+  width: max-content;
+  gap: 1rem;
+}
+
+.build-ideas-carousel-track {
+  animation: build-ideas-carousel-scroll 42s linear infinite;
+  will-change: transform;
+}
+
+.build-ideas-card {
+  transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.build-ideas-card:hover {
+  transform: scale(1.025);
+}
+
+.build-ideas-carousel:hover .build-ideas-carousel-track,
+.build-ideas-carousel:focus-within .build-ideas-carousel-track {
+  animation-play-state: paused;
+}
+
+@media (min-width: 640px) {
+  .build-ideas-carousel {
+    --carousel-edge-fade: 3rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   :root {
     scroll-behavior: auto;
@@ -198,6 +255,26 @@
   .onboarding-enter,
   .onboarding-enter-stagger > * {
     animation: none !important;
+  }
+
+  .build-ideas-carousel {
+    overflow-x: auto;
+  }
+
+  .build-ideas-carousel-track {
+    animation: none;
+  }
+
+  .build-ideas-card {
+    transition: none;
+  }
+
+  .build-ideas-card:hover {
+    transform: none;
+  }
+
+  .build-ideas-carousel-group[aria-hidden='true'] {
+    display: none;
   }
 }
 

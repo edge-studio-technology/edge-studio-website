@@ -36,6 +36,44 @@ const otherPrompts = [
   'Greenhouse monitor',
 ] as const;
 
+function ProjectIdeaCards({ duplicate = false }: { duplicate?: boolean }) {
+  return (
+    <div
+      aria-hidden={duplicate || undefined}
+      className="build-ideas-carousel-group"
+    >
+      {buildIdeas.map(({ title, text, Icon }) => (
+        <article
+          className="build-ideas-card group flex min-h-64 w-[min(20rem,calc(100vw-3rem))] shrink-0 flex-col justify-between rounded-soft border border-grey-02 bg-core-white p-6 sm:w-80 lg:w-[22rem]"
+          key={title}
+        >
+          <div className="flex items-start justify-between gap-4">
+            <Icon aria-hidden="true" className="text-brand-01" size={30} />
+            <span className="rounded-full border border-grey-02 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-text-secondary">
+              Project idea
+            </span>
+          </div>
+          <div>
+            <h3 className="text-2xl font-semibold">{title}</h3>
+            <p className="mt-3 leading-relaxed text-text-secondary">{text}</p>
+          </div>
+        </article>
+      ))}
+
+      <aside className="build-ideas-card flex min-h-64 w-[min(20rem,calc(100vw-3rem))] shrink-0 flex-col justify-between rounded-soft border border-brand-01/30 bg-brand-01 p-6 text-core-white sm:w-80 lg:w-[22rem]">
+        <Lightbulb aria-hidden="true" size={30} />
+        <div>
+          <h3 className="text-2xl font-semibold">Bring your own idea</h3>
+          <p className="mt-3 leading-relaxed text-core-white/80">
+            Start with a project that already creates useful data, then decide
+            where a verifiable record adds value.
+          </p>
+        </div>
+      </aside>
+    </div>
+  );
+}
+
 export function BuildIdeasSection() {
   return (
     <section
@@ -56,55 +94,16 @@ export function BuildIdeasSection() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-6">
-          {buildIdeas.map(({ title, text, Icon }, index) => (
-            <article
-              className={`group flex min-h-64 flex-col justify-between rounded-soft border p-6 transition-transform duration-200 motion-reduce:transition-none ${
-                index === 0
-                  ? 'border-core-black bg-core-black text-core-white lg:col-span-2'
-                  : 'border-grey-02 bg-core-white lg:col-span-2 hover:-translate-y-1'
-              }`}
-              key={title}
-            >
-              <div className="flex items-start justify-between gap-4">
-                <Icon
-                  aria-hidden="true"
-                  className={index === 0 ? 'text-brand-02' : 'text-brand-01'}
-                  size={30}
-                />
-                <span
-                  className={`rounded-full border px-3 py-1 font-mono text-[10px] uppercase tracking-[0.12em] ${
-                    index === 0
-                      ? 'border-grey-06 text-grey-03'
-                      : 'border-grey-02 text-text-secondary'
-                  }`}
-                >
-                  Project idea
-                </span>
-              </div>
-              <div>
-                <h3 className="text-2xl font-semibold">{title}</h3>
-                <p
-                  className={`mt-3 leading-relaxed ${
-                    index === 0 ? 'text-grey-03' : 'text-text-secondary'
-                  }`}
-                >
-                  {text}
-                </p>
-              </div>
-            </article>
-          ))}
-
-          <aside className="flex min-h-64 flex-col justify-between rounded-soft border border-brand-01/30 bg-brand-01 p-6 text-core-white lg:col-span-2">
-            <Lightbulb aria-hidden="true" size={30} />
-            <div>
-              <h3 className="text-2xl font-semibold">Bring your own idea</h3>
-              <p className="mt-3 leading-relaxed text-core-white/80">
-                Start with a project that already creates useful data, then
-                decide where a verifiable record adds value.
-              </p>
-            </div>
-          </aside>
+        <div
+          aria-label="Project ideas carousel. Focus or hover to pause."
+          className="build-ideas-carousel mt-12 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-01"
+          role="region"
+          tabIndex={0}
+        >
+          <div className="build-ideas-carousel-track">
+            <ProjectIdeaCards />
+            <ProjectIdeaCards duplicate />
+          </div>
         </div>
 
         <div className="mt-6 flex flex-wrap items-center gap-2 border-t border-grey-02 pt-6">

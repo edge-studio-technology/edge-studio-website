@@ -2,6 +2,19 @@
 
 ## [Unreleased]
 
+### [CHANGED 2026-08-31] — Added switchable proof banner palettes
+
+#### Changed
+
+- Added one centralized setting for switching the proof cards between the `es_proof_01–03` and `es_proof_04–06` image sets.
+
+### [CHANGED 2026-08-31] — Animated builder project ideas
+
+#### Changed
+
+- Turned the builder project cards into a spacious, softly edge-faded carousel with pause and subtle card enlargement on hover, plus a static reduced-motion mode.
+- Unified the first project card with the other project-idea cards while retaining the purple brand accent.
+
 ### [CHANGED 2026-08-31] — Refined feature preview framing
 
 #### Changed
