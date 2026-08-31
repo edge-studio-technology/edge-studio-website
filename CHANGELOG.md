@@ -2,6 +2,18 @@
 
 ## [Unreleased]
 
+### [CHANGED 2026-08-31] — Aligned landing-section headers
+
+#### Changed
+
+- Moved the Why proof and Build ideas eyebrows into their own rows so each heading aligns cleanly with its description.
+
+### [CHANGED 2026-08-31] — Added image banners to proof cards
+
+#### Changed
+
+- Replaced the Why proof card icons with focused image banners that reinforce origin, timing, and record integrity.
+
 ### [ADDED 2026-08-31] — Added builder project and proof guidance
 
 #### Added

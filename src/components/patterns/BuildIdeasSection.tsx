@@ -43,15 +43,13 @@ export function BuildIdeasSection() {
       className="scroll-mt-20 border-b border-grey-02 bg-grey-01 sm:scroll-mt-24"
     >
       <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8 lg:py-28">
-        <div className="grid gap-6 lg:grid-cols-[0.75fr_1.25fr] lg:items-end lg:gap-16">
-          <div>
-            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-01">
-              Start with a normal Pi project
-            </span>
-            <h2 className="type-heading mt-4 max-w-xl text-4xl">
-              Proof becomes useful when it is attached to real projects.
-            </h2>
-          </div>
+        <span className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-01">
+          Start with a normal Pi project
+        </span>
+        <div className="mt-4 grid gap-6 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
+          <h2 className="type-heading max-w-xl text-4xl">
+            Proof becomes useful when it is attached to real projects.
+          </h2>
           <p className="max-w-2xl text-lg leading-relaxed text-text-secondary">
             The easiest entry point is not an abstract platform demo. It is a Pi
             build where proof makes the result more valuable.
