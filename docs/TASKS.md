@@ -4,7 +4,7 @@ Read this file at the start of every session to understand current focus.
 
 ## 🔥 Now
 
-- Prepare the team-alignment groundwork in Phase 2 of [plan 001: builder-first content refresh](plans/001-builder-first-content-refresh.md).
+- Audit the new Why proof, Build ideas, and How it works sections, then continue the team-alignment groundwork in [plan 001: builder-first content refresh](plans/001-builder-first-content-refresh.md).
 
 ## 📌 Next
 

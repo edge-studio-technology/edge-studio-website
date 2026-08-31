@@ -62,7 +62,7 @@ Reframe the public site around Raspberry Pi builders and a safe install-to-first
 ### Phase 3 - Post-alignment implementation
 
 - [ ] Record team decisions in the alignment worksheet and update the approved public-copy set → verify: every public claim and CTA has an owner-approved status and destination.
-- [ ] Add Why proof?, Build ideas, and How it works components, export them from `src/components/index.tsx`, and place them in the approved order in `src/App.tsx` → verify: each section explains a distinct part of the Connect → Automate → Prove journey and examples do not imply nonexistent demos.
+- [x] Add Why proof?, Build ideas, and How it works components, export them from `src/components/index.tsx`, and place them in the approved order in `src/App.tsx` → verify: each section explains a distinct part of the Connect → Automate → Prove journey and examples do not imply nonexistent demos.
 - [ ] Complete `Navbar`, `LandingHero`, install guidance, `FeatureSection`, `PoweredBySection`, `RoadmapTimeline`, closing CTA, and `SiteFooter` → verify: current versus future functionality is unambiguous and no monetisation promise reads as available now.
 - [ ] Apply only approved consistency changes to `src/pages/LegalPage.tsx` → verify: Terms and Privacy remain marked draft and accurately describe user-selected external data flows without previewing unlaunched Marketplace behavior.
 - [ ] Review responsive layout, keyboard/focus behavior, reduced motion, heading order, link safety, image alt text, and static-site privacy constraints → verify: browser checks pass at mobile and desktop widths with no console, overflow, navigation, accessibility, CSP, or external-resource regressions.

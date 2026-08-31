@@ -1,10 +1,13 @@
 import {
+  BuildIdeasSection,
   FeatureSection,
+  HowItWorksSection,
   LandingHero,
   Navbar,
   PoweredBySection,
   RoadmapTimeline,
   SiteFooter,
+  WhyProofSection,
 } from './components';
 import { landingCopy, roadmap } from './constants/landing';
 
@@ -14,7 +17,10 @@ function App() {
       <Navbar />
       <main id="top">
         <LandingHero background="violet" />
+        <WhyProofSection />
+        <BuildIdeasSection />
         <FeatureSection />
+        <HowItWorksSection />
         <PoweredBySection />
         <section
           id="roadmap"

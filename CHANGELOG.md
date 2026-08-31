@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### [ADDED 2026-08-31] — Added builder project and proof guidance
+
+#### Added
+
+- Added Why proof, Build ideas, and How it works sections that explain the builder journey and clearly label example projects and roadmap capabilities.
+
 ### [CHANGED 2026-08-31] — Reframed the homepage for Raspberry Pi builders
 
 #### Changed

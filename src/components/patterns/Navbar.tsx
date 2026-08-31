@@ -61,6 +61,18 @@ export function Navbar({ legal = false }: { legal?: boolean }) {
             <>
               <a
                 className="hidden min-h-11 items-center rounded-tight px-1 text-grey-03 hover:text-core-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-core-white sm:flex"
+                href="/#build-ideas"
+              >
+                Build ideas
+              </a>
+              <a
+                className="hidden min-h-11 items-center rounded-tight px-1 text-grey-03 hover:text-core-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-core-white sm:flex"
+                href="/#how-it-works"
+              >
+                How it works
+              </a>
+              <a
+                className="hidden min-h-11 items-center rounded-tight px-1 text-grey-03 hover:text-core-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-core-white sm:flex"
                 href="/#features"
               >
                 Features
@@ -140,6 +152,20 @@ export function Navbar({ legal = false }: { legal?: boolean }) {
                 </a>
               ) : (
                 <>
+                  <a
+                    className="flex min-h-11 items-center rounded-tight text-grey-03 hover:text-core-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-core-white"
+                    href="/#build-ideas"
+                    onClick={closeMenu}
+                  >
+                    Build ideas
+                  </a>
+                  <a
+                    className="flex min-h-11 items-center rounded-tight text-grey-03 hover:text-core-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-core-white"
+                    href="/#how-it-works"
+                    onClick={closeMenu}
+                  >
+                    How it works
+                  </a>
                   <a
                     className="flex min-h-11 items-center rounded-tight text-grey-03 hover:text-core-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-core-white"
                     href="/#features"
