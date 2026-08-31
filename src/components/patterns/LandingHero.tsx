@@ -213,7 +213,7 @@ export function LandingHero({
           <div className="mt-8 flex flex-wrap items-center gap-5">
             <a
               className="gap-detail-next rounded-loose inline-flex h-11 w-fit cursor-pointer items-center justify-center overflow-clip border border-transparent bg-surface-accent px-detail-close type-body text-text-inverse transition-colors duration-200 hover:bg-surface-accent-hover focus-visible:ring-2 focus-visible:ring-stroke-active focus-visible:outline-none"
-              href={externalLinks.docs}
+              href={externalLinks.gettingStarted}
               target="_blank"
               rel="noreferrer"
             >

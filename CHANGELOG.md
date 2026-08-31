@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### [FIXED 2026-08-31] — Separated hero and navbar doc links
+
+#### Fixed
+
+- The hero "Get started" CTA now links to the [Getting Started](https://github.com/edge-studio-technology/edge-studio/wiki/Getting-Started) guide instead of sharing the navbar's wiki home link.
+
 ### [CHANGED 2026-08-31] — Made the project ideas carousel hover pause configurable
 
 #### Changed

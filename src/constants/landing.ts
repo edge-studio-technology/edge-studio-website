@@ -23,6 +23,8 @@ export type RoadmapItem = {
 export const externalLinks = {
   github: 'https://github.com/edge-studio-technology/edge-studio',
   docs: 'https://github.com/edge-studio-technology/edge-studio/wiki',
+  gettingStarted:
+    'https://github.com/edge-studio-technology/edge-studio/wiki/Getting-Started',
   installScript:
     'https://github.com/edge-studio-technology/edge-studio/blob/main/install.sh',
 } as const;
