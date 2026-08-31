@@ -4,7 +4,7 @@ Read this file at the start of every session to understand current focus.
 
 ## 🔥 Now
 
-- No active task.
+- Review and approve [plan 001: builder-first content refresh](plans/001-builder-first-content-refresh.md); implementation has not started.
 
 ## 📌 Next
 
