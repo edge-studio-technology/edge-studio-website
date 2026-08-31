@@ -15,7 +15,7 @@ const tabColumns = [
   '3.5rem 3.5rem 3.5rem calc(100% - 12.75rem)',
 ] as const;
 
-const typewriterWords = ['Connect', 'Automate', 'Prove'] as const;
+const typewriterWords = ['Connect', 'Automate', 'Prove', 'Share'] as const;
 
 function TypewriterWords({ reduceMotion }: { reduceMotion: boolean }) {
   const [wordIndex, setWordIndex] = useState(0);

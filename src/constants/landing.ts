@@ -29,67 +29,73 @@ export const externalLinks = {
 
 export const landingCopy = {
   eyebrow: 'local-first · built for Raspberry Pi',
-  heroTitle: 'Turn your Raspberry Pi into a',
-  heroAccent: 'verifiable edge studio.',
+  heroTitle: 'Build Raspberry Pi projects that can',
+  heroAccent: 'prove what happened.',
   heroText:
-    'Connect physical devices and web services, build visual workflows, and stamp selected data through Integritas—with a Minima node and wallet running on your Pi.',
+    'Connect sensors, cameras, devices and web services. Edge Studio helps your Pi create verifiable records of real-world data and events — right from the edge.',
+  heroSupport:
+    'Your Raspberry Pi already senses the world. Now it can create trusted records.',
   docsLink: 'Read the docs',
   githubLink: 'View on GitHub',
   previewTitle: 'Your edge, in one workspace',
   previewText:
     'Monitor the Pi, connected devices, workflow runs, Minima, and Integritas from one local dashboard.',
-  installTitle: 'Install Edge Studio on Raspberry Pi',
+  installTitle: 'Install Edge Studio on your Raspberry Pi',
+  installText:
+    'Run Edge Studio locally on a Raspberry Pi, connect a data source, and create your first proof-backed record.',
   installLink: 'View install script',
-  featuresEyebrow: 'One local workspace',
-  featuresTitle: 'Connect, automate, and prove—right at the edge.',
-  dashboardTitle: 'Operate from one dashboard',
+  featuresEyebrow: 'One local workbench',
+  featuresTitle:
+    'Connect, automate and prove real-world data — right at the edge.',
+  dashboardTitle: 'Operate from one local dashboard',
   dashboardText:
-    'See the health of your Pi, devices, Minima node, and Integritas connection at a glance.',
+    'See the health of your Pi, connected devices, workflow runs, proof records, Minima node and Integritas connection at a glance.',
   dashboardBullets: [
     'Manage devices, workflows, proofs, wallet, and updates',
     'Review device reads and every workflow run',
     'Keep configuration and operational history on your Pi',
   ],
-  poweredByEyebrow: 'Two layers of trust',
-  poweredByTitle: 'Minima on your Pi. Integritas for proof.',
+  poweredByEyebrow: 'Powered by Minima Core and Integritas',
+  poweredByTitle:
+    'Edge Studio brings the trust building blocks together on your Pi.',
   poweredByText:
-    'Run and manage a Minima node locally, then use Integritas to stamp and verify the files and workflow data you choose.',
-  roadmapEyebrow: 'What is next',
-  roadmapTitle: 'The prototype is working. The studio keeps growing.',
+    'Run a Minima node locally, manage wallet and node health, and use Integritas to create proof records for the files and workflow data you choose.',
+  roadmapEyebrow: 'Roadmap',
+  roadmapTitle: 'From verified Pi data to an edge builder economy.',
   roadmapText:
-    'Edge Studio is evolving from a capable Raspberry Pi workspace into a more guided, extensible platform for edge automation.',
+    'Edge Studio starts with verifiable Pi data, then expands toward places where builders can sell, share, combine and extend what they create.',
   footerText:
-    'Edge Studio — local-first automation and verifiable data on Raspberry Pi.',
+    'Edge Studio — build verifiable Raspberry Pi projects from the edge.',
 } as const;
 
 export const features: Feature[] = [
   {
     title: 'Devices',
-    text: 'Bring HTTP, webhooks, MQTT, GPIO, environmental sensors, and the Pi Camera into one workspace.',
+    text: 'Connect HTTP services, webhooks, MQTT, GPIO, environmental sensors and Pi Camera inputs in one workspace.',
     Icon: Database,
     detail:
-      'Connect web services and physical devices as readable inputs, capture devices, or controllable outputs.',
+      'Bring web services and physical devices into workflows as readable inputs, capture devices or controllable outputs.',
   },
   {
     title: 'Workflows',
-    text: 'Compose starts, data steps, logic, and actions into repeatable edge workflows.',
+    text: 'Build repeatable local workflows from triggers, data steps, logic and actions.',
     Icon: Workflow,
     detail:
-      'Trigger on schedules or events, process data, control outputs, create previews, and attach proof stamping.',
+      'Trigger workflows on schedules or events, process data, control outputs, create previews and attach proof stamping where it matters.',
   },
   {
     title: 'Proofs',
-    text: 'Stamp files and selected workflow data, then verify and export the resulting proof records.',
+    text: 'Create proof records for selected files and workflow data, then verify or export them later.',
     Icon: ShieldCheck,
     detail:
-      'Create an auditable link between the data captured at the edge and a proof you can check later.',
+      'Create an auditable link between edge data and a proof record you can check later.',
   },
   {
     title: 'Minima',
     text: 'Run and monitor a Minima node, wallet, peers, and tokens on your own hardware.',
     Icon: Server,
     detail:
-      'Manage node health and wallet activity from the same browser interface as your edge workflows.',
+      'Manage node health and wallet activity from the same local interface as your edge workflows.',
   },
 ];
 

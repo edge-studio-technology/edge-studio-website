@@ -1,7 +1,8 @@
 import type { Config } from 'vike/types';
 
 export default {
-  title: 'Edge Studio — verifiable edge automation on Raspberry Pi',
+  title:
+    'Edge Studio - build Raspberry Pi projects that can prove what happened',
   description:
-    'Connect devices and web services, build local-first workflows, and create verifiable records on Raspberry Pi with Edge Studio.',
+    'Connect sensors, cameras, devices and web services on Raspberry Pi. Edge Studio helps builders create verifiable records of real-world data and events from the edge.',
 } satisfies Config;

@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### [CHANGED 2026-08-31] — Reframed the homepage for Raspberry Pi builders
+
+#### Changed
+
+- Updated the homepage metadata and confirmed product copy around building proof-backed Raspberry Pi projects while retaining the existing documentation links.
+
 ### [CHANGED 2026-08-19] — Hardened the container supply chain and runtime
 
 #### Changed

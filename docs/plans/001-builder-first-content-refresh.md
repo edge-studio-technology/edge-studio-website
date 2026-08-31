@@ -48,9 +48,9 @@ Reframe the public site around Raspberry Pi builders and a safe install-to-first
 
 ### Phase 1 - Confirmed content groundwork
 
-- [ ] Apply the stakeholder's proposed metadata and copy to existing sections whose functionality is already confirmed → verify: the homepage uses the builder-first proposition without introducing unverified capabilities.
-- [ ] Update existing navigation, hero, install, feature, technology, roadmap, and footer CTAs only where their destinations and status are known → verify: all links resolve to `edge-studio-technology` or another approved destination and no placeholder link is public.
-- [ ] Run the relevant quality gates and commit the confirmed first content pass as an independent checkpoint → verify: formatting, lint, type-check/build, pre-render, and security checks pass.
+- [x] Apply the stakeholder's proposed metadata and copy to existing sections whose functionality is already confirmed → verify: the homepage uses the builder-first proposition without introducing unverified capabilities.
+- [x] Update existing navigation, hero, install, feature, technology, roadmap, and footer CTAs only where their destinations and status are known → verify: all links resolve to `edge-studio-technology` or another approved destination and no placeholder link is public.
+- [x] Run the relevant quality gates and commit the confirmed first content pass as an independent checkpoint → verify: formatting, lint, type-check/build, pre-render, and security checks pass.
 
 ### Phase 2 - Alignment groundwork
 
@@ -74,6 +74,7 @@ Reframe the public site around Raspberry Pi builders and a safe install-to-first
 - The feedback proposes more capabilities than the current website alone can substantiate. Owner confirmation, product docs, or working demos are required before those claims move into public copy.
 - Adding three sections and a closing CTA may make the page too long; keep each section concise and validate mobile scanability before adding richer project media.
 - A subscribe form or embedded community widget would cross the site's current static/privacy boundary and needs a separate reviewed plan.
+- The Phase 1 responsive audit found no console or overflow failures, but its heuristic focus and intrinsic-image-size warnings should be checked manually during the Phase 3 accessibility review.
 
 ## Definition of done
 
