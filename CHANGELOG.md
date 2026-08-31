@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### [CHANGED 2026-08-31] — Relabeled the hero docs CTA
+
+#### Changed
+
+- Relabeled the hero "Read the docs" link to "Get started"; it and the shared navbar docs link still point to the wiki home, which now leads with the new [Getting Started](https://github.com/edge-studio-technology/edge-studio/wiki/Getting-Started) guide.
+
 ### [CHANGED 2026-08-31] — Refined the How it works journey
 
 #### Changed

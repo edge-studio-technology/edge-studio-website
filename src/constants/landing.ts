@@ -35,7 +35,7 @@ export const landingCopy = {
     'Connect sensors, cameras, devices and web services. Edge Studio helps your Pi create verifiable records of real-world data and events — right from the edge.',
   heroSupport:
     'Your Raspberry Pi already senses the world. Now it can create trusted records.',
-  docsLink: 'Read the docs',
+  docsLink: 'Get started',
   githubLink: 'View on GitHub',
   previewTitle: 'Your edge, in one workspace',
   previewText:
