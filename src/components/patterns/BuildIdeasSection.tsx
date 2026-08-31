@@ -108,7 +108,7 @@ export function BuildIdeasSection() {
 
         <div className="mt-6 flex flex-wrap items-center gap-2 border-t border-grey-02 pt-6">
           <span className="mr-2 text-xs font-semibold uppercase tracking-[0.14em] text-text-secondary">
-            More prompts
+            More project ideas
           </span>
           {otherPrompts.map((prompt) => (
             <span
