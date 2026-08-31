@@ -1,5 +1,7 @@
 import { Bot, Camera, CloudSun, Factory, Gauge, Lightbulb } from 'lucide-react';
 
+const PAUSE_ON_HOVER = false;
+
 const buildIdeas = [
   {
     title: 'Verified weather station',
@@ -95,8 +97,13 @@ export function BuildIdeasSection() {
         </div>
 
         <div
-          aria-label="Project ideas carousel. Focus or hover to pause."
+          aria-label={
+            PAUSE_ON_HOVER
+              ? 'Project ideas carousel. Focus or hover to pause and enlarge cards.'
+              : 'Project ideas carousel.'
+          }
           className="build-ideas-carousel mt-12 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-01"
+          data-pause-on-hover={PAUSE_ON_HOVER}
           role="region"
           tabIndex={0}
         >

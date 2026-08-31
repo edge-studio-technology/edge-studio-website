@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### [CHANGED 2026-08-31] — Made the project ideas carousel hover pause configurable
+
+#### Changed
+
+- Gated the project ideas carousel's hover/focus pause and card-enlargement behind a `PAUSE_ON_HOVER` code constant in `BuildIdeasSection.tsx`, currently set to off.
+
 ### [CHANGED 2026-08-31] — Relabeled the hero docs CTA
 
 #### Changed

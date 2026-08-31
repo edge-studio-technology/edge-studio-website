@@ -232,12 +232,14 @@
   transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.build-ideas-card:hover {
+.build-ideas-carousel[data-pause-on-hover='true'] .build-ideas-card:hover {
   transform: scale(1.025);
 }
 
-.build-ideas-carousel:hover .build-ideas-carousel-track,
-.build-ideas-carousel:focus-within .build-ideas-carousel-track {
+.build-ideas-carousel[data-pause-on-hover='true']:hover
+  .build-ideas-carousel-track,
+.build-ideas-carousel[data-pause-on-hover='true']:focus-within
+  .build-ideas-carousel-track {
   animation-play-state: paused;
 }
 
