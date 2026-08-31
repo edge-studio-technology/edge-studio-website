@@ -109,7 +109,7 @@ const featurePreviews = [
   },
   {
     src: minimaImage,
-    alt: 'Edge Studio Minima node and container health dashboard',
+    alt: 'Edge Studio Minima ledger, node and container health dashboard',
     position: '50% 50%',
     scale: 1,
     cursor: [

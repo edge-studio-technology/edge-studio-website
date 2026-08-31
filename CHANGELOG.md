@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### [CHANGED 2026-08-31] — Refined the How it works journey
+
+#### Changed
+
+- Reused the Connect and Share symbols in the feature tabs, renamed the Minima feature to capability-focused Ledger while retaining clear Minima attribution, standardized product naming to Minima, simplified the journey cards to a title-first layout without icons, and enlarged their connecting arrows across every viewport with corrected layering.
+
 ### [CHANGED 2026-08-31] — Added switchable proof banner palettes
 
 #### Changed

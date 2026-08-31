@@ -1,6 +1,6 @@
 import {
-  Database,
-  Server,
+  Cable,
+  Share2,
   ShieldCheck,
   Workflow,
   type LucideIcon,
@@ -55,7 +55,7 @@ export const landingCopy = {
     'Review device reads and every workflow run',
     'Keep configuration and operational history on your Pi',
   ],
-  poweredByEyebrow: 'Powered by Minima Core and Integritas',
+  poweredByEyebrow: 'Powered by Minima and Integritas',
   poweredByTitle:
     'Edge Studio brings the trust building blocks together on your Pi.',
   poweredByText:
@@ -72,7 +72,7 @@ export const features: Feature[] = [
   {
     title: 'Devices',
     text: 'Connect HTTP services, webhooks, MQTT, GPIO, environmental sensors and Pi Camera inputs in one workspace.',
-    Icon: Database,
+    Icon: Cable,
     detail:
       'Bring web services and physical devices into workflows as readable inputs, capture devices or controllable outputs.',
   },
@@ -91,11 +91,11 @@ export const features: Feature[] = [
       'Create an auditable link between edge data and a proof record you can check later.',
   },
   {
-    title: 'Minima',
-    text: 'Run and monitor a Minima node, wallet, peers, and tokens on your own hardware.',
-    Icon: Server,
+    title: 'Ledger',
+    text: 'Run and monitor the Minima ledger, node, wallet, peers, and tokens on your own hardware.',
+    Icon: Share2,
     detail:
-      'Manage node health and wallet activity from the same local interface as your edge workflows.',
+      'Monitor the Minima ledger, node health, peers, and wallet activity from the same local interface as your edge workflows.',
   },
 ];
 

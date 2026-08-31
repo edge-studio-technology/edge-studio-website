@@ -1,35 +1,25 @@
-import {
-  Cable,
-  ChevronRight,
-  Share2,
-  ShieldCheck,
-  Workflow,
-} from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 
 const steps = [
   {
     label: 'Connect',
     text: 'Use a Pi project that already captures data, images or device events.',
     status: 'Available now',
-    Icon: Cable,
   },
   {
     label: 'Automate',
     text: 'Build local workflows that trigger on events or schedules, process data and control outputs.',
     status: 'Available now',
-    Icon: Workflow,
   },
   {
     label: 'Prove',
     text: 'Create a verifiable record for the selected files and workflow data that matter.',
     status: 'Available now',
-    Icon: ShieldCheck,
   },
   {
     label: 'Share',
     text: 'Export or publish proof-backed data so others can trust the source.',
     status: 'Roadmap',
-    Icon: Share2,
   },
 ] as const;
 
@@ -47,37 +37,29 @@ export function HowItWorksSection() {
           Start with something you are already building, then add a proof layer.
         </h2>
 
-        <ol className="mt-12 grid gap-3 lg:grid-cols-4">
-          {steps.map(({ label, text, status, Icon }, index) => (
+        <ol className="mt-12 grid gap-6 px-3 sm:px-5 lg:grid-cols-4 lg:gap-3 lg:px-0">
+          {steps.map(({ label, text, status }, index) => (
             <li
-              className="relative flex min-h-72 flex-col rounded-soft border border-grey-06 bg-grey-06/35 p-6"
+              className="relative flex min-h-64 flex-col rounded-soft border border-grey-06 bg-grey-06/35 p-6 lg:min-h-72"
               key={label}
             >
-              <div className="flex items-center justify-between gap-4">
-                <span className="grid size-12 place-items-center rounded-full bg-brand-01 text-core-white">
-                  <Icon aria-hidden="true" size={22} />
-                </span>
-                <span
-                  className={`rounded-full border px-3 py-1 font-mono text-[10px] uppercase tracking-[0.12em] ${
-                    status === 'Available now'
-                      ? 'border-feedback-positive/50 text-feedback-positive'
-                      : 'border-brand-02/60 text-brand-02'
-                  }`}
-                >
-                  {status}
-                </span>
-              </div>
-              <span className="mt-auto font-mono text-xs text-grey-04">
-                0{index + 1}
+              <h3 className="text-2xl font-semibold">{label}</h3>
+              <span
+                className={`mt-3 w-fit rounded-full border px-3 py-1 font-mono text-[10px] uppercase tracking-[0.12em] ${
+                  status === 'Available now'
+                    ? 'border-feedback-positive/50 text-feedback-positive'
+                    : 'border-brand-02/60 text-brand-02'
+                }`}
+              >
+                {status}
               </span>
-              <h3 className="mt-3 text-2xl font-semibold">{label}</h3>
-              <p className="mt-3 leading-relaxed text-grey-03">{text}</p>
+              <p className="mt-5 leading-relaxed text-grey-03">{text}</p>
               {index < steps.length - 1 && (
                 <span
                   aria-hidden="true"
-                  className="absolute -right-3 top-1/2 z-10 hidden size-6 -translate-y-1/2 place-items-center rounded-full border border-grey-06 bg-core-black text-brand-02 lg:grid"
+                  className="absolute -bottom-2 left-1/2 z-50 grid size-10 -translate-x-1/2 place-items-center rounded-full border border-grey-06 bg-core-black text-brand-02 lg:-right-[26px] lg:bottom-auto lg:left-auto lg:top-1/2 lg:translate-x-0 lg:-translate-y-1/2"
                 >
-                  <ChevronRight size={14} />
+                  <ChevronRight className="rotate-90 lg:rotate-0" size={22} />
                 </span>
               )}
             </li>
