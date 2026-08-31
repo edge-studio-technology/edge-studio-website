@@ -40,7 +40,7 @@ export function HowItWorksSection() {
         <ol className="mt-12 grid gap-6 px-3 sm:px-5 lg:grid-cols-4 lg:gap-3 lg:px-0">
           {steps.map(({ label, text, status }, index) => (
             <li
-              className="relative flex min-h-64 flex-col rounded-soft border border-grey-06 bg-grey-06/35 p-6 lg:min-h-72"
+              className="relative flex min-h-64 w-full max-w-xl justify-self-center flex-col rounded-soft border border-grey-06 bg-grey-06/35 p-6 lg:min-h-72 lg:max-w-none"
               key={label}
             >
               <h3 className="text-2xl font-semibold">{label}</h3>
@@ -57,7 +57,7 @@ export function HowItWorksSection() {
               {index < steps.length - 1 && (
                 <span
                   aria-hidden="true"
-                  className="absolute -bottom-2 left-1/2 z-50 grid size-10 -translate-x-1/2 place-items-center rounded-full border border-grey-06 bg-core-black text-brand-02 lg:-right-[26px] lg:bottom-auto lg:left-auto lg:top-1/2 lg:translate-x-0 lg:-translate-y-1/2"
+                  className="absolute -bottom-8 left-1/2 z-50 grid size-10 -translate-x-1/2 place-items-center rounded-full border border-grey-06 bg-core-black text-brand-02 lg:-right-[26px] lg:bottom-auto lg:left-auto lg:top-1/2 lg:translate-x-0 lg:-translate-y-1/2"
                 >
                   <ChevronRight className="rotate-90 lg:rotate-0" size={22} />
                 </span>

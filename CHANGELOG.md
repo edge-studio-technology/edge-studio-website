@@ -6,7 +6,7 @@
 
 #### Changed
 
-- Reused the Connect and Share symbols in the feature tabs, renamed the Minima feature to capability-focused Ledger while retaining clear Minima attribution, standardized product naming to Minima, simplified the journey cards to a title-first layout without icons, and enlarged their connecting arrows across every viewport with corrected layering.
+- Reused the Connect and Share symbols in the feature tabs, renamed the Minima feature to capability-focused Ledger while retaining clear Minima attribution, standardized product naming to Minima, simplified the journey cards to a centered title-first layout with a cleaner tablet width, and positioned their connecting arrows across both cards while keeping them beneath the sticky navigation.
 
 ### [CHANGED 2026-08-31] — Added switchable proof banner palettes
 
