@@ -1,11 +1,6 @@
-import { useEffect, useRef } from 'react';
-import {
-  motion,
-  useAnimationControls,
-  useMotionValue,
-  useReducedMotion,
-  useSpring,
-} from 'motion/react';
+import { useEffect } from 'react';
+import { ArrowUpRight } from 'lucide-react';
+import { motion, useAnimationControls, useReducedMotion } from 'motion/react';
 import { landingCopy } from '../../constants/landing';
 
 const partners = [
@@ -66,40 +61,15 @@ function PartnerIcon({
 }
 
 export function PoweredBySection() {
-  const sectionRef = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
-  const shiftX = useSpring(useMotionValue(0), {
-    stiffness: 120,
-    damping: 24,
-  });
-  const shiftY = useSpring(useMotionValue(0), {
-    stiffness: 120,
-    damping: 24,
-  });
-
-  function handlePointerMove(event: React.PointerEvent<HTMLElement>) {
-    if (reduceMotion || event.pointerType === 'touch') return;
-    const bounds = sectionRef.current?.getBoundingClientRect();
-    if (!bounds) return;
-    shiftX.set(((event.clientX - bounds.left) / bounds.width - 0.5) * 8);
-    shiftY.set(((event.clientY - bounds.top) / bounds.height - 0.5) * 8);
-  }
-
-  function handlePointerLeave() {
-    shiftX.set(0);
-    shiftY.set(0);
-  }
 
   return (
     <section
-      ref={sectionRef}
       aria-labelledby="powered-by-title"
       className="border-b border-grey-02 bg-grey-01"
-      onPointerLeave={handlePointerLeave}
-      onPointerMove={handlePointerMove}
     >
-      <div className="mx-auto grid max-w-6xl lg:grid-cols-[0.8fr_1.2fr]">
-        <div className="px-5 py-16 lg:px-8 lg:py-20">
+      <div className="mx-auto grid max-w-6xl px-5 py-20 lg:grid-cols-[0.8fr_1.2fr] lg:px-8 lg:py-28">
+        <div>
           <span className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-01">
             {landingCopy.poweredByEyebrow}
           </span>
@@ -114,35 +84,35 @@ export function PoweredBySection() {
           </p>
         </div>
 
-        <div className="flex flex-col items-center justify-center py-6 sm:flex-row sm:py-10">
+        <div className="mt-10 flex flex-col items-center justify-center gap-5 sm:mt-16 sm:flex-row sm:items-stretch sm:gap-6 lg:mt-0">
           {partners.map(({ href, iconSrc, name, wordmarkSrc }, index) => (
-            <div
-              className={`flex min-h-40 items-center justify-center px-2 sm:min-h-0 sm:w-48 sm:px-0 ${index === 0 ? 'sm:order-2 sm:-translate-y-5' : 'sm:order-1 sm:translate-y-5'}`}
+            <motion.a
+              className={`group relative flex w-full max-w-xs flex-col items-center gap-5 rounded-soft border border-grey-02 bg-core-white p-6 transition-colors duration-300 hover:border-brand-01/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-01 sm:w-56 ${index === 0 ? 'sm:order-2 sm:-translate-y-5' : 'sm:order-1 sm:translate-y-5'}`}
+              href={href}
               key={name}
+              rel="noreferrer"
+              target="_blank"
+              whileHover={reduceMotion ? undefined : { y: -4 }}
+              transition={{ type: 'spring', stiffness: 220, damping: 22 }}
             >
-              <motion.a
-                aria-label={`Visit the ${name} website`}
-                className="inline-flex min-h-24 min-w-40 flex-col items-center justify-center gap-3 p-4 focus-visible:rounded-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-01"
-                href={href}
-                rel="noreferrer"
-                style={{
-                  x: reduceMotion ? 0 : shiftX,
-                  y: reduceMotion ? 0 : shiftY,
-                }}
-                target="_blank"
-              >
-                <PartnerIcon
-                  iconSrc={iconSrc}
-                  index={index}
-                  reduceMotion={Boolean(reduceMotion)}
+              <PartnerIcon
+                iconSrc={iconSrc}
+                index={index}
+                reduceMotion={Boolean(reduceMotion)}
+              />
+              <img
+                alt={`${name} logo`}
+                className="h-7 w-32 object-contain"
+                src={wordmarkSrc}
+              />
+              <span className="flex w-full items-center justify-center gap-1.5 border-t border-grey-02 pt-4 text-sm font-medium text-brand-01">
+                Learn about {name}
+                <ArrowUpRight
+                  className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  size={16}
                 />
-                <img
-                  alt={`${name} logo`}
-                  className="h-7 w-32 object-contain"
-                  src={wordmarkSrc}
-                />
-              </motion.a>
-            </div>
+              </span>
+            </motion.a>
           ))}
         </div>
       </div>
