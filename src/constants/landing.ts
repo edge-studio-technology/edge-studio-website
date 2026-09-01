@@ -20,6 +20,13 @@ export type RoadmapItem = {
   state: 'active' | 'passive';
 };
 
+export const statusLabels = {
+  availableNow: 'Available now',
+  inProgress: 'In progress',
+  next: 'Next',
+  comingSoon: 'Coming soon',
+} as const;
+
 export const externalLinks = {
   github: 'https://github.com/edge-studio-technology/edge-studio',
   docs: 'https://github.com/edge-studio-technology/edge-studio/wiki',
@@ -103,31 +110,31 @@ export const features: Feature[] = [
 
 export const roadmap: RoadmapItem[] = [
   {
-    phase: 'Available now',
+    phase: statusLabels.availableNow,
     title: 'Prove Pi data',
     text: 'Create trusted records from sensors, images, events and device state.',
     state: 'active',
   },
   {
-    phase: 'In progress',
+    phase: statusLabels.inProgress,
     title: 'Better workflow building',
     text: 'Make building, editing, watching and diagnosing visual workflows more intuitive.',
     state: 'passive',
   },
   {
-    phase: 'Next',
+    phase: statusLabels.next,
     title: 'Guided starter projects',
     text: 'Add device guides, recipes and first workflows for common Raspberry Pi, MQTT, GPIO, camera and sensor setups.',
     state: 'passive',
   },
   {
-    phase: 'Coming soon',
+    phase: statusLabels.comingSoon,
     title: 'Marketplace',
     text: 'Publish, discover, install, sell or share datasets and third-party modules.',
     state: 'passive',
   },
   {
-    phase: 'Coming soon',
+    phase: statusLabels.comingSoon,
     title: 'Data pools',
     text: 'Combine proof-backed data from multiple builders to increase usefulness and value.',
     state: 'passive',

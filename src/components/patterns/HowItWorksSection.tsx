@@ -1,25 +1,26 @@
 import { ChevronRight } from 'lucide-react';
+import { statusLabels } from '../../constants/landing';
 
 const steps = [
   {
     label: 'Connect',
     text: 'Use a Pi project that already captures data, images or device events.',
-    status: 'Available now',
+    status: statusLabels.availableNow,
   },
   {
     label: 'Automate',
     text: 'Build local workflows that trigger on events or schedules, process data and control outputs.',
-    status: 'Available now',
+    status: statusLabels.availableNow,
   },
   {
     label: 'Prove',
-    text: 'Create a verifiable record for the selected files and workflow data that matter.',
-    status: 'Available now',
+    text: 'Create a verifiable record for selected files, readings, images, events or device state.',
+    status: statusLabels.availableNow,
   },
   {
     label: 'Share',
     text: 'Export or publish proof-backed data so others can trust the source.',
-    status: 'Roadmap',
+    status: statusLabels.comingSoon,
   },
 ] as const;
 
@@ -46,7 +47,7 @@ export function HowItWorksSection() {
               <h3 className="text-2xl font-semibold">{label}</h3>
               <span
                 className={`mt-3 w-fit rounded-full border px-3 py-1 font-mono text-[10px] uppercase tracking-[0.12em] ${
-                  status === 'Available now'
+                  status === statusLabels.availableNow
                     ? 'border-feedback-positive/50 text-feedback-positive'
                     : 'border-grey-04/50 text-grey-04'
                 }`}
