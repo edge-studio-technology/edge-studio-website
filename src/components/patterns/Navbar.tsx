@@ -67,21 +67,29 @@ export function Navbar({ legal = false }: { legal?: boolean }) {
               </a>
               <a
                 className="hidden min-h-11 items-center rounded-tight px-1 text-grey-03 hover:text-core-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-core-white sm:flex"
-                href="/#features"
-              >
-                Features
-              </a>
-              <a
-                className="hidden min-h-11 items-center rounded-tight px-1 text-grey-03 hover:text-core-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-core-white sm:flex"
                 href="/#how-it-works"
               >
                 How it works
               </a>
               <a
                 className="hidden min-h-11 items-center rounded-tight px-1 text-grey-03 hover:text-core-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-core-white sm:flex"
+                href="/#features"
+              >
+                Features
+              </a>
+              <a
+                className="hidden min-h-11 items-center rounded-tight px-1 text-grey-03 hover:text-core-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-core-white sm:flex"
                 href="/#roadmap"
               >
                 Roadmap
+              </a>
+              <a
+                className="gap-detail-next rounded-loose inline-flex h-8 w-fit items-center justify-center overflow-clip border border-transparent bg-surface-accent px-detail-close type-meta text-text-inverse transition-colors duration-200 hover:bg-surface-accent-hover focus-visible:ring-2 focus-visible:ring-core-white focus-visible:outline-none"
+                href={externalLinks.docs}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Docs <Link2 size={16} />
               </a>
               <a
                 className="hidden min-h-11 items-center gap-1 rounded-tight px-1 text-grey-03 hover:text-core-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-core-white sm:flex"
@@ -91,14 +99,6 @@ export function Navbar({ legal = false }: { legal?: boolean }) {
               >
                 <span>View on GitHub</span>
                 <ExternalLink size={15} />
-              </a>
-              <a
-                className="gap-detail-next rounded-loose inline-flex h-8 w-fit items-center justify-center overflow-clip border border-transparent bg-surface-accent px-detail-close type-meta text-text-inverse transition-colors duration-200 hover:bg-surface-accent-hover focus-visible:ring-2 focus-visible:ring-core-white focus-visible:outline-none"
-                href={externalLinks.docs}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Docs <Link2 size={16} />
               </a>
             </>
           )}
@@ -161,13 +161,6 @@ export function Navbar({ legal = false }: { legal?: boolean }) {
                   </a>
                   <a
                     className="flex min-h-11 items-center rounded-tight text-grey-03 hover:text-core-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-core-white"
-                    href="/#features"
-                    onClick={closeMenu}
-                  >
-                    Features
-                  </a>
-                  <a
-                    className="flex min-h-11 items-center rounded-tight text-grey-03 hover:text-core-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-core-white"
                     href="/#how-it-works"
                     onClick={closeMenu}
                   >
@@ -175,10 +168,26 @@ export function Navbar({ legal = false }: { legal?: boolean }) {
                   </a>
                   <a
                     className="flex min-h-11 items-center rounded-tight text-grey-03 hover:text-core-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-core-white"
+                    href="/#features"
+                    onClick={closeMenu}
+                  >
+                    Features
+                  </a>
+                  <a
+                    className="flex min-h-11 items-center rounded-tight text-grey-03 hover:text-core-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-core-white"
                     href="/#roadmap"
                     onClick={closeMenu}
                   >
                     Roadmap
+                  </a>
+                  <a
+                    className="gap-detail-next rounded-loose inline-flex h-11 w-fit items-center justify-center overflow-clip border border-transparent bg-surface-accent px-detail-close type-body text-text-inverse transition-colors duration-200 hover:bg-surface-accent-hover focus-visible:ring-2 focus-visible:ring-core-white focus-visible:outline-none"
+                    href={externalLinks.docs}
+                    onClick={closeMenu}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Docs <Link2 size={16} />
                   </a>
                   <a
                     className="flex min-h-11 items-center gap-1 rounded-tight text-grey-03 hover:text-core-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-core-white"
@@ -189,15 +198,6 @@ export function Navbar({ legal = false }: { legal?: boolean }) {
                   >
                     <span>View on GitHub</span>
                     <ExternalLink size={16} />
-                  </a>
-                  <a
-                    className="gap-detail-next rounded-loose inline-flex h-11 w-fit items-center justify-center overflow-clip border border-transparent bg-surface-accent px-detail-close type-body text-text-inverse transition-colors duration-200 hover:bg-surface-accent-hover focus-visible:ring-2 focus-visible:ring-core-white focus-visible:outline-none"
-                    href={externalLinks.docs}
-                    onClick={closeMenu}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Docs <Link2 size={16} />
                   </a>
                 </>
               )}
