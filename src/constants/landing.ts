@@ -34,6 +34,9 @@ export const externalLinks = {
     'https://github.com/edge-studio-technology/edge-studio/wiki/Getting-Started',
   installScript:
     'https://github.com/edge-studio-technology/edge-studio/blob/main/install.sh',
+  issues: 'https://github.com/edge-studio-technology/edge-studio/issues',
+  starterProjects:
+    'https://github.com/edge-studio-technology/edge-studio/wiki/Starter-Projects',
 } as const;
 
 export const landingCopy = {
@@ -73,6 +76,13 @@ export const landingCopy = {
   roadmapTitle: 'From verified Pi data to an edge builder economy.',
   roadmapText:
     'Edge Studio starts with verifiable Pi data, then expands toward places where builders can sell, share, combine and extend what they create.',
+  closingTitle: 'Build the first proof-enabled Pi projects.',
+  closingText:
+    'Bring a project, connect a data source, create a verifiable record, and help shape the Marketplace that comes next.',
+  closingPrimaryCta: 'Install Edge Studio',
+  closingSecondaryCta: 'Explore starter projects',
+  closingFeedbackText:
+    'Open a GitHub issue, request a device guide, or tell us what module/data source you want next.',
   footerText:
     'Edge Studio — build verifiable Raspberry Pi projects from the edge.',
 } as const;

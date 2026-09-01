@@ -1,5 +1,6 @@
 import {
   BuildIdeasSection,
+  ClosingCtaSection,
   FeatureSection,
   HowItWorksSection,
   LandingHero,
@@ -41,6 +42,7 @@ function App() {
             <RoadmapTimeline items={roadmap} />
           </div>
         </section>
+        <ClosingCtaSection />
       </main>
       <SiteFooter />
     </div>
