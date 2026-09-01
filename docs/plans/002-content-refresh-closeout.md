@@ -1,6 +1,6 @@
 # 002 - Content refresh closeout
 
-Status: In progress
+Status: Done
 
 Continues [001: builder-first content refresh](001-builder-first-content-refresh.md). That plan's Phase 1 (confirmed content pass) and part of Phase 3 (Why proof, Build ideas, How it works sections) are done. This plan closes out the remaining Phase 3 items plus the doc-alignment drift found in the post-implementation content audit, instead of carrying more open checklist items in 001. Items still blocked on stakeholder input (install prerequisites, legal sign-off, community channel) stay tracked here as open questions rather than a separate worksheet.
 
@@ -34,15 +34,15 @@ Bring the homepage, nav/footer, and legal pages in line with the approved conten
 
 ## Checklist
 
-- [ ] Update `roadmap` array in `src/constants/landing.ts` to doc-approved phase/title/text, add the "Data pools" entry → verify: `RoadmapTimeline` renders 5 items with the doc's wording, no leftover "Today"/"Later" copy.
-- [ ] Change the `HowItWorksSection` "Prove" step text back to the doc-approved wording and its status chip label from "Roadmap" to "Coming soon" → verify: text and chip match the doc's Status Language Standard exactly.
-- [ ] Rework `PoweredBySection` partner links to visible "Learn about Integritas" / "Learn about Minima" text, keep external `rel="noreferrer"` → verify: link purpose is readable without relying on the icon or aria-label alone.
-- [ ] Swap `HowItWorksSection` and `FeatureSection` order in `src/App.tsx` → verify: page flow reads WhyProof → BuildIdeas → HowItWorks → Features → PoweredBy → Roadmap → Closing → Footer.
-- [ ] Update `Navbar` (desktop + mobile) and `SiteFooter` link order to `Build ideas | How it works | Features | Roadmap | Docs | GitHub`, add Docs to footer → verify: link order matches on both breakpoints, all hrefs still resolve.
-- [ ] Add a placeholder closing section component, export it from `src/components/index.tsx`, place it between Roadmap and `SiteFooter` in `src/App.tsx`, using the doc's heading/body/primary/secondary CTA copy and a GitHub-issues feedback link (no community/newsletter line) → verify: section renders with no new external domain, no form, no cookie/analytics code.
-- [ ] Apply the doc's pre-approved minor consistency edits to `/terms` and `/privacy` only → verify: draft labels remain, diff contains only the specific doc-flagged sentences, no new data-flow or retention claim.
-- [ ] Run the `design-review` agent (or equivalent manual browser pass) across mobile/desktop for the reordered and new sections → verify: no console/CSP/accessibility/overflow regressions, focus order follows new section order.
-- [ ] Run quality gates and update `CHANGELOG.md`, `docs/TASKS.md`, `docs/SESSION.md` → verify: all checks pass, changelog entry dated and categorized.
+- [x] Update `roadmap` array in `src/constants/landing.ts` to doc-approved phase/title/text, add the "Data pools" entry → verify: `RoadmapTimeline` renders 5 items with the doc's wording, no leftover "Today"/"Later" copy.
+- [x] Change the `HowItWorksSection` "Prove" step text back to the doc-approved wording and its status chip label from "Roadmap" to "Coming soon" → verify: text and chip match the doc's Status Language Standard exactly.
+- [x] Rework `PoweredBySection` partner links to visible "Learn about Integritas" / "Learn about Minima" text, keep external `rel="noreferrer"` → verify: link purpose is readable without relying on the icon or aria-label alone.
+- [x] Swap `HowItWorksSection` and `FeatureSection` order in `src/App.tsx` → verify: page flow reads WhyProof → BuildIdeas → HowItWorks → Features → PoweredBy → Roadmap → Closing → Footer.
+- [x] Update `Navbar` (desktop + mobile) and `SiteFooter` link order to `Build ideas | How it works | Features | Roadmap | Docs | GitHub`, add Docs to footer → verify: link order matches on both breakpoints, all hrefs still resolve.
+- [x] Add a placeholder closing section component, export it from `src/components/index.tsx`, place it between Roadmap and `SiteFooter` in `src/App.tsx`, using the doc's heading/body/primary/secondary CTA copy and a GitHub-issues feedback link (no community/newsletter line) → verify: section renders with no new external domain, no form, no cookie/analytics code.
+- [x] Apply the doc's pre-approved minor consistency edits to `/terms` and `/privacy` only → verify: draft labels remain, diff contains only the specific doc-flagged sentences, no new data-flow or retention claim.
+- [x] Run the `design-review` agent (or equivalent manual browser pass) across mobile/desktop for the reordered and new sections → verify: no console/CSP/accessibility/overflow regressions, focus order follows new section order.
+- [x] Run quality gates and update `CHANGELOG.md`, `docs/TASKS.md`, `docs/SESSION.md` → verify: all checks pass, changelog entry dated and categorized.
 
 ## Risks / open questions
 

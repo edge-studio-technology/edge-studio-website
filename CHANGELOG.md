@@ -2,6 +2,65 @@
 
 ## [Unreleased]
 
+### [FIXED 2026-09-01] — Restored dashboard cursor animation and CTA focus rings
+
+#### Fixed
+
+- Fixed the dashboard preview's fake cursor resetting to its starting position whenever the pointer entered or left the hero section.
+- Fixed the "Get started" (hero), "Install Edge Studio" (closing section), and "Docs" (navbar) buttons having an invisible keyboard focus ring; switched to an outline-based focus style.
+
+### [CHANGED 2026-09-01] — Updated Terms intro wording
+
+#### Changed
+
+- Applied the content-review doc's pre-approved consistency edit to the Terms of use intro sentence; draft label unchanged.
+
+### [ADDED 2026-09-01] — Restyled navbar GitHub and Docs links
+
+#### Added
+
+- Added a custom GitHub mark icon and switched the desktop navbar's GitHub link to icon-only.
+
+#### Changed
+
+- Restyled the mobile/tablet navbar's Docs link from a filled button to a plain text-and-icon link, matching the GitHub link's style.
+
+### [ADDED 2026-09-01] — Added a closing call-to-action section
+
+#### Added
+
+- Added a closing section between Roadmap and the footer with a heading, body copy, a primary "Install Edge Studio" CTA and secondary "Explore starter projects" CTA linking to the project wiki, and a GitHub-issues feedback link.
+
+### [CHANGED 2026-09-01] — Reordered navigation and footer links
+
+#### Changed
+
+- Reordered navbar and footer links to Build ideas | How it works | Features | Roadmap | Docs | GitHub and added a Docs link to the footer.
+
+### [CHANGED 2026-09-01] — Reordered homepage sections
+
+#### Changed
+
+- Moved How it works before Features on the homepage so the builder flow is explained before the feature tour.
+
+### [CHANGED 2026-09-01] — Simplified the Powered By section
+
+#### Changed
+
+- Reworked the Integritas and Minima partner links from icon-only to visible "Learn about Integritas" / "Learn about Minima" text links.
+
+### [CHANGED 2026-09-01] — Refreshed How it works copy and status labels
+
+#### Changed
+
+- Centralized status labels and restored the "Prove" step's doc-approved wording; standardized the step's status chip to "Coming soon".
+
+### [CHANGED 2026-09-01] — Refreshed roadmap content
+
+#### Changed
+
+- Updated the roadmap phases and descriptions to the doc-approved wording and added a "Data pools" entry.
+
 ### [FIXED 2026-08-31] — Separated hero and navbar doc links
 
 #### Fixed
