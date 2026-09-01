@@ -8,7 +8,7 @@ export function RoadmapTimeline({ items }: { items: readonly RoadmapItem[] }) {
       {items.map((item, index) => (
         <motion.div
           className="grid grid-cols-[1.5rem_minmax(0,1fr)] gap-4"
-          key={item.phase}
+          key={item.title}
           initial={reduceMotion ? false : { opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}

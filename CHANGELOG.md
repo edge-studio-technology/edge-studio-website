@@ -2,6 +2,148 @@
 
 ## [Unreleased]
 
+### [CHANGED 2026-09-01] — Regrouped footer links into primary/legal/external rows
+
+#### Changed
+
+- Restructured `SiteFooter` into three stacked rows (in-page nav + Docs, Terms/Privacy, GitHub) sharing one skeleton across the landing and legal-page footers, right-aligned on tablet/desktop and left-aligned on mobile.
+
+#### Fixed
+
+- Fixed short footer links ("Terms", "Privacy") appearing visually indented relative to longer links, caused by their 44px minimum touch-target padding centering short text instead of aligning it to the row's edge.
+
+### [FIXED 2026-09-01] — Restored dashboard cursor animation and CTA focus rings
+
+#### Fixed
+
+- Fixed the dashboard preview's fake cursor resetting to its starting position whenever the pointer entered or left the hero section.
+- Fixed the "Get started" (hero), "Install Edge Studio" (closing section), and "Docs" (navbar) buttons having an invisible keyboard focus ring; switched to an outline-based focus style.
+
+### [CHANGED 2026-09-01] — Updated Terms intro wording
+
+#### Changed
+
+- Applied the content-review doc's pre-approved consistency edit to the Terms of use intro sentence; draft label unchanged.
+
+### [ADDED 2026-09-01] — Restyled navbar GitHub and Docs links
+
+#### Added
+
+- Added a custom GitHub mark icon and switched the desktop navbar's GitHub link to icon-only.
+
+#### Changed
+
+- Restyled the mobile/tablet navbar's Docs link from a filled button to a plain text-and-icon link, matching the GitHub link's style.
+
+### [ADDED 2026-09-01] — Added a closing call-to-action section
+
+#### Added
+
+- Added a closing section between Roadmap and the footer with a heading, body copy, a primary "Install Edge Studio" CTA and secondary "Explore starter projects" CTA linking to the project wiki, and a GitHub-issues feedback link.
+
+### [CHANGED 2026-09-01] — Reordered navigation and footer links
+
+#### Changed
+
+- Reordered navbar and footer links to Build ideas | How it works | Features | Roadmap | Docs | GitHub and added a Docs link to the footer.
+
+### [CHANGED 2026-09-01] — Reordered homepage sections
+
+#### Changed
+
+- Moved How it works before Features on the homepage so the builder flow is explained before the feature tour.
+
+### [CHANGED 2026-09-01] — Simplified the Powered By section
+
+#### Changed
+
+- Reworked the Integritas and Minima partner links from icon-only to visible "Learn about Integritas" / "Learn about Minima" text links.
+
+### [CHANGED 2026-09-01] — Refreshed How it works copy and status labels
+
+#### Changed
+
+- Centralized status labels and restored the "Prove" step's doc-approved wording; standardized the step's status chip to "Coming soon".
+
+### [CHANGED 2026-09-01] — Refreshed roadmap content
+
+#### Changed
+
+- Updated the roadmap phases and descriptions to the doc-approved wording and added a "Data pools" entry.
+
+### [FIXED 2026-08-31] — Separated hero and navbar doc links
+
+#### Fixed
+
+- The hero "Get started" CTA now links to the [Getting Started](https://github.com/edge-studio-technology/edge-studio/wiki/Getting-Started) guide instead of sharing the navbar's wiki home link.
+
+### [CHANGED 2026-08-31] — Made the project ideas carousel hover pause configurable
+
+#### Changed
+
+- Gated the project ideas carousel's hover/focus pause and card-enlargement behind a `PAUSE_ON_HOVER` code constant in `BuildIdeasSection.tsx`, currently set to off.
+
+### [CHANGED 2026-08-31] — Relabeled the hero docs CTA
+
+#### Changed
+
+- Relabeled the hero "Read the docs" link to "Get started"; it and the shared navbar docs link still point to the wiki home, which now leads with the new [Getting Started](https://github.com/edge-studio-technology/edge-studio/wiki/Getting-Started) guide.
+
+### [CHANGED 2026-08-31] — Refined the How it works journey
+
+#### Changed
+
+- Reused the Connect and Share symbols in the feature tabs, renamed the Minima feature to capability-focused Ledger while retaining clear Minima attribution, standardized product naming to Minima, simplified the journey cards to a centered title-first layout with a cleaner tablet width, and positioned their connecting arrows across both cards while keeping them beneath the sticky navigation.
+
+### [CHANGED 2026-08-31] — Added switchable proof banner palettes
+
+#### Changed
+
+- Added one centralized setting for switching the proof cards between the `es_proof_01–03` and `es_proof_04–06` image sets.
+
+### [CHANGED 2026-08-31] — Animated builder project ideas
+
+#### Changed
+
+- Turned the builder project cards into a spacious, softly edge-faded carousel with pause and subtle card enlargement on hover, plus a static reduced-motion mode.
+- Unified the first project card with the other project-idea cards while retaining the purple brand accent.
+
+### [CHANGED 2026-08-31] — Refined feature preview framing
+
+#### Changed
+
+- Reframed the Proofs and Minima screenshots and retargeted each animated cursor to keep important interface details visible.
+
+### [FIXED 2026-08-31] — Stabilized feature tab height
+
+#### Fixed
+
+- Kept the feature content panel at a consistent height so switching between tabs no longer shifts the surrounding layout.
+
+### [CHANGED 2026-08-31] — Aligned landing-section headers
+
+#### Changed
+
+- Moved the Why proof and Build ideas eyebrows into their own rows so each heading aligns cleanly with its description.
+
+### [CHANGED 2026-08-31] — Added image banners to proof cards
+
+#### Changed
+
+- Replaced the Why proof card icons with focused image banners that reinforce origin, timing, and record integrity.
+
+### [ADDED 2026-08-31] — Added builder project and proof guidance
+
+#### Added
+
+- Added Why proof, Build ideas, and How it works sections that explain the builder journey and clearly label example projects and roadmap capabilities.
+
+### [CHANGED 2026-08-31] — Reframed the homepage for Raspberry Pi builders
+
+#### Changed
+
+- Updated the homepage metadata and confirmed product copy around building proof-backed Raspberry Pi projects while retaining the existing documentation links.
+
 ### [CHANGED 2026-08-19] — Hardened the container supply chain and runtime
 
 #### Changed

@@ -1,6 +1,6 @@
 import {
-  Database,
-  Server,
+  Cable,
+  Share2,
   ShieldCheck,
   Workflow,
   type LucideIcon,
@@ -20,102 +20,133 @@ export type RoadmapItem = {
   state: 'active' | 'passive';
 };
 
+export const statusLabels = {
+  availableNow: 'Available now',
+  inProgress: 'In progress',
+  next: 'Next',
+  comingSoon: 'Coming soon',
+} as const;
+
 export const externalLinks = {
   github: 'https://github.com/edge-studio-technology/edge-studio',
   docs: 'https://github.com/edge-studio-technology/edge-studio/wiki',
+  gettingStarted:
+    'https://github.com/edge-studio-technology/edge-studio/wiki/Getting-Started',
   installScript:
     'https://github.com/edge-studio-technology/edge-studio/blob/main/install.sh',
+  issues: 'https://github.com/edge-studio-technology/edge-studio/issues',
+  starterProjects:
+    'https://github.com/edge-studio-technology/edge-studio/wiki/Starter-Projects',
 } as const;
 
 export const landingCopy = {
   eyebrow: 'local-first · built for Raspberry Pi',
-  heroTitle: 'Turn your Raspberry Pi into a',
-  heroAccent: 'verifiable edge studio.',
+  heroTitle: 'Build Raspberry Pi projects that can',
+  heroAccent: 'prove what happened.',
   heroText:
-    'Connect physical devices and web services, build visual workflows, and stamp selected data through Integritas—with a Minima node and wallet running on your Pi.',
-  docsLink: 'Read the docs',
+    'Connect sensors, cameras, devices and web services. Edge Studio helps your Pi create verifiable records of real-world data and events — right from the edge.',
+  heroSupport:
+    'Your Raspberry Pi already senses the world. Now it can create trusted records.',
+  docsLink: 'Get started',
   githubLink: 'View on GitHub',
   previewTitle: 'Your edge, in one workspace',
   previewText:
     'Monitor the Pi, connected devices, workflow runs, Minima, and Integritas from one local dashboard.',
-  installTitle: 'Install Edge Studio on Raspberry Pi',
+  installTitle: 'Install Edge Studio on your Raspberry Pi',
+  installText:
+    'Run Edge Studio locally on a Raspberry Pi, connect a data source, and create your first proof-backed record.',
   installLink: 'View install script',
-  featuresEyebrow: 'One local workspace',
-  featuresTitle: 'Connect, automate, and prove—right at the edge.',
-  dashboardTitle: 'Operate from one dashboard',
+  featuresEyebrow: 'One local workbench',
+  featuresTitle:
+    'Connect, automate and prove real-world data — right at the edge.',
+  dashboardTitle: 'Operate from one local dashboard',
   dashboardText:
-    'See the health of your Pi, devices, Minima node, and Integritas connection at a glance.',
+    'See the health of your Pi, connected devices, workflow runs, proof records, Minima node and Integritas connection at a glance.',
   dashboardBullets: [
     'Manage devices, workflows, proofs, wallet, and updates',
     'Review device reads and every workflow run',
     'Keep configuration and operational history on your Pi',
   ],
-  poweredByEyebrow: 'Two layers of trust',
-  poweredByTitle: 'Minima on your Pi. Integritas for proof.',
+  poweredByEyebrow: 'Powered by Minima and Integritas',
+  poweredByTitle:
+    'Edge Studio brings the trust building blocks together on your Pi.',
   poweredByText:
-    'Run and manage a Minima node locally, then use Integritas to stamp and verify the files and workflow data you choose.',
-  roadmapEyebrow: 'What is next',
-  roadmapTitle: 'The prototype is working. The studio keeps growing.',
+    'Run a Minima node locally, manage wallet and node health, and use Integritas to create proof records for the files and workflow data you choose.',
+  roadmapEyebrow: 'Roadmap',
+  roadmapTitle: 'From verified Pi data to an edge builder economy.',
   roadmapText:
-    'Edge Studio is evolving from a capable Raspberry Pi workspace into a more guided, extensible platform for edge automation.',
+    'Edge Studio starts with verifiable Pi data, then expands toward places where builders can sell, share, combine and extend what they create.',
+  closingTitle: 'Build the first proof-enabled Pi projects.',
+  closingText:
+    'Bring a project, connect a data source, create a verifiable record, and help shape the Marketplace that comes next.',
+  closingPrimaryCta: 'Install Edge Studio',
+  closingSecondaryCta: 'Explore starter projects',
+  closingFeedbackText:
+    'Open a GitHub issue, request a device guide, or tell us what module/data source you want next.',
   footerText:
-    'Edge Studio — local-first automation and verifiable data on Raspberry Pi.',
+    'Edge Studio — build verifiable Raspberry Pi projects from the edge.',
 } as const;
 
 export const features: Feature[] = [
   {
     title: 'Devices',
-    text: 'Bring HTTP, webhooks, MQTT, GPIO, environmental sensors, and the Pi Camera into one workspace.',
-    Icon: Database,
+    text: 'Connect HTTP services, webhooks, MQTT, GPIO, environmental sensors and Pi Camera inputs in one workspace.',
+    Icon: Cable,
     detail:
-      'Connect web services and physical devices as readable inputs, capture devices, or controllable outputs.',
+      'Bring web services and physical devices into workflows as readable inputs, capture devices or controllable outputs.',
   },
   {
     title: 'Workflows',
-    text: 'Compose starts, data steps, logic, and actions into repeatable edge workflows.',
+    text: 'Build repeatable local workflows from triggers, data steps, logic and actions.',
     Icon: Workflow,
     detail:
-      'Trigger on schedules or events, process data, control outputs, create previews, and attach proof stamping.',
+      'Trigger workflows on schedules or events, process data, control outputs, create previews and attach proof stamping where it matters.',
   },
   {
     title: 'Proofs',
-    text: 'Stamp files and selected workflow data, then verify and export the resulting proof records.',
+    text: 'Create proof records for selected files and workflow data, then verify or export them later.',
     Icon: ShieldCheck,
     detail:
-      'Create an auditable link between the data captured at the edge and a proof you can check later.',
+      'Create an auditable link between edge data and a proof record you can check later.',
   },
   {
-    title: 'Minima',
-    text: 'Run and monitor a Minima node, wallet, peers, and tokens on your own hardware.',
-    Icon: Server,
+    title: 'Ledger',
+    text: 'Run and monitor the Minima ledger, node, wallet, peers, and tokens on your own hardware.',
+    Icon: Share2,
     detail:
-      'Manage node health and wallet activity from the same browser interface as your edge workflows.',
+      'Monitor the Minima ledger, node health, peers, and wallet activity from the same local interface as your edge workflows.',
   },
 ];
 
 export const roadmap: RoadmapItem[] = [
   {
-    phase: 'Today',
-    title: 'Local edge workspace',
-    text: 'Install on a Pi, connect devices, build workflows, and create verifiable records.',
+    phase: statusLabels.availableNow,
+    title: 'Prove Pi data',
+    text: 'Create trusted records from sensors, images, events and device state.',
     state: 'active',
   },
   {
-    phase: 'In progress',
-    title: 'Richer workflow builder',
-    text: 'Make building, editing, watching, and diagnosing visual workflows more intuitive.',
+    phase: statusLabels.inProgress,
+    title: 'Better workflow building',
+    text: 'Make building, editing, watching and diagnosing visual workflows more intuitive.',
     state: 'passive',
   },
   {
-    phase: 'Next',
-    title: 'Guided device onboarding',
-    text: 'Add more device guides and starter workflows for common Raspberry Pi and MQTT setups.',
+    phase: statusLabels.next,
+    title: 'Guided starter projects',
+    text: 'Add device guides, recipes and first workflows for common Raspberry Pi, MQTT, GPIO, camera and sensor setups.',
     state: 'passive',
   },
   {
-    phase: 'Later',
-    title: 'Module marketplace',
-    text: 'Discover and install integrations and add-ons from inside Edge Studio.',
+    phase: statusLabels.comingSoon,
+    title: 'Marketplace',
+    text: 'Publish, discover, install, sell or share datasets and third-party modules.',
+    state: 'passive',
+  },
+  {
+    phase: statusLabels.comingSoon,
+    title: 'Data pools',
+    text: 'Combine proof-backed data from multiple builders to increase usefulness and value.',
     state: 'passive',
   },
 ];

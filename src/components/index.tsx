@@ -41,6 +41,10 @@ export {
   TableRow,
 } from './patterns/Table';
 export { FeatureSection } from './patterns/FeatureSection';
+export { BuildIdeasSection } from './patterns/BuildIdeasSection';
+export { ClosingCtaSection } from './patterns/ClosingCtaSection';
+export { HowItWorksSection } from './patterns/HowItWorksSection';
 export { LandingHero } from './patterns/LandingHero';
 export { PoweredBySection } from './patterns/PoweredBySection';
 export { SiteFooter } from './patterns/SiteFooter';
+export { WhyProofSection } from './patterns/WhyProofSection';

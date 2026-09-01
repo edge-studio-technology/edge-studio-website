@@ -16,6 +16,13 @@ import dashboardImage from '../../assets/images/es_dashboard.png';
 
 export type LandingHeroBackground = 'grid' | 'violet';
 
+const dashboardCursorPoints = [
+  { x: '72%', y: '70%' },
+  { x: '50%', y: '46%' },
+  { x: '36%', y: '51%' },
+  { x: '36%', y: '51%' },
+];
+
 function DashboardPreview() {
   return (
     <div className="relative overflow-hidden">
@@ -24,14 +31,7 @@ function DashboardPreview() {
         alt="Edge Studio dashboard with the guided workspace open"
         className="block h-auto w-full"
       />
-      <FakeCursor
-        points={[
-          { x: '72%', y: '70%' },
-          { x: '50%', y: '46%' },
-          { x: '36%', y: '51%' },
-          { x: '36%', y: '51%' },
-        ]}
-      />
+      <FakeCursor points={dashboardCursorPoints} />
     </div>
   );
 }
@@ -202,10 +202,18 @@ export function LandingHero({
           >
             {landingCopy.heroText}
           </p>
+          <p
+            className={cx(
+              'mt-4 max-w-xl text-sm font-semibold',
+              hasVioletBackground ? 'text-core-white' : 'text-text-primary',
+            )}
+          >
+            {landingCopy.heroSupport}
+          </p>
           <div className="mt-8 flex flex-wrap items-center gap-5">
             <a
-              className="gap-detail-next rounded-loose inline-flex h-11 w-fit cursor-pointer items-center justify-center overflow-clip border border-transparent bg-surface-accent px-detail-close type-body text-text-inverse transition-colors duration-200 hover:bg-surface-accent-hover focus-visible:ring-2 focus-visible:ring-stroke-active focus-visible:outline-none"
-              href={externalLinks.docs}
+              className="gap-detail-next rounded-loose inline-flex h-11 w-fit cursor-pointer items-center justify-center overflow-clip border border-transparent bg-surface-accent px-detail-close type-body text-text-inverse transition-colors duration-200 hover:bg-surface-accent-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stroke-active"
+              href={externalLinks.gettingStarted}
               target="_blank"
               rel="noreferrer"
             >
@@ -245,17 +253,30 @@ export function LandingHero({
           </div>
         </motion.div>
       </div>
-      <div className="relative z-10 mx-auto max-w-6xl px-5 pb-20 lg:px-8 lg:pb-28">
+      <div
+        id="install"
+        className="relative z-10 mx-auto max-w-6xl scroll-mt-20 px-5 pb-20 sm:scroll-mt-24 lg:px-8 lg:pb-28"
+      >
         <div className="relative">
           <h2 className="type-callout relative z-10 w-fit rounded-t-soft bg-core-black px-5 py-3 text-core-white">
             {landingCopy.installTitle}
           </h2>
+
           <div className="-mt-px rounded-b-soft rounded-tr-soft border border-core-black bg-core-black p-3 font-mono text-xs text-core-white">
             <CopyableCode
               value={
                 'curl -fsSL https://raw.githubusercontent.com/edge-studio-technology/edge-studio/main/install.sh | sudo bash'
               }
             />
+
+            <p
+              className={cx(
+                'mt-3 px-1.5 text-xs',
+                hasVioletBackground ? 'text-grey-03' : 'text-text-secondary',
+              )}
+            >
+              {landingCopy.installText}
+            </p>
           </div>
           <a
             className={cx(

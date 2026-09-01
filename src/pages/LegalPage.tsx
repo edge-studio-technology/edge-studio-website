@@ -42,7 +42,7 @@ export function TermsPage() {
   return (
     <LegalPage
       title="Terms of use (draft)"
-      intro="Edge Studio is an experimental, self-hosted Raspberry Pi application. These draft terms describe the responsibilities that come with installing it, connecting devices, and running automations on hardware and networks you control."
+      intro="Edge Studio is an experimental, self-hosted Raspberry Pi application for local edge workflows and verifiable records. These draft terms describe the responsibilities that come with installing it, connecting devices, and running automations on hardware and networks you control."
       sections={[
         {
           heading: 'Installing and operating Edge Studio',

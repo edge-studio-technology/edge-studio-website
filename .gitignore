@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Playwright MCP review output
+.playwright-mcp
+
 # Local environment files
 .env
 .env.*
