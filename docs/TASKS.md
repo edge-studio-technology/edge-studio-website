@@ -4,7 +4,7 @@ Read this file at the start of every session to understand current focus.
 
 ## 🔥 Now
 
-- Audit the new Why proof, Build ideas, and How it works sections, then continue the team-alignment groundwork in [plan 001: builder-first content refresh](plans/001-builder-first-content-refresh.md).
+- Work through [plan 002: content refresh closeout](plans/002-content-refresh-closeout.md), which continues [plan 001: builder-first content refresh](plans/001-builder-first-content-refresh.md) with the stakeholder-audited section order, roadmap copy, and placeholder closing section.
 
 ## 📌 Next
 

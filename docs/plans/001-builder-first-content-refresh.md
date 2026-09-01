@@ -2,6 +2,8 @@
 
 Status: In progress
 
+Continued in [002: content refresh closeout](002-content-refresh-closeout.md), which picks up the remaining Phase 3 items and the doc-alignment drift found in the post-implementation audit. Checklist below stays as the historical record of this phase; don't add new items here.
+
 ## Goal
 
 Reframe the public site around Raspberry Pi builders and a safe install-to-first-proof journey while clearly separating confirmed product capabilities from roadmap claims.
