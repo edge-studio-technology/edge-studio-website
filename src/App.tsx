@@ -19,8 +19,8 @@ function App() {
         <LandingHero background="violet" />
         <WhyProofSection />
         <BuildIdeasSection />
-        <FeatureSection />
         <HowItWorksSection />
+        <FeatureSection />
         <PoweredBySection />
         <section
           id="roadmap"
