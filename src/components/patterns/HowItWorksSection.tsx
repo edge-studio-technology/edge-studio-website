@@ -48,7 +48,7 @@ export function HowItWorksSection() {
                 className={`mt-3 w-fit rounded-full border px-3 py-1 font-mono text-[10px] uppercase tracking-[0.12em] ${
                   status === 'Available now'
                     ? 'border-feedback-positive/50 text-feedback-positive'
-                    : 'border-brand-02/60 text-brand-02'
+                    : 'border-grey-04/50 text-grey-04'
                 }`}
               >
                 {status}
