@@ -1,8 +1,8 @@
 # 002 - Content refresh closeout
 
-Status: Done
+Status: Completed
 
-Continues [001: builder-first content refresh](001-builder-first-content-refresh.md). That plan's Phase 1 (confirmed content pass) and part of Phase 3 (Why proof, Build ideas, How it works sections) are done. This plan closes out the remaining Phase 3 items plus the doc-alignment drift found in the post-implementation content audit, instead of carrying more open checklist items in 001. Items still blocked on stakeholder input (install prerequisites, legal sign-off, community channel) stay tracked here as open questions rather than a separate worksheet.
+Continues [001: builder-first content refresh](../001-builder-first-content-refresh.md). That plan's Phase 1 (confirmed content pass) and part of Phase 3 (Why proof, Build ideas, How it works sections) are done. This plan closes out the remaining Phase 3 items plus the doc-alignment drift found in the post-implementation content audit, instead of carrying more open checklist items in 001. Items still blocked on stakeholder input (install prerequisites, legal sign-off, community channel) stay tracked here as open questions rather than a separate worksheet.
 
 ## Goal
 

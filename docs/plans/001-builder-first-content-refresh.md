@@ -1,8 +1,10 @@
 # 001 - Builder-first content refresh
 
-Status: In progress
+Status: Blocked — Phase 2 was bypassed in practice; remaining work needs stakeholder input
 
-Continued in [002: content refresh closeout](002-content-refresh-closeout.md), which picks up the remaining Phase 3 items and the doc-alignment drift found in the post-implementation audit. Checklist below stays as the historical record of this phase; don't add new items here.
+Continued in [002: content refresh closeout](archive/002-content-refresh-closeout.md), which picked up the remaining Phase 3 items and the doc-alignment drift found in the post-implementation audit. 002 is now complete and archived. Checklist below stays as the historical record of this phase; don't add new items here.
+
+Note: Phase 2 (the formal alignment worksheet) was never produced — alignment happened informally via the content-review doc instead, and 002 implemented directly from that doc rather than from worksheet decisions. What remains open below is exactly what 002 also carries forward as blocked: minimum Pi/OS install requirements and the uninstall/rollback backlog item.
 
 ## Goal
 
@@ -63,12 +65,12 @@ Reframe the public site around Raspberry Pi builders and a safe install-to-first
 
 ### Phase 3 - Post-alignment implementation
 
-- [ ] Record team decisions in the alignment worksheet and update the approved public-copy set → verify: every public claim and CTA has an owner-approved status and destination.
+- [ ] Record team decisions in the alignment worksheet and update the approved public-copy set → verify: every public claim and CTA has an owner-approved status and destination. **Not done — no worksheet was produced (Phase 2 skipped); 002 implemented from the content-review doc directly instead.**
 - [x] Add Why proof?, Build ideas, and How it works components, export them from `src/components/index.tsx`, and place them in the approved order in `src/App.tsx` → verify: each section explains a distinct part of the Connect → Automate → Prove journey and examples do not imply nonexistent demos.
-- [ ] Complete `Navbar`, `LandingHero`, install guidance, `FeatureSection`, `PoweredBySection`, `RoadmapTimeline`, closing CTA, and `SiteFooter` → verify: current versus future functionality is unambiguous and no monetisation promise reads as available now.
-- [ ] Apply only approved consistency changes to `src/pages/LegalPage.tsx` → verify: Terms and Privacy remain marked draft and accurately describe user-selected external data flows without previewing unlaunched Marketplace behavior.
-- [ ] Review responsive layout, keyboard/focus behavior, reduced motion, heading order, link safety, image alt text, and static-site privacy constraints → verify: browser checks pass at mobile and desktop widths with no console, overflow, navigation, accessibility, CSP, or external-resource regressions.
-- [ ] Run all quality gates and update `CHANGELOG.md` and project tracking docs → verify: all checks pass and `/`, `/terms`, and `/privacy` contain the approved metadata and copy in generated HTML.
+- [ ] Complete `Navbar`, `LandingHero`, install guidance, `FeatureSection`, `PoweredBySection`, `RoadmapTimeline`, closing CTA, and `SiteFooter` → verify: current versus future functionality is unambiguous and no monetisation promise reads as available now. **`Navbar`/`LandingHero`/`PoweredBySection`/`RoadmapTimeline`/closing CTA/`SiteFooter` done via 002; install guidance (prerequisites, safety language) still blocked on confirmed minimum Pi/OS requirements.**
+- [x] Apply only approved consistency changes to `src/pages/LegalPage.tsx` → verify: Terms and Privacy remain marked draft and accurately describe user-selected external data flows without previewing unlaunched Marketplace behavior.
+- [x] Review responsive layout, keyboard/focus behavior, reduced motion, heading order, link safety, image alt text, and static-site privacy constraints → verify: browser checks pass at mobile and desktop widths with no console, overflow, navigation, accessibility, CSP, or external-resource regressions.
+- [x] Run all quality gates and update `CHANGELOG.md` and project tracking docs → verify: all checks pass and `/`, `/terms`, and `/privacy` contain the approved metadata and copy in generated HTML.
 
 ## Risks / open questions
 
