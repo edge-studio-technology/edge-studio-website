@@ -103,27 +103,33 @@ export const features: Feature[] = [
 
 export const roadmap: RoadmapItem[] = [
   {
-    phase: 'Today',
-    title: 'Local edge workspace',
-    text: 'Install on a Pi, connect devices, build workflows, and create verifiable records.',
+    phase: 'Available now',
+    title: 'Prove Pi data',
+    text: 'Create trusted records from sensors, images, events and device state.',
     state: 'active',
   },
   {
     phase: 'In progress',
-    title: 'Richer workflow builder',
-    text: 'Make building, editing, watching, and diagnosing visual workflows more intuitive.',
+    title: 'Better workflow building',
+    text: 'Make building, editing, watching and diagnosing visual workflows more intuitive.',
     state: 'passive',
   },
   {
     phase: 'Next',
-    title: 'Guided device onboarding',
-    text: 'Add more device guides and starter workflows for common Raspberry Pi and MQTT setups.',
+    title: 'Guided starter projects',
+    text: 'Add device guides, recipes and first workflows for common Raspberry Pi, MQTT, GPIO, camera and sensor setups.',
     state: 'passive',
   },
   {
-    phase: 'Later',
-    title: 'Module marketplace',
-    text: 'Discover and install integrations and add-ons from inside Edge Studio.',
+    phase: 'Coming soon',
+    title: 'Marketplace',
+    text: 'Publish, discover, install, sell or share datasets and third-party modules.',
+    state: 'passive',
+  },
+  {
+    phase: 'Coming soon',
+    title: 'Data pools',
+    text: 'Combine proof-backed data from multiple builders to increase usefulness and value.',
     state: 'passive',
   },
 ];
