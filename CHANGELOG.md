@@ -2,6 +2,16 @@
 
 ## [Unreleased]
 
+### [CHANGED 2026-09-01] — Regrouped footer links into primary/legal/external rows
+
+#### Changed
+
+- Restructured `SiteFooter` into three stacked rows (in-page nav + Docs, Terms/Privacy, GitHub) sharing one skeleton across the landing and legal-page footers, right-aligned on tablet/desktop and left-aligned on mobile.
+
+#### Fixed
+
+- Fixed short footer links ("Terms", "Privacy") appearing visually indented relative to longer links, caused by their 44px minimum touch-target padding centering short text instead of aligning it to the row's edge.
+
 ### [FIXED 2026-09-01] — Restored dashboard cursor animation and CTA focus rings
 
 #### Fixed
