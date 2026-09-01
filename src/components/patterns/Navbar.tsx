@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { ArrowLeft, ExternalLink, Link2, Menu, X } from 'lucide-react';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { BrandMark } from '../ui/BrandMark';
+import { GithubMark } from '../ui/GithubMark';
 // import { RaspberryPiMark } from '../ui/RaspberryPiMark';
 import { externalLinks } from '../../constants/landing';
 
@@ -92,13 +93,13 @@ export function Navbar({ legal = false }: { legal?: boolean }) {
                 Docs <Link2 size={16} />
               </a>
               <a
-                className="hidden min-h-11 items-center gap-1 rounded-tight px-1 text-grey-03 hover:text-core-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-core-white sm:flex"
+                aria-label="View on GitHub"
+                className="hidden size-11 items-center justify-center rounded-tight text-grey-03 hover:text-core-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-core-white sm:flex"
                 href={externalLinks.github}
                 target="_blank"
                 rel="noreferrer"
               >
-                <span>View on GitHub</span>
-                <ExternalLink size={15} />
+                <GithubMark size={20} />
               </a>
             </>
           )}
@@ -181,13 +182,14 @@ export function Navbar({ legal = false }: { legal?: boolean }) {
                     Roadmap
                   </a>
                   <a
-                    className="gap-detail-next rounded-loose inline-flex h-11 w-fit items-center justify-center overflow-clip border border-transparent bg-surface-accent px-detail-close type-body text-text-inverse transition-colors duration-200 hover:bg-surface-accent-hover focus-visible:ring-2 focus-visible:ring-core-white focus-visible:outline-none"
+                    className="flex min-h-11 items-center gap-1 rounded-tight text-grey-03 hover:text-core-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-core-white"
                     href={externalLinks.docs}
                     onClick={closeMenu}
                     target="_blank"
                     rel="noreferrer"
                   >
-                    Docs <Link2 size={16} />
+                    <span>Docs</span>
+                    <ExternalLink size={16} />
                   </a>
                   <a
                     className="flex min-h-11 items-center gap-1 rounded-tight text-grey-03 hover:text-core-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-core-white"
