@@ -16,6 +16,13 @@ import dashboardImage from '../../assets/images/es_dashboard.png';
 
 export type LandingHeroBackground = 'grid' | 'violet';
 
+const dashboardCursorPoints = [
+  { x: '72%', y: '70%' },
+  { x: '50%', y: '46%' },
+  { x: '36%', y: '51%' },
+  { x: '36%', y: '51%' },
+];
+
 function DashboardPreview() {
   return (
     <div className="relative overflow-hidden">
@@ -24,14 +31,7 @@ function DashboardPreview() {
         alt="Edge Studio dashboard with the guided workspace open"
         className="block h-auto w-full"
       />
-      <FakeCursor
-        points={[
-          { x: '72%', y: '70%' },
-          { x: '50%', y: '46%' },
-          { x: '36%', y: '51%' },
-          { x: '36%', y: '51%' },
-        ]}
-      />
+      <FakeCursor points={dashboardCursorPoints} />
     </div>
   );
 }
@@ -212,7 +212,7 @@ export function LandingHero({
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-5">
             <a
-              className="gap-detail-next rounded-loose inline-flex h-11 w-fit cursor-pointer items-center justify-center overflow-clip border border-transparent bg-surface-accent px-detail-close type-body text-text-inverse transition-colors duration-200 hover:bg-surface-accent-hover focus-visible:ring-2 focus-visible:ring-stroke-active focus-visible:outline-none"
+              className="gap-detail-next rounded-loose inline-flex h-11 w-fit cursor-pointer items-center justify-center overflow-clip border border-transparent bg-surface-accent px-detail-close type-body text-text-inverse transition-colors duration-200 hover:bg-surface-accent-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stroke-active"
               href={externalLinks.gettingStarted}
               target="_blank"
               rel="noreferrer"

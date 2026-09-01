@@ -85,7 +85,7 @@ export function Navbar({ legal = false }: { legal?: boolean }) {
                 Roadmap
               </a>
               <a
-                className="gap-detail-next rounded-loose inline-flex h-8 w-fit items-center justify-center overflow-clip border border-transparent bg-surface-accent px-detail-close type-meta text-text-inverse transition-colors duration-200 hover:bg-surface-accent-hover focus-visible:ring-2 focus-visible:ring-core-white focus-visible:outline-none"
+                className="gap-detail-next rounded-loose inline-flex h-8 w-fit items-center justify-center overflow-clip border border-transparent bg-surface-accent px-detail-close type-meta text-text-inverse transition-colors duration-200 hover:bg-surface-accent-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-core-white"
                 href={externalLinks.docs}
                 target="_blank"
                 rel="noreferrer"
